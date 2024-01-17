@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="GigSpot"
+        android:textColor="#5d3a9d"
+        android:textSize="40sp"
+        android:textStyle="bold"
+        tools:layout_editor_absoluteX="133dp"
+        tools:layout_editor_absoluteY="119dp" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sign in"
+        android:textColor="#5d3a9d"
+        android:textSize="20sp"
+        tools:layout_editor_absoluteX="175dp"
+        tools:layout_editor_absoluteY="218dp" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="290dp"
+        android:layout_height="wrap_content"
+        tools:layout_editor_absoluteX="59dp"
+        tools:layout_editor_absoluteY="320dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Usuario" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="290dp"
+        android:layout_height="wrap_content"
+        tools:layout_editor_absoluteX="59dp"
+        tools:layout_editor_absoluteY="400dp"
+        >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Contraseña" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Iniciar sesión"
+        android:background="#5d3a9d"
+        tools:layout_editor_absoluteX="130dp"
+        tools:layout_editor_absoluteY="531dp"/>
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="¿No tienes una cuenta?"
+        tools:layout_editor_absoluteX="91dp"
+        tools:layout_editor_absoluteY="619dp" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:focusable="true"
+        android:text="Registrate"
+        android:textColor="#5d3a9d"
+
+        tools:layout_editor_absoluteX="243dp"
+        tools:layout_editor_absoluteY="619dp" />
+</androidx.constraintlayout.widget.ConstraintLayout>
