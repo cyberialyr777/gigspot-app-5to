@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="gigspot">
+        <item name="android:textSize">36sp</item>
+        <item name="android:textColor">#5D3A9D</item>
+    </style>
+    <style name="fill_the_fo">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">#5D3A9D</item>
+    </style>
+</resources>
