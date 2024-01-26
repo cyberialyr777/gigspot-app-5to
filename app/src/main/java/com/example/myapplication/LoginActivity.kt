@@ -2,27 +2,45 @@ package com.example.myapplication
 
 import android.content.Intent
 import android.os.Bundle
-import android.os.PersistableBundle
-import android.widget.Button
-import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.navigation.findNavController
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.setupActionBarWithNavController
-import androidx.navigation.ui.setupWithNavController
+import com.example.myapplication.databinding.ActivityLoginScreenBinding
 import com.example.myapplication.databinding.ActivityMainBinding
-
+import android.text.SpannableString
+import android.text.method.LinkMovementMethod
+import android.text.style.ClickableSpan
 class LoginActivity : AppCompatActivity() {
-
+    private lateinit var binding: ActivityLoginScreenBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.login_screen)
-
-        val registerUserBandButton = findViewById<Button>(R.id.button4)
-
-        registerUserBandButton.setOnClickListener{
-            val intent = Intent(this, RegisterUserBandActivity::class.java)
-            startActivity(intent)
+        binding = ActivityLoginScreenBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+        binding.button4.setOnClickListener {
+            startActivity(Intent(this, RegisterUserBandActivity::class.java))
         }
+        //val spannableString = SpannableString("Sign in")
+        //val clickableSpan = object : ClickableSpan() {
+        //  override fun onClick(widget: android.view.View) {
+        // Handle the click event here
+        //    goToSecondActivity()
+        //}
+        //}
+
+        // spannableString.setSpan(clickableSpan, 6, 28, 0)
+
+        // Set the SpannableString to the TextView using ViewBinding
+        //binding.textView4.text = spannableString
+        //binding.textView4.movementMethod = LinkMovementMethod.getInstance()
+
+        // Set the click listener using ViewBinding
+        //binding.textView4.setOnClickListener {
+        //  goToSecondActivity()
+        //}
+        //}
+
+        //private fun goToSecondActivity() {
+        //  val intent = Intent(this, RegisterUserBandActivity::class.java)
+        //startActivity(intent)
+        //}
     }
 }
+

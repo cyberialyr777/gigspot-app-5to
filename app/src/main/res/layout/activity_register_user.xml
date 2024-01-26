@@ -31,7 +31,7 @@
         android:layout_marginTop="636dp"
         android:layout_marginEnd="148dp"
         android:background="@drawable/custom_for_buttons"
-        android:text="Sing in"
+        android:text="Sign in"
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.505"
