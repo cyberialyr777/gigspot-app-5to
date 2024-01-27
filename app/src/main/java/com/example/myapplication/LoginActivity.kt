@@ -8,12 +8,24 @@ import com.example.myapplication.databinding.ActivityMainBinding
 import android.text.SpannableString
 import android.text.method.LinkMovementMethod
 import android.text.style.ClickableSpan
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
+import kotlin.concurrent.thread
+
 class LoginActivity : AppCompatActivity() {
     private lateinit var binding: ActivityLoginScreenBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
+
+        val splashScreen = installSplashScreen()
+
         super.onCreate(savedInstanceState)
         binding = ActivityLoginScreenBinding.inflate(layoutInflater)
+        Thread.sleep(500)
         setContentView(binding.root)
+        //splashScreen.setKeepOnScreenCondition{true}
+        //startActivity(Intent(this, LoginActivity::class.java))
+        //finish()
+
         binding.button4.setOnClickListener {
             startActivity(Intent(this, RegisterUserBandActivity::class.java))
         }
