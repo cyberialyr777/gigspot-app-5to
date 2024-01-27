@@ -36,7 +36,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/Pasword"
+        android:id="@+id/pasword"
         android:layout_width="306dp"
         android:layout_height="40dp"
         android:layout_marginStart="52dp"
@@ -83,18 +83,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <Button
-        android:id="@+id/button4"
-        android:layout_width="115dp"
-        android:layout_height="46dp"
-        android:layout_marginEnd="44dp"
-        android:layout_marginBottom="128dp"
-        android:background="@drawable/custom_for_buttons"
-        android:text="Sign in"
-        android:textColor="@color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
     <TextView
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
@@ -112,10 +100,13 @@
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="270dp"
-        android:layout_marginTop="621dp"
-        android:layout_marginEnd="99dp"
+        android:layout_marginStart="249dp"
+        android:layout_marginTop="568dp"
+        android:layout_marginEnd="120dp"
+        android:layout_marginBottom="144dp"
         android:text="Sign in"
+        android:textColor="@color/ColorPrincipal"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

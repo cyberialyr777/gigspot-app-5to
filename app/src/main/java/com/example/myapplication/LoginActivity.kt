@@ -8,6 +8,7 @@ import com.example.myapplication.databinding.ActivityMainBinding
 import android.text.SpannableString
 import android.text.method.LinkMovementMethod
 import android.text.style.ClickableSpan
+import android.widget.EditText
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import kotlin.concurrent.thread
 
@@ -26,9 +27,13 @@ class LoginActivity : AppCompatActivity() {
         //startActivity(Intent(this, LoginActivity::class.java))
         //finish()
 
-        binding.button4.setOnClickListener {
+        binding.textView4.setOnClickListener {
             startActivity(Intent(this, RegisterUserBandActivity::class.java))
         }
+
+        val pasword = findViewById<EditText>(R.id.pasword)
+
+        pasword.inputType = android.text.InputType.TYPE_CLASS_TEXT or android.text.InputType.TYPE_TEXT_VARIATION_PASSWORD
         //val spannableString = SpannableString("Sign in")
         //val clickableSpan = object : ClickableSpan() {
         //  override fun onClick(widget: android.view.View) {
