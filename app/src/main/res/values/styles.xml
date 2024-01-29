@@ -15,4 +15,10 @@
     <style name="SplashTheme" parent="Theme.MyApplication">
         <item name="android:windowBackground">@drawable/splash_screen</item>
     </style>
+    <style name="radius">
+        <item name="cornerSizeTopRight">25dp</item>
+        <item name="cornerSizeTopLeft">25dp</item>
+        <item name="cornerSizeBottomLeft">25dp</item>
+        <item name="cornerSizeBottomRight">25dp</item>
+    </style>
 </resources>
