@@ -8,13 +8,14 @@ import com.example.myapplication.databinding.ActivityMainBinding
 import android.text.SpannableString
 import android.text.method.LinkMovementMethod
 import android.text.style.ClickableSpan
+import android.util.Log
 import android.widget.EditText
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import kotlin.concurrent.thread
 
 class LoginActivity : AppCompatActivity() {
     private lateinit var binding: ActivityLoginScreenBinding
-
+    val TAG = "LoginActivity"
     override fun onCreate(savedInstanceState: Bundle?) {
 
         val splashScreen = installSplashScreen()
@@ -23,9 +24,7 @@ class LoginActivity : AppCompatActivity() {
         binding = ActivityLoginScreenBinding.inflate(layoutInflater)
         Thread.sleep(500)
         setContentView(binding.root)
-        //splashScreen.setKeepOnScreenCondition{true}
-        //startActivity(Intent(this, LoginActivity::class.java))
-        //finish()
+        Log.d(TAG,"onCreate: ")
 
         binding.textView4.setOnClickListener {
             startActivity(Intent(this, RegisterUserBandActivity::class.java))
@@ -34,30 +33,36 @@ class LoginActivity : AppCompatActivity() {
         val pasword = findViewById<EditText>(R.id.pasword)
 
         pasword.inputType = android.text.InputType.TYPE_CLASS_TEXT or android.text.InputType.TYPE_TEXT_VARIATION_PASSWORD
-        //val spannableString = SpannableString("Sign in")
-        //val clickableSpan = object : ClickableSpan() {
-        //  override fun onClick(widget: android.view.View) {
-        // Handle the click event here
-        //    goToSecondActivity()
-        //}
-        //}
+    }
 
-        // spannableString.setSpan(clickableSpan, 6, 28, 0)
+    override fun onStart() {
+        super.onStart()
+        Log.d(TAG,"onStart: ")
+    }
 
-        // Set the SpannableString to the TextView using ViewBinding
-        //binding.textView4.text = spannableString
-        //binding.textView4.movementMethod = LinkMovementMethod.getInstance()
+    override fun onResume(){
+        super.onResume()
+        Log.d(TAG,"onResume: ")
+    }
 
-        // Set the click listener using ViewBinding
-        //binding.textView4.setOnClickListener {
-        //  goToSecondActivity()
-        //}
-        //}
+    override fun onPause() {
+        super.onPause()
+        Log.d(TAG,"onPause: ")
+    }
 
-        //private fun goToSecondActivity() {
-        //  val intent = Intent(this, RegisterUserBandActivity::class.java)
-        //startActivity(intent)
-        //}
+    override fun onStop() {
+        super.onStop()
+        Log.d(TAG,"onStop: ")
+    }
+
+    override fun onRestart() {
+        super.onRestart()
+        Log.d(TAG,"onRestart: ")
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        Log.d(TAG,"onDestroy :")
     }
 }
 

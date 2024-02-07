@@ -2,13 +2,14 @@ package com.example.myapplication
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.example.myapplication.databinding.ActivityLoginScreenBinding
 import com.example.myapplication.databinding.ActivityRegisterUserBandBinding
 
 class RegisterUserBandActivity : AppCompatActivity() {
     private lateinit var binding: ActivityRegisterUserBandBinding
-
+    val TAG = "Register User Band Activity"
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityRegisterUserBandBinding.inflate(layoutInflater)
@@ -21,24 +22,36 @@ class RegisterUserBandActivity : AppCompatActivity() {
         binding.button3.setOnClickListener{
             startActivity(Intent(this, RegisterBandActivity::class.java))
         }
+    }
 
 
-        //super.onCreate(savedInstanceState)
-        //setContentView(R.layout.activity_register_user_band)
+    override fun onStart() {
+        super.onStart()
+        Log.d(TAG,"onStart: ")
+    }
 
+    override fun onResume(){
+        super.onResume()
+        Log.d(TAG,"onResume: ")
+    }
 
-       // val registerUserButton = findViewById<Button>(R.id.button2)
+    override fun onPause() {
+        super.onPause()
+        Log.d(TAG,"onPause: ")
+    }
 
-        //registerUserButton.setOnClickListener(){
-           // val intent = Intent(this, RegisterUserActivity::class.java)
-       //     startActivity(intent)
-      //  }
+    override fun onStop() {
+        super.onStop()
+        Log.d(TAG,"onStop: ")
+    }
 
-        //val registerBandButton = findViewById<Button>(R.id.button3)
+    override fun onRestart() {
+        super.onRestart()
+        Log.d(TAG,"onRestart: ")
+    }
 
-     //   registerBandButton.setOnClickListener(){
-       //     val intent = Intent(this, RegisterBandActivity::class.java)
-         //   startActivity(intent)
-        //}
+    override fun onDestroy() {
+        super.onDestroy()
+        Log.d(TAG,"onDestroy :")
     }
 }
