@@ -30,6 +30,12 @@ class LoginActivity : AppCompatActivity() {
             startActivity(Intent(this, RegisterUserBandActivity::class.java))
         }
 
+        binding.button.setOnClickListener {
+            startActivity(Intent(this, MainActivity::class.java))
+        }
+
+
+
         val pasword = findViewById<EditText>(R.id.pasword)
 
         pasword.inputType = android.text.InputType.TYPE_CLASS_TEXT or android.text.InputType.TYPE_TEXT_VARIATION_PASSWORD

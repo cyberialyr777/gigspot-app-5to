@@ -18,18 +18,27 @@ class MainActivity : AppCompatActivity() {
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        replaceFragment(home())
 
-        val navView: BottomNavigationView = binding.navView
+        binding.bottomNavigationView.setOnItemSelectedListener {
+            when(it.ItemId){
+                R.id.home -> replaceFragment(home())
+                R.id.save -> replaceFragment(save())
+                R.id.profile -> replaceFragment(profile())
 
-        val navController = findNavController(R.id.nav_host_fragment_activity_main)
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
-        val appBarConfiguration = AppBarConfiguration(
-            setOf(
-                R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_notifications
-            )
-        )
-        setupActionBarWithNavController(navController, appBarConfiguration)
-        navView.setupWithNavController(navController)
+                else -> {
+
+
+
+                }
+            }
+            true
+        }
+    }
+    private fun replaceFragment(fragment : Fragment){
+        val fragmentManager = supportFragmentManager
+        val fragmentTransaction = fragmentManager.beginTransaction()
+        fragmentTransaction.replace(R.id.frame_layout,fragment)
+        fragmentTransaction.commit()
     }
 }
