@@ -58,7 +58,7 @@
         android:layout_marginTop="75dp"
         android:layout_marginEnd="10dp"
         android:src="@drawable/concert"
-        android:shapeAppearanceOverlay="@styles/radius"/>
+        />
 
     <Button
         android:id="@+id/button6"

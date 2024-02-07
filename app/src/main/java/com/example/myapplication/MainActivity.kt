@@ -18,27 +18,27 @@ class MainActivity : AppCompatActivity() {
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        replaceFragment(home())
+        //replaceFragment(home())
 
-        binding.bottomNavigationView.setOnItemSelectedListener {
-            when(it.ItemId){
-                R.id.home -> replaceFragment(home())
-                R.id.save -> replaceFragment(save())
-                R.id.profile -> replaceFragment(profile())
+       // binding.bottomNavigationView.setOnItemSelectedListener {
+         //   when(it.ItemId){
+           //     R.id.home -> replaceFragment(home())
+             //   R.id.save -> replaceFragment(save())
+               // R.id.profile -> replaceFragment(profile())
 
-                else -> {
+                //else -> {
 
 
 
-                }
-            }
-            true
-        }
-    }
-    private fun replaceFragment(fragment : Fragment){
-        val fragmentManager = supportFragmentManager
-        val fragmentTransaction = fragmentManager.beginTransaction()
-        fragmentTransaction.replace(R.id.frame_layout,fragment)
-        fragmentTransaction.commit()
+             //   }
+           // }
+        //    true
+    //    }
+    //}
+    //private fun replaceFragment(fragment : Fragment){
+      //  val fragmentManager = supportFragmentManager
+        //val fragmentTransaction = fragmentManager.beginTransaction()
+        //fragmentTransaction.replace(R.id.frame_layout,fragment)
+        //fragmentTransaction.commit()
     }
 }
