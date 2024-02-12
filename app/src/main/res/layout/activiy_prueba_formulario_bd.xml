@@ -3,8 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/white">
+    android:layout_height="match_parent">
 
     <TextView
         android:id="@+id/textView"
@@ -36,16 +35,16 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/pasword"
+        android:id="@+id/LastName"
         android:layout_width="306dp"
         android:layout_height="40dp"
         android:layout_marginStart="52dp"
         android:layout_marginTop="368dp"
         android:layout_marginEnd="53dp"
         android:background="@drawable/custum_for_input_text"
-        android:drawableStart="@drawable/key_password_icon"
+        android:drawableStart="@drawable/person_outline_icon"
         android:drawablePadding="12dp"
-        android:hint="Password"
+        android:hint="LastName"
         android:inputType="text"
         android:paddingStart="12dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -77,47 +76,10 @@
         android:layout_marginEnd="131dp"
         android:layout_marginBottom="236dp"
         android:background="@drawable/custom_for_buttons"
-        android:text="Log in"
+        android:text="post"
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="91dp"
-        android:layout_marginEnd="15dp"
-        android:layout_marginBottom="144dp"
-        android:text="¿No tienes una cuenta?"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/textView4"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
-        android:layout_marginEnd="119dp"
-        android:layout_marginBottom="144dp"
-        android:text="Sign in"
-        android:textColor="@color/ColorPrincipal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView3" />
-
-    <Button
-        android:id="@+id/Prueba"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="16dp"
-        android:background="@drawable/custom_for_buttons"
-        android:text="Prueba"
-        android:textColor="@color/white"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
