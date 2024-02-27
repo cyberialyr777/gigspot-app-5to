@@ -19,27 +19,27 @@
     <string name="lorem_ipsum">Lorem Ipsum</string>
 
     <!-- login layout strings -->
-    <string name="sing_in">Sing in</string>
+    <string name="sing_in">Sign in</string>
     <string name="password">Password</string>
     <string name="userName">Username</string>
     <string name="log_in">Log in</string>
-    <string name="acountQUESTION">Do you hava an acount?</string>
+    <string name="acountQUESTION">Do you have an account?</string>
 
     <!-- registers layout strings-->
     <string name="instructionsRegister">Fill the form below correctly</string>
 
     <string name="userNameR">Username</string>
     <string name="bandNameR">Name of the band</string>
-    <string name="emailR">e-mail</string>
+    <string name="emailR">E-mail</string>
     <string name="passwordR">Password</string>
     <string name="passwordRconf">Password confirmation</string>
         <!-- user register layout strings -->
     <string name="nameR">Name</string>
-    <string name="lastNameR">LastName</string>
+    <string name="lastNameR">Lastname</string>
 
 
     <!-- buttons -->
-    <string name="registerUser">SING FOR USER</string>
-    <string name="registerBand">SING FOR BAND</string>
+    <string name="registerUser">SIGN FOR USER</string>
+    <string name="registerBand">SIGN FOR BAND</string>
 
 </resources>

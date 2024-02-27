@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+    <resources>
+        <string name="app_name">GigSpot</string>
+        <string name="title_home">Inizio</string>
+        <string name="title_dashboard">Panello di controllo</string>
+        <string name="title_notifications">Notifiche</string>
+        <string name="gigspot">GigSpot</string>
+        <string name="fill_the_fo">Compilare i campi</string>
+        <string name="choose_a_ch">Scegliere un'opzione</string>
+        <string name="hello_blank_home">Ciao inizio</string>
+        <string name="hello_blank_profile">Ciao profilo</string>
+        <string name="hello_blank_save">Niente</string>
+        <string name="concert">Concerto del Nirvana</string>
+        <string name="name">Nome</string>
+        <string name="followers">Seguaci</string>
+        <string name="followers_number">324</string>
+        <string name="saves">Salvato</string>
+        <string name="saves_number">13</string>
+        <string name="lorem_ipsum">Lorem Ipsum</string>
+        <string name="sing_in">Registrare</string>
+        <string name="password">Password</string>
+        <string name="userName">Nome utente</string>
+        <string name="log_in">Login</string>
+        <string name="acountQUESTION">Hai un account?</string>
+        <string name="userNameR">Utente</string>
+        <string name="bandNameR">Nome della banda</string>
+        <string name="emailR">E-mail</string>
+        <string name="passwordR">Password</string>
+        <string name="passwordRconf">Conferma password</string>
+        <string name="nameR">Nome</string>
+        <string name="lastNameR">Cognome</string>
+        <string name="registerUser">RREGISTRAZIONE PER UTENTI</string>
+        <string name="registerBand">RREGISTRAZIONE PER GRUPPI</string>
+        <string name="instructionsRegister">Compila i campi</string>
+    </resources>
