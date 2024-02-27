@@ -8,16 +8,17 @@ import androidx.appcompat.app.AppCompatActivity
 class RegisterUserActivity : AppCompatActivity(){
     val TAG = "RegisterUserActivity"
     override fun onCreate(savedInstanceState: Bundle?) {
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register_user)
         Log.d(TAG,"onCreate: ")
-        val password = findViewById<EditText>(R.id.apellido4)
+        val password = findViewById<EditText>(R.id.password)
 
         password.inputType = android.text.InputType.TYPE_CLASS_TEXT or android.text.InputType.TYPE_TEXT_VARIATION_PASSWORD
 
-        val passwordapellido5 = findViewById<EditText>(R.id.apellido5)
+        val passwordConf = findViewById<EditText>(R.id.passwordConf)
 
-        passwordapellido5.inputType = android.text.InputType.TYPE_CLASS_TEXT or android.text.InputType.TYPE_TEXT_VARIATION_PASSWORD
+        passwordConf.inputType = android.text.InputType.TYPE_CLASS_TEXT or android.text.InputType.TYPE_TEXT_VARIATION_PASSWORD
     }
 
 
