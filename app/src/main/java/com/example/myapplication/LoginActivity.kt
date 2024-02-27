@@ -19,7 +19,11 @@ class LoginActivity : AppCompatActivity() {
         binding = ActivityLoginScreenBinding.inflate(layoutInflater)
         Thread.sleep(500)
         setContentView(binding.root)
-        Log.d(TAG,"onCreate: ")
+        Log.d(TAG, "onCreate: ")
+
+        binding.Prueba?.setOnClickListener{
+            startActivity(Intent(this, PruebaFormularioActivity::class.java))
+        }
 
         binding.textView4.setOnClickListener {
             startActivity(Intent(this, RegisterUserBandActivity::class.java))
@@ -29,12 +33,13 @@ class LoginActivity : AppCompatActivity() {
             startActivity(Intent(this, BottomNavigationActivity::class.java))
         }
 
-
-
         val pasword = findViewById<EditText>(R.id.pasword)
 
-        pasword.inputType = android.text.InputType.TYPE_CLASS_TEXT or android.text.InputType.TYPE_TEXT_VARIATION_PASSWORD
+        pasword.inputType =
+            android.text.InputType.TYPE_CLASS_TEXT or android.text.InputType.TYPE_TEXT_VARIATION_PASSWORD
     }
+
+    //LifeCycle
 
     override fun onStart() {
         super.onStart()
