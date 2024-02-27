@@ -11,4 +11,10 @@
     <string name="hello_blank_profile">Hello profile</string>
     <string name="hello_blank_save">Hello blank save</string>
     <string name="concert">Nirvana Concert</string>
+    <string name="name">Name</string>
+    <string name="followers">Followers</string>
+    <string name="followers_number">324</string>
+    <string name="saves">Saves</string>
+    <string name="saves_number">13</string>
+    <string name="lorem_ipsum">Lorem Ipsum</string>
 </resources>

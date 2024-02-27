@@ -1,15 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".HomeFragment">
 
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
     <!-- TODO: Update blank fragment layout -->
+
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="wrap_content"
+        android:layout_width="129dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="155dp"
         android:layout_marginTop="25dp"
@@ -17,8 +22,16 @@
         android:text="@string/gigspot"
         android:textColor="@color/ColorPrincipal"
         android:textSize="30sp"
-        android:textStyle="bold"
-         />
+        android:textStyle="bold" />
+
+    <ImageButton
+        android:id="@+id/imageButton2"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="10dp"
+        android:background="@drawable/list" />
 
     <EditText
         android:id="@+id/Apellido"
@@ -61,6 +74,7 @@
         android:layout_marginStart="46dp"
         android:layout_marginTop="378dp"
         android:layout_marginEnd="10dp"
+        android:textColor="@color/white"
         android:text="@string/concert" />
 
     <Button
@@ -70,6 +84,7 @@
         android:layout_marginEnd="10dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textColor="@color/white"
         android:text="Today" />
 
     <Button
@@ -79,6 +94,7 @@
         android:layout_marginEnd="10dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textColor="@color/white"
         android:text="Jan 28" />
 
     <Button
@@ -88,6 +104,9 @@
         android:layout_marginEnd="10dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textColor="@color/white"
         android:text="Jan 29" />
 
-</FrameLayout>
+    </FrameLayout>
+
+</ScrollView>
