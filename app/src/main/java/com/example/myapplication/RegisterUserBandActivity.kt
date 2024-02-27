@@ -15,6 +15,7 @@ class RegisterUserBandActivity : AppCompatActivity() {
         binding = ActivityRegisterUserBandBinding.inflate(layoutInflater)
         setContentView(binding.root)
         Log.d(TAG,"onCreate: ")
+
         binding.button2.setOnClickListener{
             startActivity(Intent(this, RegisterUserActivity::class.java))
         }
