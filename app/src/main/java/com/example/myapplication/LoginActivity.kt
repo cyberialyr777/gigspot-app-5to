@@ -4,14 +4,9 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.myapplication.databinding.ActivityLoginScreenBinding
-import com.example.myapplication.databinding.ActivityMainBinding
-import android.text.SpannableString
-import android.text.method.LinkMovementMethod
-import android.text.style.ClickableSpan
 import android.util.Log
 import android.widget.EditText
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
-import kotlin.concurrent.thread
 
 class LoginActivity : AppCompatActivity() {
     private lateinit var binding: ActivityLoginScreenBinding
@@ -31,7 +26,7 @@ class LoginActivity : AppCompatActivity() {
         }
 
         binding.button.setOnClickListener {
-            startActivity(Intent(this, MainActivity::class.java))
+            startActivity(Intent(this, BottomNavigationActivity::class.java))
         }
 
 
