@@ -10,7 +10,8 @@ import android.util.Log
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
-
+import android.content.Context
+import android.widget.Toast
 public class PruebaFormularioActivity : AppCompatActivity(){
 
     private lateinit var binding: ActiviyPruebaFormularioBdBinding
@@ -21,13 +22,25 @@ public class PruebaFormularioActivity : AppCompatActivity(){
         setContentView(binding.root)
 
         binding.button.setOnClickListener(){
-            val nombre = binding.UserName.text.toString()
+            /*val nombre = binding.UserName.text.toString()
             val apellido = binding.LastName.text.toString()
-
-            val conn = DatabaseOperaton.getConnection()
+            val connx = DatabaseOperaton()
+            val conn = connx.getConnection()
             if (conn != null) {
-                DatabaseOperaton.insert(connection = conn,nombre,apellido)
+                connx.insert(connection = conn,nombre,apellido)
                 startActivity(Intent(this, LoginActivity::class.java))
+            }*/
+            val connx = DatabaseOperaton()
+            val conn = connx.getConnection()
+            if (conn != null) {
+                connx.insert(connection = conn,"nombre","apellido")
+
+                val context: Context = applicationContext
+                val mensaje = "insert exitoso"
+                val duracion = Toast.LENGTH_SHORT
+
+                val toast = Toast.makeText(context, mensaje, duracion)
+                toast.show()
             }
         }
     }
