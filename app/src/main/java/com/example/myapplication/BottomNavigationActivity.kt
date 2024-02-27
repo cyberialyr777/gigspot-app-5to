@@ -31,7 +31,7 @@ class BottomNavigationActivity : AppCompatActivity() {
                 else -> false
             }
         }
-        replaceFragment(HomeFragment())
+        //replaceFragment(HomeFragment())
     }
 
     private fun replaceFragment(fragment: Fragment){
