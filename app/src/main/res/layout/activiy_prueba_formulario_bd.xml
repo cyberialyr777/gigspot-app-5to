@@ -5,81 +5,23 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="133dp"
-        android:layout_marginTop="119dp"
-        android:layout_marginEnd="134dp"
-        android:text="GigSpot"
-        android:textColor="@color/ColorPrincipal"
-        android:textSize="40sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycleView"
+        android:layout_width="409dp"
+        android:layout_height="660dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="1dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/SearchBar" />
+
+    <SearchView
+        android:id="@+id/SearchBar"
+        android:layout_width="409dp"
+        android:layout_height="67dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="1dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="175dp"
-        android:layout_marginTop="218dp"
-        android:layout_marginEnd="176dp"
-        android:text="Sign in"
-        android:textColor="#5d3a9d"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <EditText
-        android:id="@+id/LastName"
-        android:layout_width="306dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="52dp"
-        android:layout_marginTop="368dp"
-        android:layout_marginEnd="53dp"
-        android:background="@drawable/custum_for_input_text"
-        android:drawableStart="@drawable/person_outline_icon"
-        android:drawablePadding="12dp"
-        android:hint="LastName"
-        android:inputType="text"
-        android:paddingStart="12dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <EditText
-        android:id="@+id/UserName"
-        android:layout_width="306dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="53dp"
-        android:layout_marginTop="288dp"
-        android:layout_marginEnd="52dp"
-        android:background="@drawable/custum_for_input_text"
-        android:drawableStart="@drawable/person"
-        android:drawablePadding="12dp"
-        android:hint="Username"
-        android:inputType="text"
-        android:paddingStart="12dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="130dp"
-        android:layout_marginEnd="131dp"
-        android:layout_marginBottom="236dp"
-        android:background="@drawable/custom_for_buttons"
-        android:text="post"
-        android:textColor="@color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
