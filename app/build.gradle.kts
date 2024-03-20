@@ -42,10 +42,11 @@ android {
 dependencies {
 
     //noinspection GradleCompatible
-    implementation ("com.google.code.gson:gson:2.8.9")
-    implementation ("com.squareup.retrofit2:retrofit:2.9.0")
-    implementation ("com.squareup.retrofit2:converter-gson:2.9.0")
-    implementation ("org.jetbrains.kotlin:kotlin-coroutines-android:1.3.6")
+    // implementation("com.google.code.gson:gson:2.8.9")
+    // implementation("com.squareup.retrofit2:retrofit:2.9.0")
+    // implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+    // implementation("org.jetbrains.kotlin:kotlin-coroutines-android:1.3.6")
+    implementation("org.postgresql:postgresql:42.3.1")
     implementation("mysql:mysql-connector-java:8.0.23")
     implementation("androidx.core:core-splashscreen:1.0.1")
     implementation("androidx.core:core-ktx:1.12.0")
@@ -56,6 +57,7 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0")
     implementation("androidx.navigation:navigation-fragment-ktx:2.7.7")
     implementation("androidx.navigation:navigation-ui-ktx:2.7.7")
+    // implementation(files("libs\\jtds-1.3.1.jar"))
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")

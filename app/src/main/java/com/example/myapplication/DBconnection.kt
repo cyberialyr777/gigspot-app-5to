@@ -5,43 +5,51 @@ import java.util.Properties
 import java.sql.PreparedStatement
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.StrictMode
 import android.view.Gravity
 import android.widget.Toast
+import java.sql.Driver
+import kotlin.math.log
 
 class DatabaseOperaton{
-    private val url = "jdbc:mysql://127.0.0.1:3306/pruebaparalaravel"
+    // private val ip = "196.168.0.25:1433"
+    private val db = "jdbc:postgresql://192.168.43.5:3306/pruebaparalaravel"
     private val username = "root"
     private val password = ""
 
-    fun getConnection(): Connection?{
-        var connection: Connection? = null
+    data class PersonaModel(
+        val id: Int,
+        val userName: String,
+        val email: String,
+        val password: String,
+        val name: String,
+        val lastName: String,
+        val age: Int
+    )
 
-        try {
-            Class.forName("com.mysql.cj.jdbc.Driver")
-            val conn: Connection = DriverManager.getConnection(url, username, password)
+    fun conexion(): MutableList<PersonaModel> {
+        val connection = DriverManager
+            .getConnection(db,username,password)
+        println(connection.isValid(0))
 
-        }catch (e: SQLException){
-            e.printStackTrace()
-        }catch (e: Exception){
-            e.printStackTrace()
+        val query = connection.prepareStatement("SELECT * FROM personas")
+        val resul = query.executeQuery()
+        val personas = mutableListOf<PersonaModel>()
+
+        while(resul.next()){
+            val id = resul.getInt("id")
+            val userName = resul.getString("userName")
+            val email = resul.getString("email")
+            val password = resul.getString("password")
+            val name = resul.getString("name")
+            val lastName = resul.getString("lastName")
+            val age = resul.getInt("age")
+
+            personas.add(PersonaModel(id,userName,email,password,name,lastName,age))
         }
-        return connection
-    }
 
-    fun insert(connection: Connection, nombre: String, apellido: String){
-        val query = "INSERT INTO usuarios (nombre,apellido) VALUES (?,?)"
-        try {
-            val prepareStatement = connection.prepareStatement(query)
-            prepareStatement.setString(1,nombre)
-            prepareStatement.setString(2,apellido)
-            prepareStatement.executeUpdate()
-            connection.close()
-        }catch (e: SQLException){
-            e.printStackTrace()
-        }
-    }
+        println(personas)
 
-    fun select(connection: Connection){
-
+        return personas
     }
 }
