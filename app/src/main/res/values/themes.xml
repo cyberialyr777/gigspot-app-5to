@@ -13,15 +13,24 @@
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
-    
-    <style name="Base.Theme.API_Splash_Screen" parent="Theme.Material3.DayNight.NoActionBar"/>
-    
-    <style name="Theme.API_Splash_Screen" parent="Base.Theme.API_Splash_Screen"/>
-    
+
+    <style name="Base.Theme.API_Splash_Screen" parent="Theme.Material3.DayNight.NoActionBar" />
+
+    <style name="Theme.API_Splash_Screen" parent="Base.Theme.API_Splash_Screen" />
+
     <style name="Theme.APISplashScreen" parent="Theme.SplashScreen">
         <item name="windowSplashScreenBackground">@color/white</item>
         <item name="windowSplashScreenAnimatedIcon">@drawable/gigspot_icon_splash_screen</item>
         <item name="windowSplashScreenAnimationDuration">300</item>
         <item name="postSplashScreenTheme">@style/Base.Theme.API_Splash_Screen</item>
     </style>
+
+    <style name="Theme.MyApplication.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.MyApplication.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="Theme.MyApplication.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 </resources>

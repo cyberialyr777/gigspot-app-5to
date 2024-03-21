@@ -8,7 +8,6 @@ import androidx.appcompat.app.AppCompatActivity
 class RegisterUserActivity : AppCompatActivity(){
     val TAG = "RegisterUserActivity"
     override fun onCreate(savedInstanceState: Bundle?) {
-
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register_user)
         Log.d(TAG,"onCreate: ")
