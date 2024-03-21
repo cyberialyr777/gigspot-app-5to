@@ -14,6 +14,14 @@
         tools:layout_editor_absoluteX="-24dp"
         tools:layout_editor_absoluteY="-19dp" />
 
+    <ImageButton
+        android:id="@+id/imageButton4"
+        android:layout_width="31dp"
+        android:layout_height="30dp"
+        android:background="@drawable/arrow_left"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="16dp" />
+
     <TextView
         android:id="@+id/textView"
         android:layout_width="266dp"
