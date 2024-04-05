@@ -1,112 +1,136 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".HomeFragment">
 
-    <FrameLayout
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-    <!-- TODO: Update blank fragment layout -->
-
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="129dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="155dp"
-        android:layout_marginTop="25dp"
-        android:layout_marginEnd="134dp"
-        android:text="@string/gigspot"
-        android:textColor="@color/ColorPrincipal"
-        android:textSize="30sp"
-        android:textStyle="bold" />
+        android:gravity="center">
 
-    <ImageButton
-        android:id="@+id/imageButton2"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="10dp"
-        android:background="@drawable/list" />
+        <!-- TODO: Update blank fragment layout -->
 
-    <EditText
-        android:id="@+id/Apellido"
 
-        android:layout_width="323dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="46dp"
-        android:layout_marginTop="90dp"
-        android:layout_marginEnd="53dp"
-        android:background="@drawable/custum_for_input_text"
-        android:drawableStart="@drawable/search"
-        android:drawablePadding="12dp"
-        android:hint="Search all events..."
-        android:inputType="text"
-        android:paddingStart="12dp" />
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="131dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="140dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="140dp"
+            android:layout_marginBottom="510dp"
+            android:gravity="center"
+            android:text="@string/gigspot"
+            android:textColor="@color/ColorPrincipal"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageButton
-        android:id="@+id/imageButton"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
-        android:layout_marginStart="336dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="10dp"
-        android:background="@drawable/profile"
-        android:src="@drawable/profile" />
+        <ImageButton
+            android:id="@+id/imageButton2"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_marginStart="44dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/list"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <com.google.android.material.imageview.ShapeableImageView
-        android:id="@+id/imageView2"
-        android:layout_width="322dp"
-        android:layout_height="476dp"
-        android:layout_marginStart="46dp"
-        android:layout_marginTop="75dp"
-        android:layout_marginEnd="10dp"
-        android:src="@drawable/concert" />
+        <EditText
+            android:id="@+id/Apellido"
 
-    <Button
-        android:id="@+id/button6"
-        android:layout_width="322dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="46dp"
-        android:layout_marginTop="378dp"
-        android:layout_marginEnd="10dp"
-        android:textColor="@color/white"
-        android:text="@string/concert" />
+            android:layout_width="323dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="33dp"
+            android:background="@drawable/custum_for_input_text"
+            android:drawableStart="@drawable/search"
+            android:drawablePadding="12dp"
+            android:hint="Search all events..."
+            android:inputType="text"
+            android:paddingStart="12dp"
+            app:layout_constraintEnd_toEndOf="@+id/imageButton"
+            app:layout_constraintStart_toStartOf="@+id/imageButton2"
+            app:layout_constraintTop_toBottomOf="@+id/textView" />
 
-    <Button
-        android:id="@+id/button5"
-        android:layout_marginStart="46dp"
-        android:layout_marginTop="142dp"
-        android:layout_marginEnd="10dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="@color/white"
-        android:text="Today" />
+        <ImageButton
+            android:id="@+id/imageButton"
+            android:layout_width="40dp"
+            android:layout_height="38dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="44dp"
+            android:background="@drawable/profile"
+            android:src="@drawable/profile"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/button7"
-        android:layout_marginStart="164dp"
-        android:layout_marginTop="142dp"
-        android:layout_marginEnd="10dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="@color/white"
-        android:text="Jan 28" />
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/imageView2"
+            android:layout_width="322dp"
+            android:layout_height="476dp"
+            android:layout_marginTop="34dp"
+            android:src="@drawable/concert"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/button8"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="@+id/button5"
+            app:layout_constraintTop_toBottomOf="@+id/textView"
+            app:layout_constraintVertical_bias="1.0" />
 
-    <Button
-        android:id="@+id/button8"
-        android:layout_marginStart="280dp"
-        android:layout_marginTop="142dp"
-        android:layout_marginEnd="10dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="@color/white"
-        android:text="Jan 29" />
+        <Button
+            android:id="@+id/button6"
+            android:layout_width="322dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="45dp"
+            android:layout_marginTop="394dp"
+            android:layout_marginEnd="45dp"
+            android:layout_marginBottom="124dp"
+            android:text="@string/concert"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    </FrameLayout>
+        <Button
+            android:id="@+id/button5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="23dp"
+            android:text="Today"
+            android:textColor="@color/white"
+            app:layout_constraintStart_toStartOf="@+id/Apellido"
+            app:layout_constraintTop_toBottomOf="@+id/Apellido" />
+
+        <Button
+            android:id="@+id/button7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="29dp"
+            android:layout_marginTop="23dp"
+            android:layout_marginEnd="30dp"
+            android:text="Jan 28"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toStartOf="@+id/button8"
+            app:layout_constraintStart_toEndOf="@+id/button5"
+            app:layout_constraintTop_toBottomOf="@+id/Apellido" />
+
+        <Button
+            android:id="@+id/button8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="23dp"
+            android:text="Jan 29"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="@+id/Apellido"
+            app:layout_constraintTop_toBottomOf="@+id/Apellido" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </ScrollView>
