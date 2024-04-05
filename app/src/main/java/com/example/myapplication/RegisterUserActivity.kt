@@ -35,22 +35,21 @@ class RegisterUserActivity : AppCompatActivity(){
             val userName = binding.userName!!.text.toString()
 
             if(checkAllField()) {
-                database = FirebaseDatabase.getInstance().getReference("usuario")
-                val user = UsuariosModelos(userName, nombre, apellido, pass, email)
-                database.child(userName).setValue(user).addOnSuccessListener {
-                    Toast.makeText(this, "Successfuly Register", Toast.LENGTH_SHORT).show()
-                }.addOnFailureListener {
-                    Toast.makeText(this, "Failed while Saved", Toast.LENGTH_SHORT).show()
-                }
-                auth.createUserWithEmailAndPassword(email, pass).addOnCompleteListener() {
+                auth.createUserWithEmailAndPassword(binding.email!!.text.toString(), binding.password!!.text.toString()).addOnCompleteListener() {
                     val usuario = auth.currentUser
                     updateUI(usuario)
-                    finish()
-                    startActivity(Intent(this, LoginActivity::class.java))
+
+                    database = FirebaseDatabase.getInstance().getReference("usuario")
+                    val user = UsuariosModelos(userName, nombre, apellido, pass, email)
+                    database.child(userName).setValue(user).addOnSuccessListener {
+                        Toast.makeText(this, "Successfuly Register", Toast.LENGTH_SHORT).show()
+                        finish()
+                        startActivity(Intent(this, LoginActivity::class.java))
+                    }.addOnFailureListener {
+                        Toast.makeText(this, "Failed while Saved", Toast.LENGTH_SHORT).show()
+                    }
                 }
-
             }
-
         }
 
         binding.password!!.inputType = android.text.InputType.TYPE_CLASS_TEXT or android.text.InputType.TYPE_TEXT_VARIATION_PASSWORD

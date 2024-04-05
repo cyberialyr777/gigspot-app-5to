@@ -70,7 +70,7 @@
             android:background="@drawable/spinner_border"/>
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/ButtonPurchase"
             android:layout_width="143dp"
             android:layout_height="38dp"
             android:background="@drawable/custom_for_buttons"
@@ -80,7 +80,7 @@
             tools:layout_editor_absoluteY="567dp" />
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/buttonCancel"
             android:layout_width="143dp"
             android:layout_height="38dp"
             android:background="@drawable/cancel_button"
