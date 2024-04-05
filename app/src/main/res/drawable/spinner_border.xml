@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="@android:color/white" /><!-- Color de fondo gris -->
+            <stroke
+                android:width="1dp"
+                android:color="#000000" /> <!-- Borde negro -->
+        </shape>
+    </item>
+    <item android:right="10dp"> <!-- Ajuste de la posición de la flecha hacia la izquierda -->
+        <bitmap
+            android:gravity="end|center_vertical"
+            android:src="@drawable/caret_down_fill" />
+    </item>
+</layer-list>
+
+
+
