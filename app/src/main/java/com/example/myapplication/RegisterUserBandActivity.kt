@@ -6,15 +6,26 @@ import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.example.myapplication.databinding.ActivityLoginScreenBinding
 import com.example.myapplication.databinding.ActivityRegisterUserBandBinding
+import com.google.firebase.auth.FirebaseAuth
 
 class RegisterUserBandActivity : AppCompatActivity() {
     private lateinit var binding: ActivityRegisterUserBandBinding
+
+    /*
+    companion object{
+        lateinit var auth: FirebaseAuth
+
+    }
+     */
+
     val TAG = "Register User Band Activity"
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityRegisterUserBandBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        Log.d(TAG,"onCreate: ")
+        Log.d(TAG, "onCreate: ")
+
+        //auth = FirebaseAuth.getInstance()
 
         binding.button2.setOnClickListener{
             startActivity(Intent(this, RegisterUserActivity::class.java))
@@ -24,6 +35,9 @@ class RegisterUserBandActivity : AppCompatActivity() {
             startActivity(Intent(this, RegisterBandActivity::class.java))
         }
     }
+
+
+
 
 
     override fun onStart() {
