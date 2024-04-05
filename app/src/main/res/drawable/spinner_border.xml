@@ -11,7 +11,7 @@
     <item android:right="10dp"> <!-- Ajuste de la posición de la flecha hacia la izquierda -->
         <bitmap
             android:gravity="end|center_vertical"
-            android:src="@drawable/caret_down_fill" />
+            android:src="@drawable/caret_down_fill_2" />
     </item>
 </layer-list>
 
