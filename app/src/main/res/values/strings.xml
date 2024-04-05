@@ -133,6 +133,8 @@
     </string>
     <string name="action_settings">Settings</string>
 
+    <!-- save events strings -->
+    <string name="search_save">Search all saved events...</string>
     <!-- event information strings -->
     <string name="event_name_band">Nirvana</string>
     <string name="event_title">Nirvana Concert</string>
@@ -141,6 +143,12 @@
     <string name="time">20:00 - 22:00</string>
     <string name="place">Palenque de Gallos</string>
     <string name="about">About</string>
-    <string name="info">orem ipsum dolor sit amet, consectetur adipiscing elit. Nam sed mauris erat. Duis et purus bibendum, pharetra quam eu, semper lacus. Morbi pretium lacus sit amet enim sagittis efficitur.</string>
+    <string name="info">orem ipsum dolor sit amet, consectetur adipiscing elit. Nam sed mauris erat. Duis et purus bibendum, pharetra quam eu, semper lacus</string>
     <string name="buy">Buy Ticket</string>
+
+    <!-- buy ticket strings -->
+
+    <string name="purchase">Purchase</string>
+    <string name="cancel">Cancel</string>
+
 </resources>
