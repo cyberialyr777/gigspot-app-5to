@@ -21,10 +21,6 @@ class LoginActivity : AppCompatActivity() {
         setContentView(binding.root)
         Log.d(TAG, "onCreate: ")
 
-        binding.Prueba?.setOnClickListener{
-            startActivity(Intent(this, PruebaFormularioActivity::class.java))
-        }
-
         binding.textView4.setOnClickListener {
             startActivity(Intent(this, RegisterUserBandActivity::class.java))
         }
