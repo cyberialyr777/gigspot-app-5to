@@ -28,8 +28,10 @@
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.057" />
 
         <ImageButton
             android:id="@+id/imageButton"
@@ -60,8 +62,10 @@
             android:background="@drawable/account_circle"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/textView"
+            app:layout_constraintHorizontal_bias="0.562"
             app:layout_constraintStart_toStartOf="@+id/textView"
-            app:layout_constraintTop_toBottomOf="@+id/textView" />
+            app:layout_constraintTop_toBottomOf="@+id/textView"
+            app:layout_constraintVertical_bias="0.276" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -73,8 +77,10 @@
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/imageButton3"
+            app:layout_constraintHorizontal_bias="0.492"
             app:layout_constraintStart_toStartOf="@+id/imageButton3"
-            app:layout_constraintTop_toBottomOf="@+id/imageButton3" />
+            app:layout_constraintTop_toBottomOf="@+id/imageButton3"
+            app:layout_constraintVertical_bias="0.271" />
 
         <TextView
             android:id="@+id/textView5"
@@ -100,8 +106,10 @@
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/textView5"
+            app:layout_constraintHorizontal_bias="0.462"
             app:layout_constraintStart_toStartOf="@+id/textView5"
-            app:layout_constraintTop_toBottomOf="@+id/textView5" />
+            app:layout_constraintTop_toBottomOf="@+id/textView5"
+            app:layout_constraintVertical_bias="0.302" />
 
         <TextView
             android:id="@+id/textView6"
@@ -127,64 +135,79 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/textView6"
             app:layout_constraintStart_toStartOf="@+id/textView6"
-            app:layout_constraintTop_toBottomOf="@+id/textView6" />
+            app:layout_constraintTop_toBottomOf="@+id/textView6"
+            app:layout_constraintVertical_bias="0.364" />
 
-        <Button
-            android:id="@+id/button1"
-            android:layout_width="259dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="76dp"
-            android:layout_marginTop="368dp"
-            android:layout_marginEnd="76dp"
-            android:background="@drawable/custom_for_buttons"
-            android:text="@string/lorem_ipsum"
-            android:textAlignment="textStart"
-            android:textColor="@color/white"
+        <EditText
+            android:id="@+id/bandName"
+            android:layout_width="306dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="53dp"
+            android:layout_marginTop="416dp"
+            android:layout_marginEnd="52dp"
+            android:background="@drawable/custum_for_input_text"
+            android:drawableStart="@drawable/band_icon"
+            android:drawablePadding="12dp"
+            android:hint="@string/bandNameR"
+            android:inputType="text"
+            android:paddingStart="12dp"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <Button
-            android:id="@+id/button2"
-            android:layout_width="259dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:background="@drawable/custom_for_buttons"
-            android:text="@string/lorem_ipsum"
-            android:textAlignment="textStart"
-            android:textColor="@color/white"
-            app:layout_constraintEnd_toEndOf="@+id/button1"
+        <EditText
+            android:id="@+id/email"
+            android:layout_width="306dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="53dp"
+            android:layout_marginTop="488dp"
+            android:layout_marginEnd="52dp"
+            android:background="@drawable/custum_for_input_text"
+            android:drawableStart="@drawable/mail_icon"
+            android:drawablePadding="12dp"
+            android:hint="@string/emailR"
+            android:inputType="text"
+            android:paddingStart="12dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="TextFields" />
+
+        <EditText
+            android:id="@+id/password"
+            android:layout_width="306dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="53dp"
+            android:layout_marginTop="560dp"
+            android:layout_marginEnd="52dp"
+            android:background="@drawable/custum_for_input_text"
+            android:drawableStart="@drawable/key_password_icon"
+            android:drawablePadding="12dp"
+            android:hint="@string/password"
+            android:inputType="textPassword"
+            android:paddingStart="12dp"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/button1"
-            app:layout_constraintTop_toBottomOf="@+id/button1" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="TextFields" />
 
         <Button
-            android:id="@+id/button3"
-            android:layout_width="259dp"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="60dp"
+            android:id="@+id/sendButton"
+            android:layout_width="115dp"
+            android:layout_height="46dp"
+            android:layout_marginStart="148dp"
+            android:layout_marginTop="640dp"
+            android:layout_marginEnd="148dp"
             android:background="@drawable/custom_for_buttons"
-            android:text="@string/lorem_ipsum"
-            android:textAlignment="textStart"
+            android:text="Save"
             android:textColor="@color/white"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/button2"
-            app:layout_constraintStart_toStartOf="@+id/button2"
-            app:layout_constraintTop_toBottomOf="@+id/button2" />
-
-        <Button
-            android:id="@+id/button4"
-            android:layout_width="259dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:background="@drawable/custom_for_buttons"
-            android:text="@string/lorem_ipsum"
-            android:textAlignment="textStart"
-            android:textColor="@color/white"
-            app:layout_constraintEnd_toEndOf="@+id/button3"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/button3"
-            app:layout_constraintTop_toBottomOf="@+id/button3" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
