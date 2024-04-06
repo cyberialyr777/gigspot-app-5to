@@ -179,19 +179,17 @@
             android:id="@+id/password"
             android:layout_width="306dp"
             android:layout_height="40dp"
-            android:layout_marginStart="53dp"
-            android:layout_marginTop="560dp"
-            android:layout_marginEnd="52dp"
+            android:layout_marginTop="28dp"
             android:background="@drawable/custum_for_input_text"
             android:drawableStart="@drawable/key_password_icon"
             android:drawablePadding="12dp"
             android:hint="@string/password"
             android:inputType="textPassword"
             android:paddingStart="12dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/email"
+            app:layout_constraintHorizontal_bias="0.916"
+            app:layout_constraintStart_toStartOf="@+id/email"
+            app:layout_constraintTop_toBottomOf="@+id/email"
             tools:ignore="TextFields" />
 
         <Button
@@ -205,7 +203,6 @@
             android:text="Save"
             android:textColor="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
