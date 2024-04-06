@@ -23,196 +23,201 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.0" />
 
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="266dp"
+            android:layout_height="56dp"
+            android:layout_marginTop="241dp"
+            android:gravity="center"
+            android:text="@string/event_title"
+            android:textColor="@color/white"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <ImageButton
-        android:id="@+id/imageButton4"
-        android:layout_width="31dp"
-        android:layout_height="30dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="364dp"
-        android:layout_marginBottom="685dp"
-        android:background="@drawable/arrow_left"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+            android:id="@+id/imageButton3"
+            android:layout_width="61dp"
+            android:layout_height="57dp"
+            android:layout_marginStart="27dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="361dp"
+            android:background="@drawable/account_circle"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/textView"
+            app:layout_constraintStart_toStartOf="parent" />
 
-    <TextView
-        android:id="@+id/textView8"
-        android:layout_width="266dp"
-        android:layout_height="56dp"
-        android:gravity="center"
-        android:text="@string/event_title"
-        android:textColor="@color/white"
-        android:textSize="30sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@+id/imageButton5"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="241dp" />
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="103dp"
+            android:layout_height="35dp"
+            android:layout_marginTop="328dp"
+            android:layout_marginEnd="205dp"
+            android:layout_marginBottom="368dp"
+            android:text="@string/event_name_band"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/imageButton3"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageButton
-        android:id="@+id/imageButton5"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_marginEnd="104dp"
-        android:background="@drawable/heart"
-        app:layout_constraintEnd_toEndOf="parent"
-        tools:layout_editor_absoluteY="257dp" />
+        <Button
+            android:id="@+id/button5"
+            android:layout_width="110dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="61dp"
+            android:layout_marginTop="328dp"
+            android:layout_marginEnd="36dp"
+            android:background="@drawable/follow_btn"
+            android:text="@string/follow"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/textView"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageButton
-        android:id="@+id/imageButton3"
-        android:layout_width="61dp"
-        android:layout_height="57dp"
-        android:layout_marginStart="27dp"
-        android:background="@drawable/account_circle"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="313dp" />
+        <TextView
+            android:id="@+id/textView9"
+            android:layout_width="150dp"
+            android:layout_height="28dp"
+            android:layout_marginStart="36dp"
+            android:layout_marginEnd="163dp"
+            android:text="@string/time"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/imageButton7"
+            app:layout_constraintTop_toTopOf="@+id/imageButton7" />
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="103dp"
-        android:layout_height="35dp"
-        android:layout_marginTop="328dp"
-        android:layout_marginEnd="205dp"
-        android:layout_marginBottom="368dp"
-        android:text="@string/event_name_band"
-        android:textColor="@color/black"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imageButton3"
-        app:layout_constraintTop_toTopOf="parent" />
+        <ImageButton
+            android:id="@+id/imageButton7"
+            android:layout_width="28dp"
+            android:layout_height="26dp"
+            android:layout_marginTop="28dp"
+            android:background="@drawable/clock"
+            app:layout_constraintEnd_toEndOf="@+id/imageButton6"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/imageButton6"
+            app:layout_constraintTop_toBottomOf="@+id/imageButton6" />
 
-    <Button
-        android:id="@+id/button5"
-        android:layout_width="122dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="274dp"
-        android:layout_marginTop="323dp"
-        android:layout_marginEnd="16dp"
-        android:background="@drawable/follow_btn"
-        android:text="@string/follow"
-        android:textColor="@color/black"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="150dp"
+            android:layout_height="28dp"
+            android:layout_marginStart="42dp"
+            android:layout_marginEnd="160dp"
+            android:text="@string/date"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/imageButton6"
+            app:layout_constraintTop_toTopOf="@+id/imageButton6" />
 
-    <TextView
-        android:id="@+id/textView9"
-        android:layout_width="150dp"
-        android:layout_height="28dp"
-        android:layout_marginEnd="181dp"
-        android:text="@string/time"
-        android:textColor="@color/black"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/imageButton7"
-        app:layout_constraintTop_toTopOf="@+id/imageButton7" />
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="224dp"
+            android:layout_height="32dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginEnd="88dp"
+            android:text="@string/place"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/imageButton8"
+            app:layout_constraintTop_toTopOf="@+id/imageButton8" />
 
-    <ImageButton
-        android:id="@+id/imageButton7"
-        android:layout_width="28dp"
-        android:layout_height="26dp"
-        android:layout_marginTop="28dp"
-        android:background="@drawable/clock"
-        app:layout_constraintEnd_toEndOf="@+id/imageButton6"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/imageButton6"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton6" />
+        <ImageButton
+            android:id="@+id/imageButton8"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginTop="32dp"
+            android:background="@drawable/geo_alt"
+            app:layout_constraintEnd_toEndOf="@+id/imageButton7"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/imageButton7"
+            app:layout_constraintTop_toBottomOf="@+id/imageButton7" />
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="150dp"
-        android:layout_height="28dp"
-        android:layout_marginEnd="181dp"
-        android:text="@string/date"
-        android:textColor="@color/black"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/imageButton6"
-        app:layout_constraintTop_toTopOf="@+id/imageButton6" />
+        <ImageButton
+            android:id="@+id/imageButton6"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginStart="34dp"
+            android:layout_marginTop="395dp"
+            android:background="@drawable/calendar4_frame"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="224dp"
-        android:layout_height="32dp"
-        android:layout_marginEnd="107dp"
-        android:text="@string/place"
-        android:textColor="@color/black"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/imageButton8"
-        app:layout_constraintTop_toTopOf="@+id/imageButton8" />
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="103dp"
+            android:layout_height="35dp"
+            android:layout_marginStart="35dp"
+            android:layout_marginBottom="142dp"
+            android:text="@string/about"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
-    <ImageButton
-        android:id="@+id/imageButton8"
-        android:layout_width="25dp"
-        android:layout_height="25dp"
-        android:layout_marginTop="32dp"
-        android:background="@drawable/geo_alt"
-        app:layout_constraintEnd_toEndOf="@+id/imageButton7"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/imageButton7"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton7" />
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="327dp"
+            android:layout_height="69dp"
+            android:layout_marginTop="589dp"
+            android:layout_marginBottom="65dp"
+            android:text="@string/info"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/textView5"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageButton
-        android:id="@+id/imageButton6"
-        android:layout_width="25dp"
-        android:layout_height="25dp"
-        android:layout_marginStart="34dp"
-        android:layout_marginTop="395dp"
-        android:background="@drawable/calendar4_frame"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <Button
+            android:id="@+id/button"
+            android:layout_width="143dp"
+            android:layout_height="38dp"
+            android:layout_marginStart="134dp"
+            android:layout_marginTop="677dp"
+            android:layout_marginEnd="134dp"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/custom_for_buttons"
+            android:text="@string/buy"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/textView5"
-        android:layout_width="103dp"
-        android:layout_height="35dp"
-        android:layout_marginStart="35dp"
-        android:layout_marginTop="554dp"
-        android:layout_marginEnd="274dp"
-        android:layout_marginBottom="142dp"
-        android:text="@string/about"
-        android:textColor="@color/black"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <ImageButton
+            android:id="@+id/imageButton5"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/heart"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.33"
+            app:layout_constraintStart_toEndOf="@+id/textView8"
+            app:layout_constraintTop_toTopOf="@+id/textView8" />
 
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="347dp"
-        android:layout_height="77dp"
-        android:layout_marginTop="589dp"
-        android:layout_marginEnd="29dp"
-        android:layout_marginBottom="65dp"
-        android:text="@string/info"
-        android:textColor="@color/black"
-        android:textSize="15sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/textView5"
-        app:layout_constraintTop_toTopOf="parent" />
+        <ImageButton
+            android:id="@+id/imageButton4"
+            android:layout_width="31dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/arrow_left"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="143dp"
-        android:layout_height="38dp"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/custom_for_buttons"
-        android:text="@string/buy"
-        android:textColor="@color/white"
-        app:layout_constraintEnd_toEndOf="@+id/textView4"
-        app:layout_constraintHorizontal_bias="0.504"
-        app:layout_constraintStart_toStartOf="@+id/textView4"
-        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="255dp" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

@@ -4,7 +4,8 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.myapplication.databinding.ActivityEventsBinding
-import com.example.myapplication.databinding.ActivityLoginScreenBinding
+import android.widget.Button
+
 
 class EventsActivity : AppCompatActivity() {
     private lateinit var binding: ActivityEventsBinding
@@ -14,14 +15,13 @@ class EventsActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         // Encontrar la referencia al botón
+
         val BuyTicket = binding.button
 
         // Establecer OnClickListener para el botón
         BuyTicket.setOnClickListener {
-            // Crear una intención para abrir la actividad TicketActivity
-            val intent = Intent(this, TicketActivity::class.java)
             // Iniciar la actividad TicketActivity
-            startActivity(intent)
+            startActivity(Intent(this, TicketActivity::class.java))
         }
     }
 }

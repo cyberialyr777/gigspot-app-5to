@@ -47,11 +47,12 @@ dependencies {
     // implementation ("com.squareup.retrofit2:retrofit:2.9.0")
     // implementation ("com.squareup.retrofit2:converter-gson:2.9.0")
     // implementation ("org.jetbrains.kotlin:kotlin-coroutines-android:1.3.6")
-    implementation(platform("com.google.firebase:firebase-bom:32.7.4"))
-    implementation("com.google.firebase:firebase-database")
-    // implementation("com.google.firebase:firebase-database")
-    implementation("com.google.firebase:firebase-analytics")
-    implementation("com.google.firebase:firebase-auth")
+    // implementation(platform("com.google.firebase:firebase-bom:32.7.4"))
+    implementation("com.google.firebase:firebase-auth-ktx:22.3.1")
+    implementation("com.google.firebase:firebase-analytics:21.6.1")
+    // implementation("com.google.firebase:firebase-auth:22.3.1")
+    implementation("com.google.firebase:firebase-database:20.3.1")
+    // implementation("com.google.firebase:firebase-auth")
     // implementation("com.firebaseui:firebase-ui-auth")
     // implementation("mysql:mysql-connector-java:8.0.23")
     implementation("androidx.core:core-splashscreen:1.0.1")
@@ -66,5 +67,4 @@ dependencies {
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
-
 }

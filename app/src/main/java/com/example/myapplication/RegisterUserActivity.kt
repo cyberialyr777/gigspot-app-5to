@@ -24,38 +24,44 @@ class RegisterUserActivity : AppCompatActivity(){
         binding = ActivityRegisterUserBinding.inflate(layoutInflater)
         setContentView(binding.root)
         Log.d(TAG,"onCreate: ")
-
         auth = Firebase.auth
 
         binding.button4.setOnClickListener(){
-            val email = binding.email!!.text.toString()
-            val pass = binding.password!!.text.toString()
-            val nombre = binding.firstName!!.text.toString()
-            val apellido = binding.userlastName!!.text.toString()
-            val userName = binding.userName!!.text.toString()
+            val email = binding.email!!.text.toString().trim()
+            val pass = binding.password!!.text.toString().trim()
+            val nombre = binding.firstName!!.text.toString().trim()
+            val apellido = binding.userlastName!!.text.toString().trim()
+            val userName = binding.userName!!.text.toString().trim()
 
             if(checkAllField()) {
-                auth.createUserWithEmailAndPassword(binding.email!!.text.toString(), binding.password!!.text.toString()).addOnCompleteListener() {
-                    val usuario = auth.currentUser
-                    updateUI(usuario)
-
-                    database = FirebaseDatabase.getInstance().getReference("usuario")
-                    val user = UsuariosModelos(userName, nombre, apellido, pass, email)
-                    database.child(userName).setValue(user).addOnSuccessListener {
-                        Toast.makeText(this, "Successfuly Register", Toast.LENGTH_SHORT).show()
-                        finish()
-                        startActivity(Intent(this, LoginActivity::class.java))
-                    }.addOnFailureListener {
-                        Toast.makeText(this, "Failed while Saved", Toast.LENGTH_SHORT).show()
-                    }
-                }
+                crateAcount(email, pass, nombre, apellido, userName)
             }
         }
+
 
         binding.password!!.inputType = android.text.InputType.TYPE_CLASS_TEXT or android.text.InputType.TYPE_TEXT_VARIATION_PASSWORD
         binding.passwordConf!!.inputType = android.text.InputType.TYPE_CLASS_TEXT or android.text.InputType.TYPE_TEXT_VARIATION_PASSWORD
     }
 
+    private fun crateAcount(email: String,pass: String,userName: String,nombre: String,apellido: String){
+        auth.createUserWithEmailAndPassword(email,pass).addOnCompleteListener(this) { task ->
+            if (task.isSuccessful) {
+                database = FirebaseDatabase.getInstance().getReference("usuario")
+                val user = UsuariosModelos(userName, nombre, apellido, pass, email)
+                database.child(userName).setValue(user).addOnSuccessListener {
+                    Toast.makeText(this, "Successfully Register", Toast.LENGTH_SHORT).show()
+                    finish()
+                    startActivity(Intent(this, LoginActivity::class.java))
+                }.addOnFailureListener {
+                    Toast.makeText(this, "Failed while Saved", Toast.LENGTH_SHORT).show()
+                }
+            }else{
+                Log.w(TAG, "createUserWithEmail:failure", task.exception)
+                Toast.makeText(this, "Failed while Saved with Auth", Toast.LENGTH_SHORT).show()
+                updateUI(null)
+            }
+        }
+    }
     private fun updateUI(usuario: FirebaseUser?){
     }
 
