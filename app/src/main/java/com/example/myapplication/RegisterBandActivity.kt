@@ -9,12 +9,14 @@ import android.widget.Toast
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import com.example.myapplication.databinding.ActivityRegisterBandBinding
 import com.example.myapplication.databinding.ActivityRegisterUserBinding
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 
 class RegisterBandActivity : AppCompatActivity() {
     private lateinit var binding: ActivityRegisterBandBinding
     private lateinit var database : DatabaseReference
+    private lateinit var Auth: FirebaseAuth
     val TAG = "RegisterBandActivity"
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -22,28 +24,36 @@ class RegisterBandActivity : AppCompatActivity() {
         binding = ActivityRegisterBandBinding.inflate(layoutInflater)
         setContentView(binding.root)
         Log.d(TAG,"onCreate: ")
+        Auth = FirebaseAuth.getInstance()
 
         binding.sendButton!!.setOnClickListener(){
-            val nombreBanda = binding.bandName.toString()
-            val email = binding.email.toString()
-            val pass = binding.password.toString()
-
-            if(checkAllField()){
-                database = FirebaseDatabase.getInstance().getReference("usuario")
+            if (checkAllField()){
+                register()
+            }
+        }
+    }
+    private fun register(){
+        val nombreBanda = binding.bandName.toString().trim()
+        val email = binding.email.toString().trim()
+        val pass = binding.password.toString().trim()
+        Auth.createUserWithEmailAndPassword(email,pass).addOnCompleteListener(RegisterBandActivity()) { task ->
+            if(task.isSuccessful){
+                Toast.makeText(this, "Successfully Register", Toast.LENGTH_SHORT).show()
+                database = FirebaseDatabase.getInstance().getReference("usuarios_banda")
                 val band = BandaModelo(nombreBanda, email, pass)
                 database.child(nombreBanda).setValue(band).addOnSuccessListener {
-                    Toast.makeText(this, "Successfuly Saved", Toast.LENGTH_SHORT).show()
+                    finish()
                     startActivity(Intent(this, LoginActivity::class.java))
                 }.addOnFailureListener {
                     Toast.makeText(this, "Failed while Saved", Toast.LENGTH_SHORT).show()
                 }
+            }else{
+                Log.w(TAG, "createUserWithEmail:failure", task.exception)
+                Toast.makeText(this, "Failed while Saved with Auth", Toast.LENGTH_SHORT).show()
             }
         }
-
-
-        binding.password!!.inputType = android.text.InputType.TYPE_CLASS_TEXT or android.text.InputType.TYPE_TEXT_VARIATION_PASSWORD
-        binding.passwordConf!!.inputType = android.text.InputType.TYPE_CLASS_TEXT or android.text.InputType.TYPE_TEXT_VARIATION_PASSWORD
     }
+
     private fun checkAllField(): Boolean{
         if(binding.bandName!!.text.toString() == ""){
             binding.bandName!!.error = "this field is required"

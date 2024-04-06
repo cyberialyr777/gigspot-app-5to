@@ -46,7 +46,7 @@
         android:drawableStart="@drawable/key_password_icon"
         android:drawablePadding="12dp"
         android:hint="@string/password"
-        android:inputType="text"
+        android:inputType="textPassword"
         android:paddingStart="12dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

@@ -31,8 +31,6 @@ class LoginActivity : AppCompatActivity() {
 
         val pasword = findViewById<EditText>(R.id.pasword)
 
-        pasword.inputType =
-            android.text.InputType.TYPE_CLASS_TEXT or android.text.InputType.TYPE_TEXT_VARIATION_PASSWORD
     }
 
     //LifeCycle
