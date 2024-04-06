@@ -29,6 +29,10 @@ class LoginActivity : AppCompatActivity() {
             startActivity(Intent(this, BottomNavigationActivity::class.java))
         }
 
+        binding.Prueba1?.setOnClickListener {
+            startActivity(Intent(this, BandMenuActivity::class.java))
+        }
+
         val pasword = findViewById<EditText>(R.id.pasword)
 
         pasword.inputType =
