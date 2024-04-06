@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AddBandFragment">
+
+    <?xml version="1.0" encoding="utf-8"?>
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="-35dp"
+        android:background="@color/white">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="133dp"
+            android:layout_marginTop="64dp"
+            android:layout_marginEnd="134dp"
+            android:text="@string/gigspot"
+            android:textColor="@color/ColorPrincipal"
+            android:textSize="40sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/button4"
+            android:layout_width="115dp"
+            android:layout_height="46dp"
+            android:layout_marginStart="148dp"
+            android:layout_marginTop="636dp"
+            android:layout_marginEnd="148dp"
+            android:background="@drawable/custom_for_buttons"
+            android:text="@string/sing_in"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.505"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/firstName"
+            android:layout_width="306dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="53dp"
+            android:layout_marginTop="228dp"
+            android:layout_marginEnd="53dp"
+            android:background="@drawable/custum_for_input_text"
+            android:drawableStart="@drawable/person"
+            android:drawablePadding="12dp"
+            android:hint="@string/nameR"
+            android:inputType="text"
+            android:paddingStart="12dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/passwordConf"
+            android:layout_width="306dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="53dp"
+            android:layout_marginTop="576dp"
+            android:layout_marginEnd="53dp"
+            android:background="@drawable/custum_for_input_text"
+            android:drawableStart="@drawable/key_password_icon"
+            android:drawablePadding="12dp"
+            android:hint="@string/passwordRconf"
+            android:inputType="text"
+            android:paddingStart="12dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/email"
+            android:layout_width="306dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="53dp"
+            android:layout_marginTop="432dp"
+            android:layout_marginEnd="52dp"
+            android:background="@drawable/custum_for_input_text"
+            android:drawableStart="@drawable/mail_icon"
+            android:drawablePadding="12dp"
+            android:hint="@string/emailR"
+            android:inputType="text"
+            android:paddingStart="12dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="TextFields" />
+
+        <EditText
+            android:id="@+id/userName"
+            android:layout_width="306dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="53dp"
+            android:layout_marginTop="360dp"
+            android:layout_marginEnd="52dp"
+            android:background="@drawable/custum_for_input_text"
+            android:drawableStart="@drawable/person_outline_icon"
+            android:drawablePadding="12dp"
+            android:hint="@string/userNameR"
+            android:inputType="text"
+            android:paddingStart="12dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/password"
+            android:layout_width="306dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="53dp"
+            android:layout_marginTop="504dp"
+            android:layout_marginEnd="53dp"
+            android:background="@drawable/custum_for_input_text"
+            android:drawableStart="@drawable/key_password_icon"
+            android:drawablePadding="12dp"
+            android:hint="@string/passwordR"
+            android:inputType="text"
+            android:paddingStart="12dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/userlastName"
+            android:layout_width="306dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="53dp"
+            android:layout_marginTop="292dp"
+            android:layout_marginEnd="53dp"
+            android:background="@drawable/custum_for_input_text"
+            android:drawableStart="@drawable/person"
+            android:drawablePadding="12dp"
+            android:hint="@string/lastNameR"
+            android:inputType="text"
+            android:paddingStart="12dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="83dp"
+            android:layout_marginTop="148dp"
+            android:layout_marginEnd="80dp"
+            android:text="Fill the form below correctly"
+            android:textColor="@color/ColorPrincipal"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</FrameLayout>

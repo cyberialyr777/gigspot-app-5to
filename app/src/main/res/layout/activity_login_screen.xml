@@ -120,4 +120,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <Button
+        android:id="@+id/Prueba1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="47dp"
+        android:layout_marginEnd="151dp"
+        android:background="@drawable/custom_for_buttons"
+        android:text="Band"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/Prueba"
+        app:layout_constraintTop_toTopOf="@+id/Prueba" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
