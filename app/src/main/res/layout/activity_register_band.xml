@@ -24,7 +24,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/sendButton"
+        android:id="@+id/Button4"
         android:layout_width="115dp"
         android:layout_height="46dp"
         android:layout_marginStart="148dp"

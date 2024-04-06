@@ -4,16 +4,15 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.widget.EditText
 import android.widget.Toast
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import com.example.myapplication.databinding.ActivityRegisterBandBinding
-import com.example.myapplication.databinding.ActivityRegisterUserBinding
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 
-class RegisterBandActivity : AppCompatActivity() {
+class RegisterBandActivity : AppCompatActivity(){
     private lateinit var binding: ActivityRegisterBandBinding
     private lateinit var database : DatabaseReference
     private lateinit var Auth: FirebaseAuth
@@ -26,7 +25,7 @@ class RegisterBandActivity : AppCompatActivity() {
         Log.d(TAG,"onCreate: ")
         Auth = FirebaseAuth.getInstance()
 
-        binding.sendButton!!.setOnClickListener(){
+        binding.button4!!.setOnClickListener(){
             if (checkAllField()){
                 register()
             }
@@ -36,6 +35,7 @@ class RegisterBandActivity : AppCompatActivity() {
         val nombreBanda = binding.bandName.toString().trim()
         val email = binding.email.toString().trim()
         val pass = binding.password.toString().trim()
+
         Auth.createUserWithEmailAndPassword(email,pass).addOnCompleteListener(RegisterBandActivity()) { task ->
             if(task.isSuccessful){
                 Toast.makeText(this, "Successfully Register", Toast.LENGTH_SHORT).show()
@@ -50,8 +50,12 @@ class RegisterBandActivity : AppCompatActivity() {
             }else{
                 Log.w(TAG, "createUserWithEmail:failure", task.exception)
                 Toast.makeText(this, "Failed while Saved with Auth", Toast.LENGTH_SHORT).show()
+                updateUI(null)
             }
         }
+    }
+
+    private fun updateUI(usuario: FirebaseUser?){
     }
 
     private fun checkAllField(): Boolean{

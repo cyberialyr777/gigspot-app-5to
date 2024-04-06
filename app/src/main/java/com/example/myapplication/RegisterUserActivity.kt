@@ -27,16 +27,12 @@ class RegisterUserActivity : AppCompatActivity(){
         Auth = FirebaseAuth.getInstance()
 
         binding.button4.setOnClickListener(){
-
-
             if(checkAllField()) {
                 crateAcount()
             }
         }
-
     }
-    // email, pass, nombre, apellido, userName
-    // email: String,pass: String,userName: String,nombre: String,apellido: String
+
     private fun crateAcount(){
         val email = binding.email?.text.toString().trim()
         val pass = binding.password?.text.toString().trim()
