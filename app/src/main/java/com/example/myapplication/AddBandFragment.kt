@@ -1,8 +1,10 @@
 package com.example.myapplication
 
+
 import android.annotation.SuppressLint
 import android.app.DatePickerDialog
 import android.content.Intent
+import android.app.TimePickerDialog
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -12,25 +14,30 @@ import android.widget.Button
 import android.widget.ImageView
 import com.example.myapplication.databinding.FragmentAddBandBinding
 import com.google.firebase.auth.FirebaseAuth
+import android.widget.DatePicker
+import android.widget.EditText
+import android.widget.TimePicker
 import java.util.Calendar
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
+
 
 /**
  * A simple [Fragment] subclass.
  * Use the [AddBandFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class AddBandFragment : Fragment() {
+
+class AddBandFragment : Fragment(), DatePickerDialog.OnDateSetListener, TimePickerDialog.OnTimeSetListener {
     private lateinit var auth: FirebaseAuth
     private lateinit var _binding: FragmentAddBandBinding
     private val binding get() = _binding
-    // TODO: Rename and change types of parameters
+
     private var param1: String? = null
     private var param2: String? = null
+    private lateinit var editTextFecha: EditText
+    private lateinit var editTextHora: EditText
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,8 +45,8 @@ class AddBandFragment : Fragment() {
             param1 = it.getString(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)
         }
-
     }
+
     @SuppressLint("SetTextI18n")
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -48,39 +55,74 @@ class AddBandFragment : Fragment() {
         // Inflate the layout for this fragment
         _binding = FragmentAddBandBinding.inflate(inflater,container,false)
         val view = binding.root
-        /*
-        binding.Fecha.setOnClickListener {
-            val calendario = Calendar.getInstance()
-            val anio = calendario.get(Calendar.YEAR)
-            val mes = calendario.get(Calendar.MONTH)
-            val dia = calendario.get(Calendar.DAY_OF_MONTH)
-
-            val datePickerDialog = DatePickerDialog(requireContext(), { _, year, month, dayOfMonth ->
-                binding.Fecha.setText("$dayOfMonth/${month + 1}/$year")
-            }, anio, mes, dia)
-
-            datePickerDialog.show()
-        }
-        */
 
         return view
+
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        editTextFecha = view.findViewById(R.id.Fecha)
+        editTextHora = view.findViewById(R.id.time)
+
+        // Agregar un click listener al EditText para la fecha
+        editTextFecha.setOnClickListener {
+            showDatePickerDialog()
+        }
+
+        // Agregar un click listener al EditText para la hora
+        editTextHora.setOnClickListener {
+            showTimePickerDialog()
+        }
+    }
+
+    private fun showDatePickerDialog() {
+        val calendar = Calendar.getInstance()
+        val year = calendar.get(Calendar.YEAR)
+        val month = calendar.get(Calendar.MONTH)
+        val dayOfMonth = calendar.get(Calendar.DAY_OF_MONTH)
+
+        // Crear un DatePickerDialog
+        val datePickerDialog = DatePickerDialog(
+            requireContext(),
+            this, // Esta clase implementa DatePickerDialog.OnDateSetListener
+            year, month, dayOfMonth
+        )
+
+        // Mostrar el DatePickerDialog
+        datePickerDialog.show()
+    }
+
+    override fun onDateSet(view: DatePicker?, year: Int, month: Int, dayOfMonth: Int) {
+        // Mostrar la fecha seleccionada en el EditText
+        val selectedDate = "$dayOfMonth/${month + 1}/$year"
+        editTextFecha.setText(selectedDate)
+    }
+
+    private fun showTimePickerDialog() {
+        val calendar = Calendar.getInstance()
+        val hour = calendar.get(Calendar.HOUR_OF_DAY)
+        val minute = calendar.get(Calendar.MINUTE)
+
+        // Crear un TimePickerDialog
+        val timePickerDialog = TimePickerDialog(
+            requireContext(),
+            this, // Esta clase implementa TimePickerDialog.OnTimeSetListener
+            hour, minute, true
+        )
+
+        // Mostrar el TimePickerDialog
+        timePickerDialog.show()
+    }
+
+    override fun onTimeSet(view: TimePicker?, hourOfDay: Int, minute: Int) {
+        // Mostrar la hora seleccionada en el EditText
+        val selectedTime = "$hourOfDay:$minute"
+        editTextHora.setText(selectedTime)
     }
 
     companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment AddBandFragment.
-         */
-        // TODO: Rename and change types and number of parameters
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
             AddBandFragment().apply {

@@ -56,19 +56,43 @@
             android:id="@+id/lugar"
             android:layout_width="306dp"
             android:layout_height="40dp"
-            android:layout_marginStart="53dp"
-            android:layout_marginTop="324dp"
-            android:layout_marginEnd="52dp"
+            android:layout_marginTop="28dp"
             android:background="@drawable/custum_for_input_text"
+            app:layout_constraintEnd_toEndOf="@+id/time"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="@+id/time"
+            app:layout_constraintTop_toBottomOf="@+id/time" />
+
+        <Spinner
+            android:id="@+id/spinner6"
+            android:layout_width="305dp"
+            android:layout_height="41dp"
+            android:layout_marginTop="28dp"
+            android:background="@drawable/custom_input_spinner"
             android:drawableStart="@drawable/baseline_add_location_24"
             android:drawablePadding="12dp"
             android:hint="Place"
-            android:inputType="text"
             android:paddingStart="12dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintEnd_toEndOf="@+id/time"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="@+id/time"
+            app:layout_constraintTop_toBottomOf="@+id/time" />
+
+
+        <Spinner
+            android:id="@+id/spinner7"
+            android:layout_width="305dp"
+            android:layout_height="41dp"
+            android:layout_marginTop="28dp"
+            android:background="@drawable/custom_input_spinner"
+            android:drawableStart="@drawable/baseline_add_location_24"
+            android:drawablePadding="12dp"
+            android:hint="Place"
+            android:paddingStart="12dp"
+            app:layout_constraintEnd_toEndOf="@+id/spinner6"
+            app:layout_constraintHorizontal_bias="0.916"
+            app:layout_constraintStart_toStartOf="@+id/spinner6"
+            app:layout_constraintTop_toBottomOf="@+id/spinner6"/>
 
         <TextView
             android:id="@+id/textView2"
@@ -92,7 +116,7 @@
             android:layout_height="40dp"
             android:layout_marginStart="53dp"
             android:layout_marginTop="192dp"
-            android:layout_marginEnd="53dp"
+            android:layout_marginEnd="52dp"
             android:background="@drawable/custum_for_input_text"
             android:clickable="true"
             android:drawableStart="@drawable/calendar4_gray"
@@ -102,64 +126,48 @@
             android:inputType="date"
             android:paddingStart="12dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
-
-        <EditText
-            android:id="@+id/Municipio"
-            android:layout_width="306dp"
-            android:layout_height="40dp"
-            android:layout_marginStart="53dp"
-            android:layout_marginTop="396dp"
-            android:layout_marginEnd="52dp"
-            android:background="@drawable/custum_for_input_text"
-            android:drawableStart="@drawable/baseline_add_location_24"
-            android:drawablePadding="12dp"
-            android:hint="Municip"
-            android:inputType="text"
-            android:paddingStart="12dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:ignore="TextFields" />
 
         <EditText
             android:id="@+id/estado"
             android:layout_width="306dp"
             android:layout_height="40dp"
-            android:layout_marginStart="53dp"
-            android:layout_marginTop="468dp"
-            android:layout_marginEnd="53dp"
+            android:layout_marginTop="28dp"
             android:background="@drawable/custum_for_input_text"
+            app:layout_constraintStart_toStartOf="@+id/spinner7"
+            app:layout_constraintTop_toBottomOf="@+id/spinner7" />
+
+        <Spinner
+            android:id="@+id/spinner8"
+            android:layout_width="305dp"
+            android:layout_height="41dp"
+            android:layout_marginTop="28dp"
+            android:background="@drawable/custom_input_spinner"
             android:drawableStart="@drawable/baseline_add_location_24"
             android:drawablePadding="12dp"
-            android:hint="State"
-            android:inputType="text"
+            android:hint="Place"
             android:paddingStart="12dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintEnd_toEndOf="@+id/spinner7"
+            app:layout_constraintHorizontal_bias="0.916"
+            app:layout_constraintStart_toStartOf="@+id/spinner7"
+            app:layout_constraintTop_toBottomOf="@+id/spinner7"/>
 
         <EditText
             android:id="@+id/precio"
             android:layout_width="306dp"
             android:layout_height="40dp"
-            android:layout_marginStart="53dp"
-            android:layout_marginTop="540dp"
-            android:layout_marginEnd="53dp"
+            android:layout_marginTop="28dp"
             android:background="@drawable/custum_for_input_text"
             android:drawableStart="@drawable/baseline_attach_money_24_gray"
             android:drawablePadding="12dp"
             android:hint="Price"
             android:inputType="number"
             android:paddingStart="12dp"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/spinner8"
             app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintStart_toStartOf="@+id/spinner8"
+            app:layout_constraintTop_toBottomOf="@+id/spinner8" />
 
         <EditText
             android:id="@+id/descripcion"
@@ -170,7 +178,7 @@
             android:drawableStart="@drawable/baseline_add_comment_24"
             android:drawablePadding="12dp"
             android:hint="Description"
-            android:inputType="textPassword"
+            android:inputType="text"
             android:paddingStart="12dp"
             app:layout_constraintEnd_toEndOf="@+id/precio"
             app:layout_constraintHorizontal_bias="0.916"
@@ -194,22 +202,20 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
-            android:id="@+id/Hora"
+            android:id="@+id/time"
             android:layout_width="306dp"
             android:layout_height="40dp"
-            android:layout_marginStart="53dp"
-            android:layout_marginTop="256dp"
-            android:layout_marginEnd="53dp"
+            android:layout_marginTop="28dp"
             android:background="@drawable/custum_for_input_text"
             android:drawableStart="@drawable/baseline_access_time_filled_24"
             android:drawablePadding="12dp"
             android:hint="Time"
             android:inputType="time"
             android:paddingStart="12dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintEnd_toEndOf="@+id/Fecha"
+            app:layout_constraintHorizontal_bias="0.833"
+            app:layout_constraintStart_toStartOf="@+id/Fecha"
+            app:layout_constraintTop_toBottomOf="@+id/Fecha" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
