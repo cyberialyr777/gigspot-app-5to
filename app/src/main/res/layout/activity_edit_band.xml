@@ -78,7 +78,7 @@
             android:layout_marginTop="108dp"
             android:layout_marginEnd="80dp"
             android:gravity="center"
-            android:text="Complete the form to add an event"
+            android:text="Edit the information of the event"
             android:textColor="@color/ColorPrincipal"
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -182,14 +182,24 @@
             android:id="@+id/button4"
             android:layout_width="155dp"
             android:layout_height="47dp"
-            android:layout_marginStart="128dp"
-            android:layout_marginTop="673dp"
-            android:layout_marginEnd="128dp"
+            android:layout_marginStart="215dp"
+            android:layout_marginEnd="41dp"
             android:background="@drawable/custom_for_buttons"
-            android:text="Add event"
+            android:text="Edit event"
             android:textColor="@color/white"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/button5" />
+
+        <Button
+            android:id="@+id/button5"
+            android:layout_width="155dp"
+            android:layout_height="47dp"
+            android:layout_marginStart="37dp"
+            android:layout_marginTop="676dp"
+            android:background="@drawable/cancel_button"
+            android:text="Cancel"
+            android:textColor="@color/ColorPrincipal"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
