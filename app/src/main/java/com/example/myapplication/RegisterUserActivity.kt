@@ -26,8 +26,8 @@ class RegisterUserActivity : AppCompatActivity(){
         Log.d(TAG,"onCreate: ")
         Auth = FirebaseAuth.getInstance()
 
-        binding.button4.setOnClickListener(){
-            if(checkAllField()) {
+        binding.button4.setOnClickListener() {
+            if (checkAllField()) {
                 crateAcount()
             }
         }
@@ -39,12 +39,13 @@ class RegisterUserActivity : AppCompatActivity(){
         val nombre = binding.firstName?.text.toString().trim()
         val apellido = binding.userlastName?.text.toString().trim()
         val userName = binding.userName?.text.toString().trim()
+        val userType = 0
 
         Auth.createUserWithEmailAndPassword(email,pass).addOnCompleteListener(RegisterUserActivity()) { task ->
             if (task.isSuccessful) {
                 Toast.makeText(this, "Successfully Register", Toast.LENGTH_SHORT).show()
                 database = FirebaseDatabase.getInstance().getReference("usuario")
-                val user = UsuariosModelos(userName, nombre, apellido, pass, email)
+                val user = UsuariosModelos(userName, nombre, apellido, pass, email, userType)
                 database.child(userName).setValue(user).addOnSuccessListener {
                     finish()
                     startActivity(Intent(this, LoginActivity::class.java))
@@ -53,7 +54,7 @@ class RegisterUserActivity : AppCompatActivity(){
                 }
             }else{
                 Log.w(TAG, "createUserWithEmail:failure", task.exception)
-                Toast.makeText(this, "Failed while Saved with Auth", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, task.exception!!.message, Toast.LENGTH_SHORT).show()
                 updateUI(null)
             }
         }

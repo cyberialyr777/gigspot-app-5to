@@ -4,9 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
-import com.example.myapplication.databinding.ActivityLoginScreenBinding
 import com.example.myapplication.databinding.ActivityRegisterUserBandBinding
-import com.google.firebase.auth.FirebaseAuth
 
 class RegisterUserBandActivity : AppCompatActivity() {
     private lateinit var binding: ActivityRegisterUserBandBinding

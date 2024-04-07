@@ -1,18 +1,17 @@
 package com.example.myapplication
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.LayoutInflater
 import android.widget.Toast
-import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
+import androidx.appcompat.app.AppCompatActivity
 import com.example.myapplication.databinding.ActivityRegisterBandBinding
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 
-class RegisterBandActivity : AppCompatActivity(){
+class RegisterBandActivity: AppCompatActivity() {
     private lateinit var binding: ActivityRegisterBandBinding
     private lateinit var database : DatabaseReference
     private lateinit var Auth: FirebaseAuth
@@ -25,22 +24,24 @@ class RegisterBandActivity : AppCompatActivity(){
         Log.d(TAG,"onCreate: ")
         Auth = FirebaseAuth.getInstance()
 
-        binding.button4!!.setOnClickListener(){
+        binding.Button?.setOnClickListener() {
             if (checkAllField()){
-                register()
+                createAcount()
             }
         }
     }
-    private fun register(){
-        val nombreBanda = binding.bandName.toString().trim()
-        val email = binding.email.toString().trim()
-        val pass = binding.password.toString().trim()
+
+    private fun createAcount(){
+        val nombreBanda = binding.bandName?.text.toString().trim()
+        val email = binding.email?.text.toString().trim()
+        val pass = binding.password?.text.toString().trim()
+        val userType = 1
 
         Auth.createUserWithEmailAndPassword(email,pass).addOnCompleteListener(RegisterBandActivity()) { task ->
             if(task.isSuccessful){
                 Toast.makeText(this, "Successfully Register", Toast.LENGTH_SHORT).show()
-                database = FirebaseDatabase.getInstance().getReference("usuarios_banda")
-                val band = BandaModelo(nombreBanda, email, pass)
+                database = FirebaseDatabase.getInstance().getReference("usuario")
+                val band = BandaModelo(nombreBanda, email, pass, userType)
                 database.child(nombreBanda).setValue(band).addOnSuccessListener {
                     finish()
                     startActivity(Intent(this, LoginActivity::class.java))
@@ -49,13 +50,9 @@ class RegisterBandActivity : AppCompatActivity(){
                 }
             }else{
                 Log.w(TAG, "createUserWithEmail:failure", task.exception)
-                Toast.makeText(this, "Failed while Saved with Auth", Toast.LENGTH_SHORT).show()
-                updateUI(null)
+                Toast.makeText(this, task.exception!!.message, Toast.LENGTH_SHORT).show()
             }
         }
-    }
-
-    private fun updateUI(usuario: FirebaseUser?){
     }
 
     private fun checkAllField(): Boolean{
@@ -107,4 +104,5 @@ class RegisterBandActivity : AppCompatActivity(){
         super.onDestroy()
         Log.d(TAG,"onDestroy :")
     }
+
 }
