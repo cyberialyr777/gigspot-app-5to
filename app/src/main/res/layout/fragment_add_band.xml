@@ -1,131 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AddBandFragment">
-    <androidx.constraintlayout.widget.ConstraintLayout
+    tools:context=".ProfileFragment">
 
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="-35dp"
-        android:background="@color/white">
+        android:layout_height="wrap_content"
+        android:gravity="center">
 
         <TextView
             android:id="@+id/textView"
-            android:layout_width="wrap_content"
+            android:layout_width="132dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="133dp"
-            android:layout_marginTop="64dp"
-            android:layout_marginEnd="134dp"
+            android:layout_marginStart="139dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="140dp"
+            android:layout_marginBottom="543dp"
+            android:gravity="center"
             android:text="@string/gigspot"
             android:textColor="@color/ColorPrincipal"
-            android:textSize="40sp"
+            android:textSize="30sp"
             android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <Button
-            android:id="@+id/button4"
-            android:layout_width="115dp"
-            android:layout_height="46dp"
-            android:layout_marginStart="148dp"
-            android:layout_marginTop="636dp"
-            android:layout_marginEnd="148dp"
-            android:background="@drawable/custom_for_buttons"
-            android:text="@string/sing_in"
-            android:textColor="@color/white"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.505"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <EditText
-            android:id="@+id/firstName"
-            android:layout_width="306dp"
-            android:layout_height="40dp"
-            android:layout_marginStart="53dp"
-            android:layout_marginTop="228dp"
-            android:layout_marginEnd="53dp"
-            android:background="@drawable/custum_for_input_text"
-            android:drawableStart="@drawable/person"
-            android:drawablePadding="12dp"
-            android:hint="@string/nameR"
-            android:inputType="text"
-            android:paddingStart="12dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <EditText
-            android:id="@+id/passwordConf"
-            android:layout_width="306dp"
-            android:layout_height="40dp"
-            android:layout_marginStart="53dp"
-            android:layout_marginTop="576dp"
-            android:layout_marginEnd="53dp"
-            android:background="@drawable/custum_for_input_text"
-            android:drawableStart="@drawable/key_password_icon"
-            android:drawablePadding="12dp"
-            android:hint="@string/passwordRconf"
-            android:inputType="text"
-            android:paddingStart="12dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <EditText
-            android:id="@+id/email"
-            android:layout_width="306dp"
-            android:layout_height="40dp"
-            android:layout_marginStart="53dp"
-            android:layout_marginTop="432dp"
-            android:layout_marginEnd="52dp"
-            android:background="@drawable/custum_for_input_text"
-            android:drawableStart="@drawable/mail_icon"
-            android:drawablePadding="12dp"
-            android:hint="@string/emailR"
-            android:inputType="text"
-            android:paddingStart="12dp"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:ignore="TextFields" />
+            app:layout_constraintVertical_bias="0.057" />
+
+        <ImageButton
+            android:id="@+id/imageButton"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_marginTop="21dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/settings"
+            android:src="@drawable/settings"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageButton
+            android:id="@+id/imageButton2"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_marginStart="44dp"
+            android:layout_marginTop="24dp"
+            android:background="@drawable/list"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
             android:id="@+id/userName"
             android:layout_width="306dp"
             android:layout_height="40dp"
             android:layout_marginStart="53dp"
-            android:layout_marginTop="360dp"
+            android:layout_marginTop="336dp"
             android:layout_marginEnd="52dp"
             android:background="@drawable/custum_for_input_text"
-            android:drawableStart="@drawable/person_outline_icon"
+            android:drawableStart="@drawable/baseline_add_location_24"
             android:drawablePadding="12dp"
-            android:hint="@string/userNameR"
+            android:hint="Lugar"
             android:inputType="text"
             android:paddingStart="12dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <EditText
-            android:id="@+id/password"
-            android:layout_width="306dp"
-            android:layout_height="40dp"
-            android:layout_marginStart="53dp"
-            android:layout_marginTop="504dp"
-            android:layout_marginEnd="53dp"
-            android:background="@drawable/custum_for_input_text"
-            android:drawableStart="@drawable/key_password_icon"
-            android:drawablePadding="12dp"
-            android:hint="@string/passwordR"
-            android:inputType="text"
-            android:paddingStart="12dp"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -134,32 +75,124 @@
             android:layout_width="306dp"
             android:layout_height="40dp"
             android:layout_marginStart="53dp"
-            android:layout_marginTop="292dp"
+            android:layout_marginTop="268dp"
             android:layout_marginEnd="53dp"
             android:background="@drawable/custum_for_input_text"
-            android:drawableStart="@drawable/person"
+            android:drawableStart="@drawable/baseline_access_time_filled_24"
             android:drawablePadding="12dp"
-            android:hint="@string/lastNameR"
+            android:hint="Hora"
             android:inputType="text"
             android:paddingStart="12dp"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/email"
+            android:layout_width="306dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="53dp"
+            android:layout_marginTop="408dp"
+            android:layout_marginEnd="52dp"
+            android:background="@drawable/custum_for_input_text"
+            android:drawableStart="@drawable/baseline_add_location_24"
+            android:drawablePadding="12dp"
+            android:hint="Municipio"
+            android:inputType="text"
+            android:paddingStart="12dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="TextFields" />
+
+        <EditText
+            android:id="@+id/password"
+            android:layout_width="306dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="53dp"
+            android:layout_marginTop="480dp"
+            android:layout_marginEnd="53dp"
+            android:background="@drawable/custum_for_input_text"
+            android:drawableStart="@drawable/baseline_add_location_24"
+            android:drawablePadding="12dp"
+            android:hint="Estado"
+            android:inputType="text"
+            android:paddingStart="12dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/passwordConf"
+            android:layout_width="306dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="53dp"
+            android:layout_marginTop="552dp"
+            android:layout_marginEnd="53dp"
+            android:background="@drawable/custum_for_input_text"
+            android:drawableStart="@drawable/baseline_attach_money_24"
+            android:drawablePadding="12dp"
+            android:hint="Precio"
+            android:inputType="text"
+            android:paddingStart="12dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/button4"
+            android:layout_width="155dp"
+            android:layout_height="47dp"
+            android:layout_marginStart="148dp"
+            android:layout_marginTop="632dp"
+            android:layout_marginEnd="148dp"
+            android:background="@drawable/custom_for_buttons"
+            android:text="Add event"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/Fecha"
+            android:layout_width="306dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="53dp"
+            android:layout_marginTop="204dp"
+            android:layout_marginEnd="53dp"
+            android:background="@drawable/custum_for_input_text"
+            android:clickable="true"
+            android:drawableStart="@drawable/calendar4_gray"
+            android:drawablePadding="12dp"
+            android:focusable="false"
+            android:hint="Fecha"
+            android:inputType="none"
+            android:paddingStart="12dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/textView2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="383dp"
+            android:layout_height="50dp"
             android:layout_marginStart="83dp"
-            android:layout_marginTop="148dp"
+            android:layout_marginTop="120dp"
             android:layout_marginEnd="80dp"
-            android:text="Fill the form below correctly"
+            android:gravity="center"
+            android:text="Complete the form to add an event"
             android:textColor="@color/ColorPrincipal"
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.496"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-</FrameLayout>
+</ScrollView>
