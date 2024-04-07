@@ -1,10 +1,13 @@
 package com.example.myapplication
 
+import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -37,6 +40,19 @@ class HomeBandFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_home_band, container, false)
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        // Obtener referencia al ImageView
+        val imageView2: ImageView = view.findViewById(R.id.imageView2)
+
+        // Agregar un click listener al imageView2
+        imageView2.setOnClickListener {
+            // Cuando se hace clic en imageView2, iniciar la EventsActivity
+            val intent = Intent(requireActivity(), EventBandActivity::class.java)
+            startActivity(intent)
+        }
+    }
     companion object {
         /**
          * Use this factory method to create a new instance of

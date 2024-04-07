@@ -55,20 +55,6 @@
             tools:layout_editor_absoluteX="15dp"
             tools:layout_editor_absoluteY="315dp" />
 
-        <Button
-            android:id="@+id/button5"
-            android:layout_width="110dp"
-            android:layout_height="40dp"
-            android:layout_marginStart="61dp"
-            android:layout_marginTop="320dp"
-            android:layout_marginEnd="36dp"
-            android:background="@drawable/follow_btn"
-            android:text="@string/follow"
-            android:textColor="@color/black"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.333"
-            app:layout_constraintStart_toEndOf="@+id/textView"
-            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/textView9"
@@ -158,7 +144,7 @@
             android:id="@+id/imageButton9"
             android:layout_width="25dp"
             android:layout_height="25dp"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="32dp"
             android:background="@drawable/baseline_attach_money_24"
             app:layout_constraintEnd_toEndOf="@+id/imageButton8"
             app:layout_constraintHorizontal_bias="0.0"
@@ -195,17 +181,26 @@
             android:id="@+id/button"
             android:layout_width="143dp"
             android:layout_height="38dp"
-            android:layout_marginStart="134dp"
+            android:layout_marginStart="34dp"
             android:layout_marginTop="733dp"
-            android:layout_marginEnd="134dp"
-            android:layout_marginBottom="17dp"
             android:background="@drawable/custom_for_buttons"
-            android:text="@string/buy"
+            android:text="Delete"
             android:textColor="@color/white"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="143dp"
+            android:layout_height="38dp"
+            android:layout_marginStart="219dp"
+            android:layout_marginEnd="49dp"
+            android:background="@drawable/custom_for_buttons"
+            android:text="Edit"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/button" />
 
         <Space
             android:id="@+id/spaceBelowButton"
@@ -216,16 +211,6 @@
             app:layout_constraintTop_toBottomOf="@+id/button"
             app:layout_constraintVertical_bias="1" />
 
-        <ImageButton
-            android:id="@+id/imageButton5"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_marginTop="12dp"
-            android:background="@drawable/heart"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.33"
-            app:layout_constraintStart_toEndOf="@+id/textView8"
-            app:layout_constraintTop_toTopOf="@+id/textView8" />
 
         <ImageButton
             android:id="@+id/imageButton4"

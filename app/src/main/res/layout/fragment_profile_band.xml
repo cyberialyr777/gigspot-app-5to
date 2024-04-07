@@ -37,10 +37,9 @@
             android:id="@+id/imageButton"
             android:layout_width="35dp"
             android:layout_height="35dp"
-            android:layout_marginTop="21dp"
-            android:layout_marginEnd="16dp"
-            android:background="@drawable/settings"
-            android:src="@drawable/settings"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="24dp"
+            android:background="@drawable/box_arrow_in_left"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -143,7 +142,7 @@
             android:layout_width="306dp"
             android:layout_height="40dp"
             android:layout_marginStart="53dp"
-            android:layout_marginTop="416dp"
+            android:layout_marginTop="392dp"
             android:layout_marginEnd="52dp"
             android:background="@drawable/custum_for_input_text"
             android:drawableStart="@drawable/band_icon"
@@ -152,7 +151,7 @@
             android:inputType="text"
             android:paddingStart="12dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -161,7 +160,7 @@
             android:layout_width="306dp"
             android:layout_height="40dp"
             android:layout_marginStart="53dp"
-            android:layout_marginTop="488dp"
+            android:layout_marginTop="460dp"
             android:layout_marginEnd="52dp"
             android:background="@drawable/custum_for_input_text"
             android:drawableStart="@drawable/mail_icon"
@@ -192,17 +191,35 @@
             app:layout_constraintTop_toBottomOf="@+id/email"
             tools:ignore="TextFields" />
 
+        <EditText
+            android:id="@+id/descripcion"
+            android:layout_width="306dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="32dp"
+            android:background="@drawable/custum_for_input_text"
+            android:drawableStart="@drawable/baseline_add_comment_24"
+            android:drawablePadding="12dp"
+            android:hint="Description"
+            android:inputType="textPassword"
+            android:paddingStart="12dp"
+            app:layout_constraintEnd_toEndOf="@+id/password"
+            app:layout_constraintHorizontal_bias="0.916"
+            app:layout_constraintStart_toStartOf="@+id/password"
+            app:layout_constraintTop_toBottomOf="@+id/password"
+            tools:ignore="TextFields" />
+
         <Button
             android:id="@+id/sendButton"
             android:layout_width="115dp"
             android:layout_height="46dp"
             android:layout_marginStart="148dp"
-            android:layout_marginTop="640dp"
+            android:layout_marginTop="668dp"
             android:layout_marginEnd="148dp"
             android:background="@drawable/custom_for_buttons"
             android:text="Save"
             android:textColor="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
