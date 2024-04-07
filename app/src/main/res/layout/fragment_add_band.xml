@@ -53,7 +53,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
-            android:id="@+id/userName"
+            android:id="@+id/lugar"
             android:layout_width="306dp"
             android:layout_height="40dp"
             android:layout_marginStart="53dp"
@@ -99,7 +99,7 @@
             android:drawablePadding="12dp"
             android:focusable="false"
             android:hint="Date"
-            android:inputType="none"
+            android:inputType="date"
             android:paddingStart="12dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
@@ -107,7 +107,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
-            android:id="@+id/email"
+            android:id="@+id/Municipio"
             android:layout_width="306dp"
             android:layout_height="40dp"
             android:layout_marginStart="53dp"
@@ -126,7 +126,7 @@
             tools:ignore="TextFields" />
 
         <EditText
-            android:id="@+id/password"
+            android:id="@+id/estado"
             android:layout_width="306dp"
             android:layout_height="40dp"
             android:layout_marginStart="53dp"
@@ -144,7 +144,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
-            android:id="@+id/passwordConf"
+            android:id="@+id/precio"
             android:layout_width="306dp"
             android:layout_height="40dp"
             android:layout_marginStart="53dp"
@@ -154,7 +154,7 @@
             android:drawableStart="@drawable/baseline_attach_money_24_gray"
             android:drawablePadding="12dp"
             android:hint="Price"
-            android:inputType="text"
+            android:inputType="number"
             android:paddingStart="12dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
@@ -172,10 +172,10 @@
             android:hint="Description"
             android:inputType="textPassword"
             android:paddingStart="12dp"
-            app:layout_constraintEnd_toEndOf="@+id/passwordConf"
+            app:layout_constraintEnd_toEndOf="@+id/precio"
             app:layout_constraintHorizontal_bias="0.916"
-            app:layout_constraintStart_toStartOf="@+id/passwordConf"
-            app:layout_constraintTop_toBottomOf="@+id/passwordConf"
+            app:layout_constraintStart_toStartOf="@+id/precio"
+            app:layout_constraintTop_toBottomOf="@+id/precio"
             tools:ignore="TextFields" />
 
         <Button
@@ -194,7 +194,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
-            android:id="@+id/userlastName"
+            android:id="@+id/Hora"
             android:layout_width="306dp"
             android:layout_height="40dp"
             android:layout_marginStart="53dp"
@@ -204,7 +204,7 @@
             android:drawableStart="@drawable/baseline_access_time_filled_24"
             android:drawablePadding="12dp"
             android:hint="Time"
-            android:inputType="text"
+            android:inputType="time"
             android:paddingStart="12dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"

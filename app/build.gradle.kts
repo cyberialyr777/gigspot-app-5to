@@ -44,17 +44,11 @@ dependencies {
 
     //noinspection GradleCompatible
     implementation ("com.google.code.gson:gson:2.8.9")
-    // implementation ("com.squareup.retrofit2:retrofit:2.9.0")
-    // implementation ("com.squareup.retrofit2:converter-gson:2.9.0")
-    // implementation ("org.jetbrains.kotlin:kotlin-coroutines-android:1.3.6")
     implementation(platform("com.google.firebase:firebase-bom:32.7.4"))
     implementation("com.google.firebase:firebase-auth-ktx")
     implementation("com.google.firebase:firebase-analytics")
     implementation("com.google.firebase:firebase-auth:22.3.1")
     implementation("com.google.firebase:firebase-database")
-    // implementation("com.google.firebase:firebase-auth")
-    // implementation("com.firebaseui:firebase-ui-auth")
-    // implementation("mysql:mysql-connector-java:8.0.23")
     implementation("androidx.core:core-splashscreen:1.0.1")
     implementation("androidx.core:core-ktx:1.12.0")
     implementation("androidx.appcompat:appcompat:1.6.1")

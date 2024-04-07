@@ -34,7 +34,7 @@
             app:layout_constraintVertical_bias="0.057" />
 
         <ImageButton
-            android:id="@+id/imageButton"
+            android:id="@+id/cerrarSession"
             android:layout_width="35dp"
             android:layout_height="35dp"
             android:layout_marginTop="20dp"

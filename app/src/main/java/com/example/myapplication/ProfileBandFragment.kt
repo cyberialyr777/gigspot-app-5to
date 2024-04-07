@@ -1,10 +1,16 @@
 package com.example.myapplication
 
+import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import com.example.myapplication.databinding.FragmentProfileBandBinding
+import com.example.myapplication.databinding.FragmentProfileBinding
+import com.google.firebase.auth.FirebaseAuth
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -17,6 +23,10 @@ private const val ARG_PARAM2 = "param2"
  * create an instance of this fragment.
  */
 class ProfileBandFragment : Fragment() {
+    private lateinit var auth: FirebaseAuth
+    private lateinit var _binding: FragmentProfileBandBinding
+    private val binding get() = _binding
+    val TAG = "ProfileBandFragment"
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
@@ -32,9 +42,16 @@ class ProfileBandFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
+        auth = FirebaseAuth.getInstance()
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_profile_band, container, false)
+        _binding = FragmentProfileBandBinding.inflate(inflater, container, false)
+        val view = binding.root
+
+        binding.cerrarSession.setOnClickListener{
+            closeSession()
+        }
+        return view
     }
 
     companion object {
@@ -55,5 +72,38 @@ class ProfileBandFragment : Fragment() {
                     putString(ARG_PARAM2, param2)
                 }
             }
+    }
+
+    private fun closeSession(){
+        auth.signOut()
+        val intent = Intent(requireContext(), LoginActivity::class.java)
+        startActivity(intent)
+        requireActivity().finish()
+        Toast.makeText(requireContext(), "Logout Successfully", Toast.LENGTH_SHORT).show()
+    }
+    override fun onStart() {
+        super.onStart()
+        Log.d(TAG,"onStart: ")
+    }
+
+    override fun onResume(){
+        super.onResume()
+        Log.d(TAG,"onResume: ")
+    }
+
+    override fun onPause() {
+        super.onPause()
+        Log.d(TAG,"onPause: ")
+    }
+
+    override fun onStop() {
+        super.onStop()
+        Log.d(TAG,"onStop: ")
+    }
+
+
+    override fun onDestroy() {
+        super.onDestroy()
+        Log.d(TAG,"onDestroy :")
     }
 }

@@ -37,10 +37,6 @@ class LoginActivity : AppCompatActivity() {
                 typeACount()
             }
         }
-
-        binding.Prueba1?.setOnClickListener {
-            startActivity(Intent(this, BandMenuActivity::class.java))
-        }
     }
     private fun typeACount(){
         val intent = Intent(this, BandMenuActivity::class.java)
