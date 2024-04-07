@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <item android:state_enabled="true">
+        <shape android:shape="rectangle">
+            <solid android:color="@color/white"/>
+            <corners android:radius="12dp"/>
+            <stroke android:color="@color/ColorPrincipal" android:width="1dp"/>
+        </shape>
+    </item>
+    <item android:right="10dp"> <!-- Ajuste de la posición de la flecha hacia la izquierda -->
+        <bitmap
+            android:gravity="end|center_vertical"
+            android:src="@drawable/caret_down_fill_pic" />
+    </item>
+</layer-list>
