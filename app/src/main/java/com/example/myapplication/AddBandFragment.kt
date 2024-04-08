@@ -52,25 +52,9 @@ class AddBandFragment : Fragment(), DatePickerDialog.OnDateSetListener, TimePick
             showTimePickerDialog()
         }
 
-        binding.guardarImagen.setOnClickListener {
-            selectImage()
-        }
-    }
-    private fun selectImage() {
-        val intent = Intent(Intent.ACTION_PICK)
-        intent.type = "image/*"
-        startActivityForResult(intent, 1)
+
     }
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-
-        if (requestCode == 1 && resultCode == RESULT_OK && data != null) {
-            val imageUri: Uri? = data.data
-            // Aquí puedes hacer lo que quieras con la Uri de la imagen seleccionada,
-            // como mostrarla en un ImageView o guardarla en una variable para su posterior uso.
-        }
-    }
     private fun showDatePickerDialog() {
         val calendar = Calendar.getInstance()
         val year = calendar.get(Calendar.YEAR)
