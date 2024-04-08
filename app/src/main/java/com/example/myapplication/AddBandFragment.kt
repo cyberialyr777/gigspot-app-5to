@@ -3,9 +3,11 @@ package com.example.myapplication
 
 import android.R
 import android.annotation.SuppressLint
+import android.app.Activity.RESULT_OK
 import android.app.DatePickerDialog
 import android.app.TimePickerDialog
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -25,6 +27,7 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
+import com.google.firebase.storage.FirebaseStorage
 import java.util.Calendar
 
 private const val ARG_PARAM1 = "param1"
@@ -34,6 +37,8 @@ class AddBandFragment : Fragment(), DatePickerDialog.OnDateSetListener, TimePick
     private lateinit var auth: FirebaseAuth
     private lateinit var _binding: FragmentAddBandBinding
     private lateinit var database : DatabaseReference
+    private var selectedImageUri: Uri? = null
+
     private val binding get() = _binding
     val TAG = "AddEventFragment"
 
@@ -46,6 +51,7 @@ class AddBandFragment : Fragment(), DatePickerDialog.OnDateSetListener, TimePick
             param1 = it.getString(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)
         }
+
     }
 
 
@@ -71,6 +77,10 @@ class AddBandFragment : Fragment(), DatePickerDialog.OnDateSetListener, TimePick
         binding.time.setOnClickListener {
             showTimePickerDialog()
         }
+        binding.guardarImagen.setOnClickListener {
+            selectImage()
+        }
+
 
         val opcionesSpinner1 = arrayOf("select place","Opción 1A", "Opción 1B", "Opción 1C")
         val opcionesSpinner2 = arrayOf("select place", "Opción 2A", "Opción 2B", "Opción 2C")
@@ -100,8 +110,10 @@ class AddBandFragment : Fragment(), DatePickerDialog.OnDateSetListener, TimePick
         val state = binding.spinner8.toString()
         val price = binding.precio.text.toString().trim()
         val description = binding.descripcion.text.toString().trim()
+        val titulo = binding.titulo.text.toString().trim()
         val idBand = auth.currentUser?.uid.toString()
         val emailBand = auth.currentUser?.email.toString()
+        uplodeImage()
 
         val databaseReference = FirebaseDatabase.getInstance().getReference("usuario")
         databaseReference.orderByChild("email").equalTo(emailBand).addListenerForSingleValueEvent(object : ValueEventListener {
@@ -120,7 +132,9 @@ class AddBandFragment : Fragment(), DatePickerDialog.OnDateSetListener, TimePick
                             price,
                             description,
                             idBand,
-                            emailBand
+                            emailBand,
+                            titulo,
+                            imagen
                         )
                         val nuevaReferencia = database.child(userName!!).push()
                         nuevaReferencia.setValue(evento).addOnSuccessListener {
@@ -176,6 +190,33 @@ class AddBandFragment : Fragment(), DatePickerDialog.OnDateSetListener, TimePick
             return false
         }
         return true
+    }
+    private fun selectImage() {
+        val imagesRef = Intent(Intent.ACTION_PICK)
+        val intent = Intent(Intent.ACTION_PICK)
+        intent.type = "image/*"
+        startActivityForResult(intent, 1)
+    }
+
+    @Deprecated("Deprecated in Java")
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+        if (requestCode == 1 && resultCode == RESULT_OK && data != null && data.data != null) {
+            selectedImageUri = data.data
+        }
+    }
+    private fun uplodeImage{
+        selectedImageUri?.let { uri ->
+            val storageRef = FirebaseStorage.getInstance().reference
+            val imagesRef = storageRef.child("images/${uri.lastPathSegment}")
+            val uploadTask = imagesRef.putFile(uri)
+            uploadTask.addOnSuccessListener {
+                Toast.makeText(requireContext(), "Imagen subida exitosamente", Toast.LENGTH_SHORT).show()
+            }.addOnFailureListener{
+                Toast.makeText(requireContext(), "Error al subir la imagen", Toast.LENGTH_SHORT).show()
+            }
+        }
     }
     private fun showDatePickerDialog() {
         val calendar = Calendar.getInstance()
