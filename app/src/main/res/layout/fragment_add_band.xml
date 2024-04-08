@@ -151,6 +151,23 @@
             app:layout_constraintTop_toBottomOf="@+id/spinner8" />
 
         <EditText
+            android:id="@+id/titulo"
+            android:layout_width="306dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="32dp"
+            android:background="@drawable/custum_for_input_text"
+            android:drawableStart="@drawable/baseline_celebration_24"
+            android:drawablePadding="12dp"
+            android:hint="Title of event"
+            android:inputType="textPassword"
+            android:paddingStart="12dp"
+            app:layout_constraintEnd_toEndOf="@+id/passwordConf"
+            app:layout_constraintHorizontal_bias="0.916"
+            app:layout_constraintStart_toStartOf="@+id/passwordConf"
+            app:layout_constraintTop_toBottomOf="@+id/passwordConf"
+            tools:ignore="TextFields" />
+
+        <EditText
             android:id="@+id/descripcion"
             android:layout_width="306dp"
             android:layout_height="40dp"
@@ -161,10 +178,10 @@
             android:hint="Description"
             android:inputType="textPassword"
             android:paddingStart="12dp"
-            app:layout_constraintEnd_toEndOf="@+id/passwordConf"
-            app:layout_constraintHorizontal_bias="0.916"
-            app:layout_constraintStart_toStartOf="@+id/passwordConf"
-            app:layout_constraintTop_toBottomOf="@+id/passwordConf"
+            app:layout_constraintEnd_toEndOf="@+id/titulo"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="@+id/titulo"
+            app:layout_constraintTop_toBottomOf="@+id/titulo"
             tools:ignore="TextFields" />
 
         <Button
@@ -172,14 +189,35 @@
             android:layout_width="155dp"
             android:layout_height="47dp"
             android:layout_marginStart="128dp"
-            android:layout_marginTop="673dp"
+            android:layout_marginTop="809dp"
             android:layout_marginEnd="128dp"
+            android:layout_marginBottom="15dp"
             android:background="@drawable/custom_for_buttons"
             android:text="Add event"
             android:textColor="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Space
+            android:id="@+id/spaceBelowButton"
+            android:layout_width="wrap_content"
+            android:layout_height="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/button4"
+            app:layout_constraintVertical_bias="1" />
+
+        <Button
+            android:id="@+id/guardar_imagen"
+            android:layout_width="237dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="748dp"
+            android:background="@drawable/custom_for_buttons"
+            android:text="Add picture event"
+            android:textColor="@color/white"
+            app:layout_constraintStart_toStartOf="@+id/descripcion"
             app:layout_constraintTop_toTopOf="parent" />
 
         <EditText

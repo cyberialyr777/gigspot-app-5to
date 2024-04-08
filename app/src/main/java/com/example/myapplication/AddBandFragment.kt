@@ -2,6 +2,7 @@ package com.example.myapplication
 
 import android.app.DatePickerDialog
 import android.app.TimePickerDialog
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -26,6 +27,7 @@ class AddBandFragment : Fragment(), DatePickerDialog.OnDateSetListener, TimePick
             param1 = it.getString(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)
         }
+
     }
 
     override fun onCreateView(
@@ -49,8 +51,26 @@ class AddBandFragment : Fragment(), DatePickerDialog.OnDateSetListener, TimePick
         binding.time.setOnClickListener {
             showTimePickerDialog()
         }
+
+        binding.guardarImagen.setOnClickListener {
+            selectImage()
+        }
+    }
+    private fun selectImage() {
+        val intent = Intent(Intent.ACTION_PICK)
+        intent.type = "image/*"
+        startActivityForResult(intent, 1)
     }
 
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+        if (requestCode == 1 && resultCode == RESULT_OK && data != null) {
+            val imageUri: Uri? = data.data
+            // Aquí puedes hacer lo que quieras con la Uri de la imagen seleccionada,
+            // como mostrarla en un ImageView o guardarla en una variable para su posterior uso.
+        }
+    }
     private fun showDatePickerDialog() {
         val calendar = Calendar.getInstance()
         val year = calendar.get(Calendar.YEAR)
