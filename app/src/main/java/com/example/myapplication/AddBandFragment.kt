@@ -96,13 +96,17 @@ class AddBandFragment : Fragment(), DatePickerDialog.OnDateSetListener, TimePick
 
         binding.button4.setOnClickListener {
             if(checkAllField()){
-                addEvent()
+                selectImage()
             }
         }
     }
 
 
     private fun addEvent(){
+        uplodeImage()
+    }
+
+    private fun addEventWithImage(imageUrl: String){
         val date = binding.Fecha.text.toString().trim()
         val time = binding.time.text.toString().trim()
         val place = binding.spinner6.toString()
@@ -113,7 +117,6 @@ class AddBandFragment : Fragment(), DatePickerDialog.OnDateSetListener, TimePick
         val titulo = binding.titulo.text.toString().trim()
         val idBand = auth.currentUser?.uid.toString()
         val emailBand = auth.currentUser?.email.toString()
-        uplodeImage()
 
         val databaseReference = FirebaseDatabase.getInstance().getReference("usuario")
         databaseReference.orderByChild("email").equalTo(emailBand).addListenerForSingleValueEvent(object : ValueEventListener {
@@ -134,7 +137,7 @@ class AddBandFragment : Fragment(), DatePickerDialog.OnDateSetListener, TimePick
                             idBand,
                             emailBand,
                             titulo,
-                            imagen
+                            imageUrl
                         )
                         val nuevaReferencia = database.child(userName!!).push()
                         nuevaReferencia.setValue(evento).addOnSuccessListener {
@@ -204,17 +207,36 @@ class AddBandFragment : Fragment(), DatePickerDialog.OnDateSetListener, TimePick
 
         if (requestCode == 1 && resultCode == RESULT_OK && data != null && data.data != null) {
             selectedImageUri = data.data
+            addEvent()
         }
     }
-    private fun uplodeImage{
+    private fun uplodeImage() {
         selectedImageUri?.let { uri ->
             val storageRef = FirebaseStorage.getInstance().reference
             val imagesRef = storageRef.child("images/${uri.lastPathSegment}")
             val uploadTask = imagesRef.putFile(uri)
-            uploadTask.addOnSuccessListener {
-                Toast.makeText(requireContext(), "Imagen subida exitosamente", Toast.LENGTH_SHORT).show()
-            }.addOnFailureListener{
-                Toast.makeText(requireContext(), "Error al subir la imagen", Toast.LENGTH_SHORT).show()
+            uploadTask.continueWithTask { task ->
+                if (!task.isSuccessful) {
+                    task.exception?.let {
+                        throw it
+                    }
+                }
+                imagesRef.downloadUrl
+                uploadTask.addOnCompleteListener { task ->
+                    if (task.isSuccessful) {
+                        val downloadUri = task.result
+                        val imageUrl = downloadUri.toString()
+                        addEventWithImage(imageUrl)
+                    }
+                    Toast.makeText(
+                        requireContext(),
+                        "Imagen subida exitosamente",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }.addOnFailureListener {
+                    Toast.makeText(requireContext(), "Error al subir la imagen", Toast.LENGTH_SHORT)
+                        .show()
+                }
             }
         }
     }

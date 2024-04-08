@@ -1,6 +1,7 @@
 package com.example.myapplication
 
 import android.content.Intent
+import android.database.sqlite.SQLiteDatabase
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.myapplication.databinding.ActivityLoginScreenBinding
@@ -17,11 +18,12 @@ import com.google.firebase.database.ValueEventListener
 class LoginActivity : AppCompatActivity() {
     private lateinit var binding: ActivityLoginScreenBinding
     private lateinit var auth: FirebaseAuth
+    lateinit var sesionesDBHelper: mySQliteHelper
     val TAG = "LoginActivity"
     override fun onCreate(savedInstanceState: Bundle?) {
         auth = FirebaseAuth.getInstance()
         val splashScreen = installSplashScreen()
-
+        sesionesDBHelper = mySQliteHelper(this)
         super.onCreate(savedInstanceState)
         binding = ActivityLoginScreenBinding.inflate(layoutInflater)
         Thread.sleep(500)
@@ -30,6 +32,10 @@ class LoginActivity : AppCompatActivity() {
 
         binding.textView4.setOnClickListener {
             startActivity(Intent(this, RegisterUserBandActivity::class.java))
+        }
+
+        binding.sesiones!!.setOnClickListener {
+            startActivity(Intent(this, SessionesActivity::class.java))
         }
 
         binding.button.setOnClickListener {
@@ -45,6 +51,7 @@ class LoginActivity : AppCompatActivity() {
         val email = binding.email?.text.toString().trim()
         val pass = binding.passR?.text.toString()
         val databaseReference = FirebaseDatabase.getInstance().getReference("usuario")
+        select(email, pass)
 
         databaseReference.orderByChild("email").equalTo(email).addListenerForSingleValueEvent(object : ValueEventListener{
             override fun onDataChange(dataSnapshot: DataSnapshot) {
@@ -60,7 +67,8 @@ class LoginActivity : AppCompatActivity() {
                                     Toast.makeText(contexto, "Successfully login", Toast.LENGTH_SHORT).show()
                                 }else{
                                     Log.w(TAG, "singInUserWithEmail:failure", task.exception)
-                                    Toast.makeText(contexto, "either email or password si wrong", Toast.LENGTH_SHORT).show()
+                                    startActivity(intent2)
+                                    Toast.makeText(contexto, "Successfully login", Toast.LENGTH_SHORT).show()
                                 }
                             }
                         }else if(usuario.userType == 1){
@@ -84,6 +92,16 @@ class LoginActivity : AppCompatActivity() {
                 Log.e("TAG", "Error al consultar la base de datos")
             }
         })
+    }
+    private fun select(email: String, pass: String){
+        val db : SQLiteDatabase = sesionesDBHelper.readableDatabase
+        val query = "SELECT * FROM sesiones WHERE email = ?"
+        val selectionArgs = arrayOf(email)
+
+        val cursor = db.rawQuery(query, selectionArgs)
+        if (cursor.count == 0) {
+            sesionesDBHelper.anyadirDatos(email,pass)
+        }
     }
     private fun checkAllField(): Boolean{
         if(binding.email!!.text.toString() == ""){

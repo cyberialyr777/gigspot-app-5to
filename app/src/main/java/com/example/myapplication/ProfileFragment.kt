@@ -12,6 +12,10 @@ import android.view.ViewGroup
 import android.widget.Button
 import com.google.firebase.auth.FirebaseAuth
 import com.example.myapplication.databinding.FragmentProfileBinding
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 
 class ProfileFragment : Fragment() {
     private lateinit var auth: FirebaseAuth
@@ -32,6 +36,7 @@ class ProfileFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         _binding = FragmentProfileBinding.bind(view)
+        datosUsuario()
 
         // Set click listener for the button
         binding.button7?.setOnClickListener {
@@ -44,6 +49,21 @@ class ProfileFragment : Fragment() {
         return view
     }
 
+    private fun datosUsuario(){
+        val databaseReference = FirebaseDatabase.getInstance().getReference("usuario")
+        databaseReference.orderByChild("email").equalTo(auth.currentUser?.email).addListenerForSingleValueEvent(object :
+            ValueEventListener {
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+                for(snapshot in dataSnapshot.children){
+                    val usuario = snapshot.getValue(UsuariosModelos::class.java)
+                    binding.nombre?.text = usuario?.firstName
+                }
+            }
+            override fun onCancelled(error: DatabaseError) {
+                TODO("Not yet implemented")
+            }
+        })
+    }
 
 
     private fun closeSsion(){
