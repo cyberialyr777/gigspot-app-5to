@@ -3,13 +3,13 @@ package com.example.myapplication
 import android.app.DatePickerDialog
 import android.app.TimePickerDialog
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.DatePicker
-import android.widget.EditText
 import android.widget.TimePicker
+import androidx.fragment.app.Fragment
+import com.example.myapplication.databinding.FragmentAddBandBinding
 import java.util.Calendar
 
 private const val ARG_PARAM1 = "param1"
@@ -18,8 +18,7 @@ private const val ARG_PARAM2 = "param2"
 class AddBandFragment : Fragment(), DatePickerDialog.OnDateSetListener, TimePickerDialog.OnTimeSetListener {
     private var param1: String? = null
     private var param2: String? = null
-    private lateinit var editTextFecha: EditText
-    private lateinit var editTextHora: EditText
+    private lateinit var binding: FragmentAddBandBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,23 +28,25 @@ class AddBandFragment : Fragment(), DatePickerDialog.OnDateSetListener, TimePick
         }
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_add_band, container, false)
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        binding = FragmentAddBandBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        editTextFecha = view.findViewById(R.id.Fecha)
-        editTextHora = view.findViewById(R.id.time)
-
         // Agregar un click listener al EditText para la fecha
-        editTextFecha.setOnClickListener {
+        binding.Fecha.setOnClickListener {
             showDatePickerDialog()
         }
 
         // Agregar un click listener al EditText para la hora
-        editTextHora.setOnClickListener {
+        binding.time.setOnClickListener {
             showTimePickerDialog()
         }
     }
@@ -70,7 +71,7 @@ class AddBandFragment : Fragment(), DatePickerDialog.OnDateSetListener, TimePick
     override fun onDateSet(view: DatePicker?, year: Int, month: Int, dayOfMonth: Int) {
         // Mostrar la fecha seleccionada en el EditText
         val selectedDate = "$dayOfMonth/${month + 1}/$year"
-        editTextFecha.setText(selectedDate)
+        binding.Fecha.setText(selectedDate)
     }
 
     private fun showTimePickerDialog() {
@@ -92,7 +93,7 @@ class AddBandFragment : Fragment(), DatePickerDialog.OnDateSetListener, TimePick
     override fun onTimeSet(view: TimePicker?, hourOfDay: Int, minute: Int) {
         // Mostrar la hora seleccionada en el EditText
         val selectedTime = "$hourOfDay:$minute"
-        editTextHora.setText(selectedTime)
+        binding.time.setText(selectedTime)
     }
 
     companion object {

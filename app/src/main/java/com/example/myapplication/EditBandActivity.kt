@@ -4,24 +4,26 @@ import android.app.DatePickerDialog
 import android.app.TimePickerDialog
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import android.widget.Button
 import android.widget.DatePicker
-import android.widget.EditText
 import android.widget.TimePicker
 import androidx.appcompat.app.AppCompatActivity
-import java.util.Calendar
+import com.example.myapplication.databinding.ActivityEditBandBinding
+import java.util.*
 
-class EditBandActivity : AppCompatActivity(), DatePickerDialog.OnDateSetListener, TimePickerDialog.OnTimeSetListener {
+class EditBandActivity : AppCompatActivity(), DatePickerDialog.OnDateSetListener,
+    TimePickerDialog.OnTimeSetListener {
+    private lateinit var binding: ActivityEditBandBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_edit_band)
-
-        val button = findViewById<Button>(R.id.button5)
-        val editTextFecha = findViewById<EditText>(R.id.Fecha)
-        val editTextHora = findViewById<EditText>(R.id.Hora)
+        binding = ActivityEditBandBinding.inflate(layoutInflater)
+        val view = binding.root
+        setContentView(view)
 
         // Establecer OnClickListener para el botón
-        button.setOnClickListener {
+        binding.button5.setOnClickListener {
             // Crear una intención para abrir la actividad EventBandActivity
             val intent = Intent(this, EventBandActivity::class.java)
             // Iniciar la actividad EventBandActivity
@@ -29,12 +31,12 @@ class EditBandActivity : AppCompatActivity(), DatePickerDialog.OnDateSetListener
         }
 
         // Agregar OnClickListener al EditText para la fecha
-        editTextFecha.setOnClickListener {
+        binding.Fecha.setOnClickListener {
             showDatePickerDialog()
         }
 
         // Agregar OnClickListener al EditText para la hora
-        editTextHora.setOnClickListener {
+        binding.Hora.setOnClickListener {
             showTimePickerDialog()
         }
     }
@@ -58,7 +60,7 @@ class EditBandActivity : AppCompatActivity(), DatePickerDialog.OnDateSetListener
 
     override fun onDateSet(view: DatePicker?, year: Int, month: Int, dayOfMonth: Int) {
         val selectedDate = "$dayOfMonth/${month + 1}/$year"
-        findViewById<EditText>(R.id.Fecha).setText(selectedDate)
+        binding.Fecha.setText(selectedDate)
     }
 
     private fun showTimePickerDialog() {
@@ -79,6 +81,6 @@ class EditBandActivity : AppCompatActivity(), DatePickerDialog.OnDateSetListener
 
     override fun onTimeSet(view: TimePicker?, hourOfDay: Int, minute: Int) {
         val selectedTime = "$hourOfDay:$minute"
-        findViewById<EditText>(R.id.Hora).setText(selectedTime)
+        binding.Hora.setText(selectedTime)
     }
 }
