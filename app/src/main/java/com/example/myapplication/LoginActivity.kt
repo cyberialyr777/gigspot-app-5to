@@ -57,6 +57,7 @@ class LoginActivity : AppCompatActivity() {
                                 if(task.isSuccessful){
                                     finish()
                                     startActivity(intent2)
+                                    Toast.makeText(contexto, "Successfully login", Toast.LENGTH_SHORT).show()
                                 }else{
                                     Log.w(TAG, "singInUserWithEmail:failure", task.exception)
                                     Toast.makeText(contexto, "either email or password si wrong", Toast.LENGTH_SHORT).show()
@@ -67,6 +68,7 @@ class LoginActivity : AppCompatActivity() {
                                 if(task.isSuccessful){
                                     finish()
                                     startActivity(intent)
+                                    Toast.makeText(contexto, "Successfully login", Toast.LENGTH_SHORT).show()
                                 }else{
                                     Log.w(TAG, "singInUserWithEmail:failure", task.exception)
                                     Toast.makeText(contexto, "either email or password si wrong", Toast.LENGTH_SHORT).show()

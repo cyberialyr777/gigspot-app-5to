@@ -15,5 +15,5 @@ class EventModelo(
     val idBand: String,
     val emailBand: String,
     val titulo: String,
-    val imagen: Drawable
+    val imagen: String
 )

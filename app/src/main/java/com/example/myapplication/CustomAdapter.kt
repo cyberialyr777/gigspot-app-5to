@@ -47,7 +47,7 @@ class CustomAdapter: RecyclerView.Adapter<CustomAdapter.ViewHolder>(){
                     val evento = snapshot.getValue(EventModelo::class.java)
                     if(evento != null){
                         titles += evento.titulo
-                        images += evento.imagen
+                        //images += evento.imagen
                     }
                 }
             }
