@@ -1,5 +1,6 @@
 package com.example.myapplication
 
+import android.widget.Spinner
 import java.util.SimpleTimeZone
 
 class EventModelo(
@@ -7,6 +8,9 @@ class EventModelo(
     val time: String,
     val place: String,
     val municip: String,
-    val statePrice: Double,
-    val description: String
+    val state: String,
+    val price: String,
+    val description: String,
+    val idBand: String,
+    val emailBand: String
 )

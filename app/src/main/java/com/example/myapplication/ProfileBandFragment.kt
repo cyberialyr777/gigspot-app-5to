@@ -47,21 +47,17 @@ class ProfileBandFragment : Fragment() {
         _binding = FragmentProfileBandBinding.inflate(inflater, container, false)
         val view = binding.root
 
-        binding.cerrarSession.setOnClickListener{
+        binding.button6.setOnClickListener{
             closeSession()
         }
         return view
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+    }
+
     companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment ProfileBandFragment.
-         */
         // TODO: Rename and change types and number of parameters
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
@@ -106,3 +102,5 @@ class ProfileBandFragment : Fragment() {
         Log.d(TAG,"onDestroy :")
     }
 }
+
+

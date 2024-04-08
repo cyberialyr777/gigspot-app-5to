@@ -1,5 +1,6 @@
 package com.example.myapplication
 
+
 import android.widget.Toast
 import android.content.Intent
 import android.os.Bundle
@@ -28,11 +29,23 @@ class ProfileFragment : Fragment() {
         auth = FirebaseAuth.getInstance()
         Log.d(TAG,"onCreate: ")
 
-        binding.cerrarSesion?.setOnClickListener{
+        super.onViewCreated(view, savedInstanceState)
+
+        _binding = FragmentProfileBinding.bind(view)
+
+        // Set click listener for the button
+        binding.button7?.setOnClickListener {
+            startActivity(Intent(requireContext(), EditProfileUserActivity::class.java))
+        }
+
+        binding.button6?.setOnClickListener{
             closeSsion()
         }
         return view
     }
+
+
+
     private fun closeSsion(){
         auth.signOut()
         val intent = Intent(requireContext(), LoginActivity::class.java)
@@ -60,6 +73,10 @@ class ProfileFragment : Fragment() {
         Log.d(TAG,"onStop: ")
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        Log.d(TAG,"onDestroy: ")
+    }
 
     override fun onDestroy() {
         super.onDestroy()
