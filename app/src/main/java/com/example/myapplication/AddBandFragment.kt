@@ -78,7 +78,7 @@ class AddBandFragment : Fragment(), DatePickerDialog.OnDateSetListener, TimePick
             showTimePickerDialog()
         }
         binding.guardarImagen.setOnClickListener {
-            selectImage()
+            pickImageGallery()
         }
 
 
@@ -96,14 +96,27 @@ class AddBandFragment : Fragment(), DatePickerDialog.OnDateSetListener, TimePick
 
         binding.button4.setOnClickListener {
             if(checkAllField()){
-                selectImage()
+
             }
         }
     }
 
+    private fun pickImageGallery() {
+        val intent = Intent(Intent.ACTION_PICK)
+        intent.type = "image/*"
+        startActivityForResult(intent, IMAGE_REQUEST_CODE)
+    }
+
+    @Deprecated("Deprecated in Java")
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if(requestCode == IMAGE_REQUEST_CODE && resultCode == RESULT_OK){
+            binding.imagenSeleccionada.setImageURI(data?.data)
+        }
+    }
 
     private fun addEvent(){
-        uplodeImage()
+
     }
 
     private fun addEventWithImage(imageUrl: String){
@@ -194,52 +207,9 @@ class AddBandFragment : Fragment(), DatePickerDialog.OnDateSetListener, TimePick
         }
         return true
     }
-    private fun selectImage() {
-        val imagesRef = Intent(Intent.ACTION_PICK)
-        val intent = Intent(Intent.ACTION_PICK)
-        intent.type = "image/*"
-        startActivityForResult(intent, 1)
-    }
 
-    @Deprecated("Deprecated in Java")
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
 
-        if (requestCode == 1 && resultCode == RESULT_OK && data != null && data.data != null) {
-            selectedImageUri = data.data
-            addEvent()
-        }
-    }
-    private fun uplodeImage() {
-        selectedImageUri?.let { uri ->
-            val storageRef = FirebaseStorage.getInstance().reference
-            val imagesRef = storageRef.child("images/${uri.lastPathSegment}")
-            val uploadTask = imagesRef.putFile(uri)
-            uploadTask.continueWithTask { task ->
-                if (!task.isSuccessful) {
-                    task.exception?.let {
-                        throw it
-                    }
-                }
-                imagesRef.downloadUrl
-                uploadTask.addOnCompleteListener { task ->
-                    if (task.isSuccessful) {
-                        val downloadUri = task.result
-                        val imageUrl = downloadUri.toString()
-                        addEventWithImage(imageUrl)
-                    }
-                    Toast.makeText(
-                        requireContext(),
-                        "Imagen subida exitosamente",
-                        Toast.LENGTH_SHORT
-                    ).show()
-                }.addOnFailureListener {
-                    Toast.makeText(requireContext(), "Error al subir la imagen", Toast.LENGTH_SHORT)
-                        .show()
-                }
-            }
-        }
-    }
+
     private fun showDatePickerDialog() {
         val calendar = Calendar.getInstance()
         val year = calendar.get(Calendar.YEAR)
@@ -286,6 +256,7 @@ class AddBandFragment : Fragment(), DatePickerDialog.OnDateSetListener, TimePick
     }
 
     companion object {
+        val IMAGE_REQUEST_CODE = 100
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
             AddBandFragment().apply {
