@@ -6,7 +6,6 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.myapplication.databinding.ActivityLoginScreenBinding
 import android.util.Log
-import android.widget.EditText
 import android.widget.Toast
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import com.google.firebase.auth.FirebaseAuth
@@ -51,7 +50,6 @@ class LoginActivity : AppCompatActivity() {
         val email = binding.email?.text.toString().trim()
         val pass = binding.passR?.text.toString()
         val databaseReference = FirebaseDatabase.getInstance().getReference("usuario")
-        select(email, pass)
 
         databaseReference.orderByChild("email").equalTo(email).addListenerForSingleValueEvent(object : ValueEventListener{
             override fun onDataChange(dataSnapshot: DataSnapshot) {
@@ -64,10 +62,7 @@ class LoginActivity : AppCompatActivity() {
                                 if(task.isSuccessful){
                                     finish()
                                     startActivity(intent2)
-                                    Toast.makeText(contexto, "Successfully login", Toast.LENGTH_SHORT).show()
-                                }else{
-                                    Log.w(TAG, "singInUserWithEmail:failure", task.exception)
-                                    startActivity(intent2)
+                                    select(email, pass)
                                     Toast.makeText(contexto, "Successfully login", Toast.LENGTH_SHORT).show()
                                 }
                             }
@@ -76,6 +71,7 @@ class LoginActivity : AppCompatActivity() {
                                 if(task.isSuccessful){
                                     finish()
                                     startActivity(intent)
+                                    select(email, pass)
                                     Toast.makeText(contexto, "Successfully login", Toast.LENGTH_SHORT).show()
                                 }else{
                                     Log.w(TAG, "singInUserWithEmail:failure", task.exception)

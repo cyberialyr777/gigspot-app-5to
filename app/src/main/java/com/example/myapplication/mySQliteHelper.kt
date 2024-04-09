@@ -2,10 +2,12 @@ package com.example.myapplication
 
 import android.content.ContentValues
 import android.content.Context
+import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 
 class mySQliteHelper(context: Context): SQLiteOpenHelper(context,"sessions",null,1) {
+
     companion object {
         private const val TABLE_SESIONES = "sesiones"
         private const val COLUMN_ID = "_id"
@@ -35,11 +37,21 @@ class mySQliteHelper(context: Context): SQLiteOpenHelper(context,"sessions",null
         db.close()
     }
 
-    fun deleteRecordById(id: Int) {
-        val deleteQuery = "DELETE FROM $TABLE_SESIONES WHERE $COLUMN_ID = ?"
-
+    fun deleteSesion(id: Int): Boolean {
         val db = this.writableDatabase
-        db.execSQL(deleteQuery, arrayOf(id.toString()))
+        val whereClause = "$COLUMN_ID = ?"
+        val whereArgs = arrayOf(id.toString())
+
+        val resultado = db.delete(TABLE_SESIONES, whereClause, whereArgs)
         db.close()
+
+        // Devuelve true si se eliminó al menos una fila, de lo contrario, devuelve false
+        return resultado != 0
+    }
+
+    fun gettext(): Cursor? {
+        val db = this.writableDatabase
+        val cursor = db.rawQuery("SELECT * FROM sesiones", null)
+        return cursor
     }
 }
