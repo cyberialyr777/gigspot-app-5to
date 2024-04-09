@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ReceiptTicketActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center">
+
+        <!-- TODO: Update blank fragment layout -->
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="132dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="176dp"
+            android:text="E-ticket"
+            android:textColor="@color/ColorPrincipal"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/imageButton4"
+            app:layout_constraintTop_toTopOf="@+id/imageButton4" />
+
+        <ImageButton
+            android:id="@+id/imageButton4"
+            android:layout_width="39dp"
+            android:layout_height="38dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="24dp"
+            android:background="@drawable/arrow_left"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/qrCode"
+            android:layout_width="400dp"
+            android:layout_height="264dp"
+            android:layout_marginTop="1dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.571"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.307" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="103dp"
+            android:layout_height="35dp"
+            android:layout_marginStart="29dp"
+            android:layout_marginTop="415dp"
+            android:layout_marginEnd="261dp"
+            android:layout_marginBottom="275dp"
+            android:text="@string/event_name_band"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="150dp"
+            android:layout_height="28dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginEnd="157dp"
+            android:text="@string/date"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/imageButton6"
+            app:layout_constraintTop_toTopOf="@+id/imageButton6" />
+
+        <ImageButton
+            android:id="@+id/imageButton6"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginStart="29dp"
+            android:layout_marginTop="477dp"
+            android:background="@drawable/calendar4_frame"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageButton
+            android:id="@+id/imageButton7"
+            android:layout_width="28dp"
+            android:layout_height="26dp"
+            android:layout_marginTop="28dp"
+            android:background="@drawable/clock"
+            app:layout_constraintEnd_toEndOf="@+id/imageButton6"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/imageButton6"
+            app:layout_constraintTop_toBottomOf="@+id/imageButton6" />
+
+        <TextView
+            android:id="@+id/textView9"
+            android:layout_width="150dp"
+            android:layout_height="28dp"
+            android:layout_marginStart="36dp"
+            android:layout_marginEnd="163dp"
+            android:text="@string/time"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/imageButton7"
+            app:layout_constraintTop_toTopOf="@+id/imageButton7" />
+
+        <ImageButton
+            android:id="@+id/imageButton8"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginTop="32dp"
+            android:background="@drawable/geo_alt"
+            app:layout_constraintEnd_toEndOf="@+id/imageButton7"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/imageButton7"
+            app:layout_constraintTop_toBottomOf="@+id/imageButton7" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="224dp"
+            android:layout_height="32dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginEnd="88dp"
+            android:text="@string/place"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/imageButton8"
+            app:layout_constraintTop_toTopOf="@+id/imageButton8" />
+
+        <TextView
+            android:id="@+id/sector"
+            android:layout_width="103dp"
+            android:layout_height="35dp"
+            android:layout_marginStart="27dp"
+            android:layout_marginTop="638dp"
+            android:text="Sector"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/seat"
+            android:layout_width="103dp"
+            android:layout_height="35dp"
+            android:layout_marginTop="16dp"
+            android:text="Seat"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/sector"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/sector"
+            app:layout_constraintTop_toBottomOf="@+id/sector" />
+
+        <TextView
+            android:id="@+id/sector_db"
+            android:layout_width="103dp"
+            android:layout_height="35dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="136dp"
+            android:text="VIP"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/sector"
+            app:layout_constraintTop_toTopOf="@+id/sector" />
+
+        <TextView
+            android:id="@+id/seat_db"
+            android:layout_width="103dp"
+            android:layout_height="35dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="136dp"
+            android:text="19"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/seat"
+            app:layout_constraintTop_toTopOf="@+id/seat" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
