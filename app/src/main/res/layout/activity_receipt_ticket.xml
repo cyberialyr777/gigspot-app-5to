@@ -50,7 +50,7 @@
             app:layout_constraintVertical_bias="0.307" />
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/nombre_banda"
             android:layout_width="103dp"
             android:layout_height="35dp"
             android:layout_marginStart="29dp"
@@ -144,7 +144,7 @@
             android:layout_height="35dp"
             android:layout_marginStart="27dp"
             android:layout_marginTop="638dp"
-            android:text="Sector"
+            android:text="Zone"
             android:textColor="@color/black"
             android:textSize="20sp"
             android:textStyle="bold"
