@@ -89,54 +89,20 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
-            android:id="@+id/email"
-            android:layout_width="306dp"
-            android:layout_height="40dp"
-            android:layout_marginTop="48dp"
-            android:background="@drawable/custum_for_input_text"
-            android:drawableStart="@drawable/mail_icon"
-            android:drawablePadding="12dp"
-            android:hint="@string/emailR"
-            android:inputType="text"
-            android:paddingStart="12dp"
-            app:layout_constraintEnd_toEndOf="@+id/firstName"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="@+id/firstName"
-            app:layout_constraintTop_toBottomOf="@+id/firstName"
-            tools:ignore="TextFields" />
-
-        <EditText
             android:id="@+id/descripcion"
             android:layout_width="306dp"
             android:layout_height="40dp"
-            android:layout_marginTop="52dp"
+            android:layout_marginTop="36dp"
             android:background="@drawable/custum_for_input_text"
             android:drawableStart="@drawable/baseline_add_comment_24"
             android:drawablePadding="12dp"
             android:hint="Description"
             android:inputType="textPassword"
             android:paddingStart="12dp"
-            app:layout_constraintEnd_toEndOf="@+id/password"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="@+id/password"
-            app:layout_constraintTop_toBottomOf="@+id/password"
+            app:layout_constraintEnd_toEndOf="@+id/firstName"
+            app:layout_constraintStart_toStartOf="@+id/firstName"
+            app:layout_constraintTop_toBottomOf="@+id/firstName"
             tools:ignore="TextFields" />
-
-        <EditText
-            android:id="@+id/password"
-            android:layout_width="306dp"
-            android:layout_height="40dp"
-            android:layout_marginTop="44dp"
-            android:background="@drawable/custum_for_input_text"
-            android:drawableStart="@drawable/key_password_icon"
-            android:drawablePadding="12dp"
-            android:hint="@string/passwordR"
-            android:inputType="textPassword"
-            android:paddingStart="12dp"
-            app:layout_constraintEnd_toEndOf="@+id/email"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="@+id/email"
-            app:layout_constraintTop_toBottomOf="@+id/email" />
 
         <Button
             android:id="@+id/button4"

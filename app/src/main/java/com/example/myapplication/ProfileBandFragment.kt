@@ -10,6 +10,10 @@ import android.view.ViewGroup
 import android.widget.Toast
 import com.example.myapplication.databinding.FragmentProfileBandBinding
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -46,6 +50,10 @@ class ProfileBandFragment : Fragment() {
         // Inflate the layout for this fragment
         _binding = FragmentProfileBandBinding.inflate(inflater, container, false)
         val view = binding.root
+        datosUsuario()
+        binding.button7.setOnClickListener {
+            startActivity(Intent(requireContext(),EditProfileBandActivity::class.java))
+        }
 
         binding.button6.setOnClickListener{
             closeSession()
@@ -55,6 +63,22 @@ class ProfileBandFragment : Fragment() {
 
     override fun onDestroyView() {
         super.onDestroyView()
+    }
+
+    private fun datosUsuario(){
+        val databaseReference = FirebaseDatabase.getInstance().getReference("usuario")
+        databaseReference.orderByChild("email").equalTo(auth.currentUser?.email).addListenerForSingleValueEvent(object :
+            ValueEventListener {
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+                for(snapshot in dataSnapshot.children){
+                    val usuario = snapshot.getValue(BandaModelo::class.java)
+                    binding.nombre?.text = usuario?.bandName
+                }
+            }
+            override fun onCancelled(error: DatabaseError) {
+                TODO("Not yet implemented")
+            }
+        })
     }
 
     companion object {
