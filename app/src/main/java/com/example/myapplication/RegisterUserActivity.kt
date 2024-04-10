@@ -16,7 +16,7 @@ import com.google.firebase.database.FirebaseDatabase
 class RegisterUserActivity : AppCompatActivity(){
     private lateinit var binding: ActivityRegisterUserBinding
     private lateinit var database : DatabaseReference
-    private lateinit var auth: FirebaseAuth
+    private lateinit var Auth: FirebaseAuth
     val TAG = "RegisterUserActivity"
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -24,48 +24,46 @@ class RegisterUserActivity : AppCompatActivity(){
         binding = ActivityRegisterUserBinding.inflate(layoutInflater)
         setContentView(binding.root)
         Log.d(TAG,"onCreate: ")
+        Auth = FirebaseAuth.getInstance()
 
-        auth = Firebase.auth
+        binding.button4.setOnClickListener() {
+            if (checkAllField()) {
+                crateAcount()
+            }
+        }
+    }
 
-        binding.button4.setOnClickListener(){
-            val email = binding.email!!.text.toString()
-            val pass = binding.password!!.text.toString()
-            val nombre = binding.firstName!!.text.toString()
-            val apellido = binding.userlastName!!.text.toString()
-            val userName = binding.userName!!.text.toString()
+    private fun crateAcount(){
+        val email = binding.email?.text.toString().trim()
+        val pass = binding.password?.text.toString().trim()
+        val nombre = binding.firstName?.text.toString().trim()
+        val apellido = binding.userlastName?.text.toString().trim()
+        val userName = binding.userName?.text.toString().trim()
+        val userType = 0
 
-            if(checkAllField()) {
+        Auth.createUserWithEmailAndPassword(email,pass).addOnCompleteListener(RegisterUserActivity()) { task ->
+            if (task.isSuccessful) {
+                Toast.makeText(this, "Successfully Register", Toast.LENGTH_SHORT).show()
                 database = FirebaseDatabase.getInstance().getReference("usuario")
-                val user = UsuariosModelos(userName, nombre, apellido, pass, email)
+                val user = UsuariosModelos(userName, nombre, apellido, pass, email, userType)
                 database.child(userName).setValue(user).addOnSuccessListener {
-                    Toast.makeText(this, "Successfuly Register", Toast.LENGTH_SHORT).show()
+                    finish()
+                    startActivity(Intent(this, LoginActivity::class.java))
                 }.addOnFailureListener {
                     Toast.makeText(this, "Failed while Saved", Toast.LENGTH_SHORT).show()
                 }
-                auth.createUserWithEmailAndPassword(email, pass).addOnCompleteListener() {
-                    val usuario = auth.currentUser
-                    updateUI(usuario)
-                    finish()
-                    startActivity(Intent(this, LoginActivity::class.java))
-                }
-
+            }else{
+                Log.w(TAG, "createUserWithEmail:failure", task.exception)
+                Toast.makeText(this, task.exception!!.message, Toast.LENGTH_SHORT).show()
+                updateUI(null)
             }
-
         }
-
-        binding.password!!.inputType = android.text.InputType.TYPE_CLASS_TEXT or android.text.InputType.TYPE_TEXT_VARIATION_PASSWORD
-        binding.passwordConf!!.inputType = android.text.InputType.TYPE_CLASS_TEXT or android.text.InputType.TYPE_TEXT_VARIATION_PASSWORD
     }
-
     private fun updateUI(usuario: FirebaseUser?){
     }
 
     private fun checkAllField(): Boolean{
         val e_mail = binding.email!!.text.toString()
-        if(binding.email!!.text.toString() == ""){
-            binding.email!!.error = "this field is required"
-            return false
-        }
         if(binding.firstName!!.text.toString() == ""){
             binding.firstName!!.error = "this field is required"
             return false
@@ -76,6 +74,10 @@ class RegisterUserActivity : AppCompatActivity(){
         }
         if(binding.userName!!.text.toString() == ""){
             binding.userName!!.error = "this field is required"
+            return false
+        }
+        if(binding.email!!.text.toString() == ""){
+            binding.email!!.error = "this field is required"
             return false
         }
         if(binding.password!!.text.toString() == ""){

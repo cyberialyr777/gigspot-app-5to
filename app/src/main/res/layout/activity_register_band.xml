@@ -3,8 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".RegisterBandActivity">
+    android:layout_height="match_parent">
 
     <EditText
         android:id="@+id/bandName"
@@ -24,7 +23,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/sendButton"
+        android:id="@+id/Button"
         android:layout_width="115dp"
         android:layout_height="46dp"
         android:layout_marginStart="148dp"
@@ -48,7 +47,7 @@
         android:drawableStart="@drawable/key_password_icon"
         android:drawablePadding="12dp"
         android:hint="@string/password"
-        android:inputType="text"
+        android:inputType="textPassword"
         android:paddingStart="12dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -95,7 +94,7 @@
         android:drawableStart="@drawable/key_password_icon"
         android:drawablePadding="12dp"
         android:hint="@string/passwordRconf"
-        android:inputType="text"
+        android:inputType="textPassword"
         android:paddingStart="12dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

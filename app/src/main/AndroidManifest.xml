@@ -43,6 +43,9 @@
             android:name=".TicketActivity"
             android:exported="false" />
         <activity
+            android:name=".SessionesActivity"
+            android:exported="false" />
+        <activity
             android:name=".EventsActivity"
             android:exported="false"
             android:label="@string/title_activity_events"
@@ -71,5 +74,4 @@
             </intent-filter>
         </activity>
     </application>
-
 </manifest>
