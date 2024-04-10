@@ -36,7 +36,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/passR"
+        android:id="@+id/pasword"
         android:layout_width="306dp"
         android:layout_height="40dp"
         android:layout_marginStart="52dp"
@@ -46,14 +46,14 @@
         android:drawableStart="@drawable/key_password_icon"
         android:drawablePadding="12dp"
         android:hint="@string/password"
-        android:inputType="textPassword"
+        android:inputType="text"
         android:paddingStart="12dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/email"
+        android:id="@+id/UserName"
         android:layout_width="306dp"
         android:layout_height="40dp"
         android:layout_marginStart="53dp"
@@ -62,8 +62,8 @@
         android:background="@drawable/custum_for_input_text"
         android:drawableStart="@drawable/person"
         android:drawablePadding="12dp"
-        android:hint="@string/emailR"
-        android:inputType="textEmailAddress"
+        android:hint="@string/userName"
+        android:inputType="text"
         android:paddingStart="12dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -109,14 +109,28 @@
         app:layout_constraintStart_toEndOf="@+id/textView3" />
 
     <Button
-        android:id="@+id/sesiones"
+        android:id="@+id/Prueba"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="44dp"
-        android:layout_marginBottom="32dp"
-        android:text="sesiones iniciadas anteriormente"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/custom_for_buttons"
+        android:text="Prueba"
         android:textColor="@color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/Prueba1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="47dp"
+        android:layout_marginEnd="151dp"
+        android:background="@drawable/custom_for_buttons"
+        android:text="Band"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/Prueba"
+        app:layout_constraintTop_toTopOf="@+id/Prueba" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
