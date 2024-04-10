@@ -29,24 +29,21 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <EditText
-            android:id="@+id/Apellido"
+        <androidx.appcompat.widget.SearchView
+            android:id="@+id/buscador"
             android:layout_width="323dp"
             android:layout_height="40dp"
             android:layout_marginStart="35dp"
-            android:layout_marginTop="89dp"
+            android:layout_marginTop="33dp"
             android:layout_marginEnd="35dp"
             android:layout_marginBottom="437dp"
             android:background="@drawable/custum_for_input_text"
-            android:drawableStart="@drawable/search"
             android:drawablePadding="12dp"
-            android:hint="Search all events..."
-            android:inputType="text"
             android:paddingStart="12dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/textView" />
 
         <ImageButton
             android:id="@+id/imageButton"
@@ -64,22 +61,11 @@
             android:id="@+id/eventoRecycler"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
+            android:layout_marginTop="30dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/showRecycler" />
-
-        <Button
-            android:id="@+id/showRecycler"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:text="Reload"
-            android:textColor="@color/white"
-            app:layout_constraintEnd_toEndOf="@+id/Apellido"
-            app:layout_constraintStart_toStartOf="@+id/Apellido"
-            app:layout_constraintTop_toBottomOf="@+id/Apellido" />
+            app:layout_constraintTop_toBottomOf="@+id/buscador" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,5 +1,6 @@
 package com.example.myapplication
 
+import android.content.DialogInterface.OnClickListener
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -7,26 +8,20 @@ import android.widget.Button
 import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 
-class CustomAdapterEventsBand (private val eventoList: ArrayList<EventModelo>): RecyclerView.Adapter<CustomAdapterEventsBand.MyViewHolderSession>(){
+class CustomAdapterEventsBand (private val eventoList:ArrayList<Event>, private val onClickListener:(Event)->Unit): RecyclerView.Adapter<EventViewHolder>(){
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolderSession {
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): EventViewHolder {
         val itemView = LayoutInflater.from(parent.context).inflate(R.layout.card_eventos,parent,false)
-        return MyViewHolderSession(itemView)
+        return EventViewHolder(itemView)
     }
 
-    override fun onBindViewHolder(holder: MyViewHolderSession, position: Int) {
+    override fun onBindViewHolder(holder: EventViewHolder, position: Int) {
         val curretItem = eventoList[position]
-        holder.fecha.text = curretItem.date
-        holder.seleccion.text = curretItem.titulo
+        holder.render(curretItem,onClickListener)
     }
 
     override fun getItemCount(): Int {
         return eventoList.size
-    }
-
-    class MyViewHolderSession (itemView: View): RecyclerView.ViewHolder(itemView){
-        var fecha : Button = itemView.findViewById(R.id.fechaEvento)
-        var seleccion : Button = itemView.findViewById(R.id.entrarEvento)
-        val imagen : ImageView = itemView.findViewById(R.id.imagenSeleccionada)
     }
 }
