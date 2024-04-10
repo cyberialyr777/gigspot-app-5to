@@ -75,7 +75,7 @@
             app:layout_constraintTop_toTopOf="@+id/spinner" />
 
         <Button
-            android:id="@+id/buttonPurchase"
+            android:id="@+id/ButtonPurchase"
             android:layout_width="143dp"
             android:layout_height="38dp"
             android:layout_marginStart="42dp"
