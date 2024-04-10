@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".HomeFragment">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/imageView2"
+            android:layout_width="378dp"
+            android:layout_height="264dp"
+            android:layout_marginStart="176dp"
+            android:layout_marginTop="124dp"
+            android:layout_marginEnd="177dp"
+            android:layout_marginBottom="343dp"
+            android:src="@drawable/tickets"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="134dp"
+            android:layout_height="56dp"
+            android:layout_marginStart="80dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/event_name_band"
+            android:textColor="@color/ColorPrincipal"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Spinner
+            android:id="@+id/spinner"
+            android:layout_width="153dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="176dp"
+            android:layout_marginTop="448dp"
+            android:background="@drawable/spinner_border"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Spinner
+            android:id="@+id/spinner1"
+            android:layout_width="153dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="129dp"
+            android:layout_marginTop="499dp"
+            android:layout_marginEnd="129dp"
+            android:layout_marginBottom="208dp"
+            android:background="@drawable/spinner_border"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Spinner
+            android:id="@+id/spinner2"
+            android:layout_width="153dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="72dp"
+            android:layout_marginEnd="177dp"
+            android:background="@drawable/spinner_border"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/spinner"
+            app:layout_constraintTop_toTopOf="@+id/spinner" />
+
+        <Button
+            android:id="@+id/buttonPurchase"
+            android:layout_width="143dp"
+            android:layout_height="38dp"
+            android:layout_marginStart="92dp"
+            android:layout_marginEnd="177dp"
+            android:background="@drawable/custom_for_buttons"
+            android:text="@string/purchase"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/buttonCancel"
+            app:layout_constraintTop_toTopOf="@+id/buttonCancel" />
+
+        <Button
+            android:id="@+id/buttonCancel"
+            android:layout_width="143dp"
+            android:layout_height="38dp"
+            android:layout_marginStart="176dp"
+            android:layout_marginTop="564dp"
+            android:background="@drawable/cancel_button"
+            android:text="@string/cancel"
+            android:textColor="@color/ColorPrincipal"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageButton
+            android:id="@+id/imageButton4"
+            android:layout_width="31dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/arrow_left"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

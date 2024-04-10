@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ProfileFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="132dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="130dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="131dp"
+            android:layout_marginBottom="809dp"
+            android:gravity="center"
+            android:text="@string/gigspot"
+            android:textColor="@color/ColorPrincipal"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <Spinner
+            android:id="@+id/spinner6"
+            android:layout_width="305dp"
+            android:layout_height="41dp"
+            android:layout_marginTop="28dp"
+            android:background="@drawable/custom_input_spinner"
+            android:drawableStart="@drawable/baseline_add_location_24"
+            android:drawablePadding="12dp"
+            android:hint="Place"
+            android:paddingStart="12dp"
+            app:layout_constraintEnd_toEndOf="@+id/time"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="@+id/time"
+            app:layout_constraintTop_toBottomOf="@+id/time" />
+
+        <Spinner
+            android:id="@+id/spinner7"
+            android:layout_width="305dp"
+            android:layout_height="41dp"
+            android:layout_marginTop="28dp"
+            android:background="@drawable/custom_input_spinner"
+            android:drawableStart="@drawable/baseline_add_location_24"
+            android:drawablePadding="12dp"
+            android:hint="Place"
+            android:paddingStart="12dp"
+            app:layout_constraintEnd_toEndOf="@+id/spinner6"
+            app:layout_constraintHorizontal_bias="0.916"
+            app:layout_constraintStart_toStartOf="@+id/spinner6"
+            app:layout_constraintTop_toBottomOf="@+id/spinner6" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="383dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="83dp"
+            android:layout_marginTop="108dp"
+            android:layout_marginEnd="80dp"
+            android:gravity="center"
+            android:text="Complete the form to add an event"
+            android:textColor="@color/ColorPrincipal"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.503"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/Fecha"
+            android:layout_width="306dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="53dp"
+            android:layout_marginTop="192dp"
+            android:layout_marginEnd="52dp"
+            android:background="@drawable/custum_for_input_text"
+            android:clickable="true"
+            android:drawableStart="@drawable/calendar4_gray"
+            android:drawablePadding="12dp"
+            android:focusable="false"
+            android:hint="Date"
+            android:inputType="none"
+            android:paddingStart="12dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <Spinner
+            android:id="@+id/spinner8"
+            android:layout_width="305dp"
+            android:layout_height="41dp"
+            android:layout_marginTop="28dp"
+            android:background="@drawable/custom_input_spinner"
+            android:drawableStart="@drawable/baseline_add_location_24"
+            android:drawablePadding="12dp"
+            android:hint="Place"
+            android:paddingStart="12dp"
+            app:layout_constraintEnd_toEndOf="@+id/spinner7"
+            app:layout_constraintHorizontal_bias="0.916"
+            app:layout_constraintStart_toStartOf="@+id/spinner7"
+            app:layout_constraintTop_toBottomOf="@+id/spinner7" />
+
+        <EditText
+            android:id="@+id/passwordConf"
+            android:layout_width="306dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="28dp"
+            android:background="@drawable/custum_for_input_text"
+            android:drawableStart="@drawable/baseline_attach_money_24_gray"
+            android:drawablePadding="12dp"
+            android:hint="Price"
+            android:inputType="text"
+            android:paddingStart="12dp"
+            app:layout_constraintEnd_toEndOf="@+id/spinner8"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="@+id/spinner8"
+            app:layout_constraintTop_toBottomOf="@+id/spinner8" />
+
+        <EditText
+            android:id="@+id/titulo"
+            android:layout_width="306dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="32dp"
+            android:background="@drawable/custum_for_input_text"
+            android:drawableStart="@drawable/baseline_celebration_24"
+            android:drawablePadding="12dp"
+            android:hint="Title of event"
+            android:inputType="textPassword"
+            android:paddingStart="12dp"
+            app:layout_constraintEnd_toEndOf="@+id/passwordConf"
+            app:layout_constraintHorizontal_bias="0.916"
+            app:layout_constraintStart_toStartOf="@+id/passwordConf"
+            app:layout_constraintTop_toBottomOf="@+id/passwordConf"
+            tools:ignore="TextFields" />
+
+        <EditText
+            android:id="@+id/descripcion"
+            android:layout_width="306dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="32dp"
+            android:background="@drawable/custum_for_input_text"
+            android:drawableStart="@drawable/baseline_add_comment_24"
+            android:drawablePadding="12dp"
+            android:hint="Description"
+            android:inputType="textPassword"
+            android:paddingStart="12dp"
+            app:layout_constraintEnd_toEndOf="@+id/titulo"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="@+id/titulo"
+            app:layout_constraintTop_toBottomOf="@+id/titulo"
+            tools:ignore="TextFields" />
+
+        <Button
+            android:id="@+id/button4"
+            android:layout_width="155dp"
+            android:layout_height="47dp"
+            android:layout_marginStart="128dp"
+            android:layout_marginTop="809dp"
+            android:layout_marginEnd="128dp"
+            android:layout_marginBottom="15dp"
+            android:background="@drawable/custom_for_buttons"
+            android:text="Add event"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Space
+            android:id="@+id/spaceBelowButton"
+            android:layout_width="wrap_content"
+            android:layout_height="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/button4"
+            app:layout_constraintVertical_bias="1" />
+
+        <Button
+            android:id="@+id/guardar_imagen"
+            android:layout_width="237dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="748dp"
+            android:background="@drawable/custom_for_buttons"
+            android:text="Add picture event"
+            android:textColor="@color/white"
+            app:layout_constraintStart_toStartOf="@+id/descripcion"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/time"
+            android:layout_width="306dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="28dp"
+            android:background="@drawable/custum_for_input_text"
+            android:drawableStart="@drawable/baseline_access_time_filled_24"
+            android:drawablePadding="12dp"
+            android:hint="Time"
+            android:inputType="text"
+            android:paddingStart="12dp"
+            app:layout_constraintEnd_toEndOf="@+id/Fecha"
+            app:layout_constraintHorizontal_bias="0.833"
+            app:layout_constraintStart_toStartOf="@+id/Fecha"
+            app:layout_constraintTop_toBottomOf="@+id/Fecha" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>
