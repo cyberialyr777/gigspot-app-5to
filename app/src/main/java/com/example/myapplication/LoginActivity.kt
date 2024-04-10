@@ -1,5 +1,6 @@
 package com.example.myapplication
 
+import android.content.Context
 import android.content.Intent
 import android.database.sqlite.SQLiteDatabase
 import android.os.Bundle
@@ -89,6 +90,58 @@ class LoginActivity : AppCompatActivity() {
             }
         })
     }
+
+    private fun typeACount2(email: String, context: Context){
+        val intent = Intent(this, BandMenuActivity::class.java)
+        val intent2 = Intent(this, BottomNavigationActivity::class.java)
+        val databaseReference = FirebaseDatabase.getInstance().getReference("usuario")
+
+        Log.w(TAG, "during the function")
+        databaseReference.orderByChild("email").equalTo(email).addListenerForSingleValueEvent(object : ValueEventListener{
+            override fun onDataChange(dataSnapshot: DataSnapshot){
+                Log.w(TAG, "$email")
+                for(snapshot in dataSnapshot.children){
+                    Log.w(TAG, "during for")
+                    val usuario = snapshot.getValue(UsuariosModelos::class.java)
+                    if(usuario != null){
+                        Log.w(TAG, "during first if")
+                        if(usuario.userType == 0){
+                            Log.w(TAG, "during first second if")
+                            auth.signInWithEmailAndPassword(email,usuario.password!!).addOnCompleteListener(){task ->
+                                Log.w(TAG, "after auth")
+                                if(task.isSuccessful){
+                                    Log.w(TAG, "succesful")
+                                    intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                                    startActivity(intent2)
+                                    Toast.makeText(context, "Successfully login", Toast.LENGTH_SHORT).show()
+                                }
+                            }
+                        }else if(usuario.userType == 1){
+                            Log.w(TAG, "during first second if")
+                            auth.signInWithEmailAndPassword(email,usuario.password!!).addOnCompleteListener(){task ->
+                                Log.w(TAG, "after auth")
+                                if(task.isSuccessful){
+                                    Log.w(TAG, "succesful 2")
+                                    intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                                    startActivity(intent)
+                                    Toast.makeText(context, "Successfully login", Toast.LENGTH_SHORT).show()
+                                }else{
+                                    Log.w(TAG, "singInUserWithEmail:failure", task.exception)
+                                    Toast.makeText(context, "either email or password si wrong", Toast.LENGTH_SHORT).show()
+                                }
+                            }
+                        }
+                    }else{
+                        Toast.makeText(context, "Couldn't find the user", Toast.LENGTH_SHORT).show()
+                    }
+                }
+            }
+            override fun onCancelled(error: DatabaseError) {
+                Log.e("TAG", "Error al consultar la base de datos")
+            }
+        })
+    }
+
     private fun select(email: String, pass: String){
         val db : SQLiteDatabase = sesionesDBHelper.readableDatabase
         val query = "SELECT * FROM sesiones WHERE email = ?"
@@ -118,7 +171,14 @@ class LoginActivity : AppCompatActivity() {
     }
 
     override fun onResume(){
+        val email = FirebaseAuth.getInstance().currentUser?.email
         super.onResume()
+
+        FirebaseAuth.getInstance().currentUser?.apply {
+            typeACount2(email!!, this@LoginActivity)
+            finish()
+        }
+
         Log.d(TAG,"onResume: ")
     }
 
