@@ -40,20 +40,25 @@
             android:id="@+id/textView"
             android:layout_width="103dp"
             android:layout_height="35dp"
+            android:layout_marginStart="22dp"
+            android:layout_marginEnd="192dp"
             android:text="@string/event_name_band"
             android:textColor="@color/black"
             android:textSize="20sp"
             android:textStyle="bold"
-            tools:layout_editor_absoluteX="98dp"
-            tools:layout_editor_absoluteY="328dp" />
+            app:layout_constraintBottom_toBottomOf="@+id/imageButton3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/imageButton3" />
 
         <ImageButton
             android:id="@+id/imageButton3"
             android:layout_width="61dp"
             android:layout_height="57dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="315dp"
             android:background="@drawable/account_circle"
-            tools:layout_editor_absoluteX="15dp"
-            tools:layout_editor_absoluteY="315dp" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
 
         <TextView
