@@ -1,26 +1,33 @@
 package com.example.myapplication
 
+import android.annotation.SuppressLint
 import android.content.Intent
+import android.database.Cursor
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.ImageView
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [HomeBandFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class HomeBandFragment : Fragment() {
-    // TODO: Rename and change types of parameters
+    val TAG = "AdapterEventos"
+    private lateinit var newArray: ArrayList<EventModelo>
+    private lateinit var recyclerView: RecyclerView
+    private lateinit var dbreferes : DatabaseReference
     private var param1: String? = null
     private var param2: String? = null
 
@@ -32,36 +39,28 @@ class HomeBandFragment : Fragment() {
         }
     }
 
+    @SuppressLint("MissingInflatedId")
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home_band, container, false)
+        val view = inflater.inflate(R.layout.fragment_home_band, container, false)
+        val reload = view.findViewById<Button>(R.id.showRecycler)
+        recyclerView = view.findViewById(R.id.eventoRecycler)
+        recyclerView.layoutManager = LinearLayoutManager(requireContext())
+        recyclerView.hasFixedSize()
+        newArray = arrayListOf<EventModelo>()
+        reload.setOnClickListener {
+            displayUser()
+        }
+        return view
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // Obtener referencia al ImageView
-        val imageView2: ImageView = view.findViewById(R.id.imageView2)
-
-        // Agregar un click listener al imageView2
-        imageView2.setOnClickListener {
-            // Cuando se hace clic en imageView2, iniciar la EventsActivity
-            val intent = Intent(requireActivity(), EventBandActivity::class.java)
-            startActivity(intent)
-        }
     }
     companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment HomeBandFragment.
-         */
         // TODO: Rename and change types and number of parameters
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
@@ -72,4 +71,23 @@ class HomeBandFragment : Fragment() {
                 }
             }
     }
+
+    private fun displayUser() {
+        dbreferes = FirebaseDatabase.getInstance().getReference("eventos")
+        dbreferes.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                if(snapshot.exists()){
+                    for (itemSnapshot in snapshot.children) {
+                        val evento = itemSnapshot.getValue(EventModelo::class.java)
+                        newArray.add(evento!!)
+                    }
+                    recyclerView.adapter = CustomAdapterEventsBand(newArray)
+                }
+            }
+            override fun onCancelled(databaseError: DatabaseError) {
+                Log.e("Firebase", "Error al obtener datos: ${databaseError.message}")
+            }
+        })
+    }
+
 }

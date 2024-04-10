@@ -60,34 +60,26 @@
             app:layout_constraintHorizontal_bias="0.078"
             app:layout_constraintStart_toEndOf="@+id/textView" />
 
-        <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/imageView2"
-            android:layout_width="322dp"
-            android:layout_height="476dp"
-            android:layout_marginStart="45dp"
-            android:layout_marginTop="45dp"
-            android:layout_marginEnd="44dp"
-            android:layout_marginBottom="45dp"
-            android:src="@drawable/concert"
-            app:layout_constraintBottom_toBottomOf="parent"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/eventoRecycler"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/showRecycler" />
 
         <Button
-            android:id="@+id/button6"
-            android:layout_width="322dp"
+            android:id="@+id/showRecycler"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="45dp"
-            android:layout_marginTop="356dp"
-            android:layout_marginEnd="44dp"
-            android:layout_marginBottom="162dp"
-            android:text="@string/concert"
+            android:layout_marginTop="4dp"
+            android:text="Reload"
             android:textColor="@color/white"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintEnd_toEndOf="@+id/Apellido"
+            app:layout_constraintStart_toStartOf="@+id/Apellido"
+            app:layout_constraintTop_toBottomOf="@+id/Apellido" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
