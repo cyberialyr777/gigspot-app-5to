@@ -38,7 +38,6 @@ class HomeBandFragment : Fragment(), SearchView.OnQueryTextListener {
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentHomeBandBinding.inflate(inflater,container,false)
-
         return binding.root
     }
 

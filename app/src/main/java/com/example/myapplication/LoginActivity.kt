@@ -10,6 +10,7 @@ import android.util.Log
 import android.widget.Toast
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
@@ -171,14 +172,12 @@ class LoginActivity : AppCompatActivity() {
     }
 
     override fun onResume(){
-        val email = FirebaseAuth.getInstance().currentUser?.email
+        val intent = Intent(this,CheckingSessionActivity::class.java)
         super.onResume()
-
         FirebaseAuth.getInstance().currentUser?.apply {
-            typeACount2(email!!, this@LoginActivity)
+            startActivity(intent)
             finish()
         }
-
         Log.d(TAG,"onResume: ")
     }
 
@@ -202,4 +201,3 @@ class LoginActivity : AppCompatActivity() {
         Log.d(TAG,"onDestroy :")
     }
 }
-
