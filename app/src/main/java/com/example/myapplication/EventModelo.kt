@@ -1,6 +1,7 @@
 package com.example.myapplication
 
 class EventModelo(
+    val id: String,
     val date: String,
     val time: String,
     val place: String,
@@ -10,8 +11,6 @@ class EventModelo(
     val emailBand: String,
     val titulo: String,
     val imagen: String
-){
-    constructor() : this("", "", "", "", "", "", "", "", "")
-}
+)
 
 

@@ -1,6 +1,7 @@
 package com.example.myapplication
 
 data class Event (
+    val id: String ?= null,
     val date: String ?= null,
     val time: String ?= null,
     val place: String ?= null,
@@ -10,6 +11,4 @@ data class Event (
     val emailBand: String ?= null,
     val titulo: String ?= null,
     val imagen: String ?= null
-){
-    constructor() : this(null, null, null, null, null, null, null, null, null)
-}
+)
