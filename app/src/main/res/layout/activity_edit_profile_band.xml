@@ -61,7 +61,7 @@
             android:layout_width="306dp"
             android:layout_height="40dp"
             android:layout_marginStart="53dp"
-            android:layout_marginTop="236dp"
+            android:layout_marginTop="216dp"
             android:layout_marginEnd="52dp"
             android:background="@drawable/custum_for_input_text"
             android:drawableStart="@drawable/band_icon"
@@ -70,6 +70,7 @@
             android:inputType="text"
             android:paddingStart="12dp"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -89,19 +90,98 @@
             app:layout_constraintTop_toBottomOf="@+id/firstName"
             tools:ignore="TextFields" />
 
+        <EditText
+            android:id="@+id/spotify"
+            android:layout_width="306dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="32dp"
+            android:background="@drawable/custum_for_input_text"
+            android:drawableStart="@drawable/spotify_gray"
+            android:drawablePadding="12dp"
+            android:hint="Spotify link"
+            android:inputType="textPassword"
+            android:paddingStart="12dp"
+            app:layout_constraintEnd_toEndOf="@+id/descripcion"
+            app:layout_constraintHorizontal_bias="0.833"
+            app:layout_constraintStart_toStartOf="@+id/descripcion"
+            app:layout_constraintTop_toBottomOf="@+id/descripcion"
+            tools:ignore="TextFields" />
+
+        <EditText
+            android:id="@+id/youtube"
+            android:layout_width="306dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="32dp"
+            android:background="@drawable/custum_for_input_text"
+            android:drawableStart="@drawable/youtube_gray"
+            android:drawablePadding="12dp"
+            android:hint="YouTube link"
+            android:inputType="textPassword"
+            android:paddingStart="12dp"
+            app:layout_constraintEnd_toEndOf="@+id/instagram"
+            app:layout_constraintHorizontal_bias="0.833"
+            app:layout_constraintStart_toStartOf="@+id/instagram"
+            app:layout_constraintTop_toBottomOf="@+id/instagram"
+            tools:ignore="TextFields" />
+
+        <EditText
+            android:id="@+id/instagram"
+            android:layout_width="306dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="32dp"
+            android:background="@drawable/custum_for_input_text"
+            android:drawableStart="@drawable/instagram_gray"
+            android:drawablePadding="12dp"
+            android:hint="Instagram link"
+            android:inputType="textPassword"
+            android:paddingStart="12dp"
+            app:layout_constraintEnd_toEndOf="@+id/spotify"
+            app:layout_constraintHorizontal_bias="0.25"
+            app:layout_constraintStart_toStartOf="@+id/spotify"
+            app:layout_constraintTop_toBottomOf="@+id/spotify"
+            tools:ignore="TextFields" />
+
         <Button
             android:id="@+id/button4"
             android:layout_width="115dp"
             android:layout_height="46dp"
             android:layout_marginStart="148dp"
-            android:layout_marginTop="600dp"
+            android:layout_marginTop="668dp"
             android:layout_marginEnd="148dp"
             android:background="@drawable/custom_for_buttons"
             android:text="Save"
             android:textColor="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <Space
+            android:id="@+id/spaceBelowButton"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/button4"
+            app:layout_constraintVertical_bias="1" />
+
+        <Button
+            android:id="@+id/button_add_photo"
+            android:layout_width="271dp"
+            android:layout_height="52dp"
+            android:layout_marginStart="70dp"
+            android:layout_marginTop="587dp"
+            android:layout_marginEnd="70dp"
+            android:layout_marginBottom="75dp"
+            android:background="@drawable/custom_for_buttons"
+            android:text="Add background photo"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
