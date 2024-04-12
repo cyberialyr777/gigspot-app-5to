@@ -1,6 +1,7 @@
 package com.example.myapplication
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -63,13 +64,17 @@ class HomeBandFragment : Fragment(), SearchView.OnQueryTextListener {
     }
     fun onSelectEvent(event: Event){
         val nombreEvento = event.titulo
+        val id = event.id
+        val intent = Intent(requireContext(), EventBandActivity::class.java)
+        intent.putExtra("ID_EVENTO", id)
+        startActivity(intent)
         Log.i("selectEvent", "${nombreEvento}")
     }
 
     private fun getDataEventos(query: String) {
         dbreferes = FirebaseDatabase.getInstance().getReference("eventos")
         if(query.isNotEmpty()){
-            dbreferes.orderByChild("emailBand").startAt(query).endAt("${query}/uf8ff").addValueEventListener(object : ValueEventListener{
+            dbreferes.orderByChild("titulo").startAt(query).endAt("${query}/uf8ff").addValueEventListener(object : ValueEventListener{
                 override fun onDataChange(snapshot: DataSnapshot) {
                     Log.d("firebaseResul","Exitoso snapshot")
                     newArray.clear()

@@ -19,13 +19,13 @@
             android:id="@+id/textView"
             android:layout_width="131dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="140dp"
             android:layout_marginTop="16dp"
             android:gravity="center"
             android:text="@string/gigspot"
             android:textColor="@color/ColorPrincipal"
             android:textSize="30sp"
             android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -53,8 +53,6 @@
             android:background="@drawable/profile"
             android:src="@drawable/profile"
             app:layout_constraintBottom_toBottomOf="@+id/textView"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.078"
             app:layout_constraintStart_toEndOf="@+id/textView" />
 
         <androidx.recyclerview.widget.RecyclerView

@@ -72,7 +72,7 @@ class ProfileBandFragment : Fragment() {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 for(snapshot in dataSnapshot.children){
                     val usuario = snapshot.getValue(BandaModelo::class.java)
-                    binding.nombre?.text = usuario?.bandName
+                    binding.nombre.text = usuario?.bandName
                 }
             }
             override fun onCancelled(error: DatabaseError) {

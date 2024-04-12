@@ -64,13 +64,17 @@ class HomeFragment : Fragment(), SearchView.OnQueryTextListener {
     }
     fun onSelectEvent(event: Event){
         val nombreEvento = event.titulo
+        val id = event.id
+        val intent = Intent(requireContext(), EventsActivity::class.java)
+        intent.putExtra("ID_EVENTO", id)
+        startActivity(intent)
         Log.i("selectEvent", "${nombreEvento}")
     }
 
     private fun getDataEventos(query: String) {
         dbreferes = FirebaseDatabase.getInstance().getReference("eventos")
         if(query.isNotEmpty()){
-            dbreferes.orderByChild("emailBand").startAt(query).endAt("${query}/uf8ff").addValueEventListener(object :
+            dbreferes.orderByChild("titulo").startAt(query).endAt("${query}/uf8ff").addValueEventListener(object :
                 ValueEventListener {
                 override fun onDataChange(snapshot: DataSnapshot) {
                     Log.d("firebaseResul","Exitoso snapshot")

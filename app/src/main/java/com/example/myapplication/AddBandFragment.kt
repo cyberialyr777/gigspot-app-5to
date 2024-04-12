@@ -128,26 +128,6 @@ class AddBandFragment : Fragment(), DatePickerDialog.OnDateSetListener, TimePick
             Log.d("UriImage", "URI: "+"$selectedImageUri")
         }
     }
-/*
-    private fun uploadImageToFirebaseStorage() {
-            val storageRef = storage.reference.child("images").child("${UUID.randomUUID()}")
-            Log.d("UriImage", "paso el val")
-            storageRef.putFile(selectedImageUri!!)
-                .addOnSuccessListener { taskSnapshot ->
-                    storageRef.downloadUrl.addOnSuccessListener { uri ->
-                        // Éxito al obtener la URL de descarga de la imagen
-                        selectedImageUrl = uri.toString()
-                        Log.d("UriImage", "URL: " + "$selectedImageUrl")
-                    }.addOnFailureListener {
-                        Log.e("FirebaseStorage", "Error getting download URL: $it")
-                    }
-                }
-                .addOnFailureListener { e ->
-                    Log.e("FirebaseStorage", "Error uploading image: $e")
-                }
-    }
-
- */
 
     private fun addEventWithImage() {
 
@@ -178,7 +158,9 @@ class AddBandFragment : Fragment(), DatePickerDialog.OnDateSetListener, TimePick
                                         selectedImageUrl = uri.toString()
                                         Log.d("UriImage", "URL: " + "$selectedImageUrl")
                                         database = FirebaseDatabase.getInstance().getReference("eventos")
+                                        val id = databaseReference.push().key
                                         val evento = EventModelo(
+                                            id!!,
                                             date,
                                             time,
                                             place,
@@ -189,8 +171,7 @@ class AddBandFragment : Fragment(), DatePickerDialog.OnDateSetListener, TimePick
                                             titulo,
                                             selectedImageUrl!!
                                         )
-                                        val id = databaseReference.push().key
-                                        val nuevaReferencia = database.child(id!!)
+                                        val nuevaReferencia = database.child(id)
                                         nuevaReferencia.setValue(evento).addOnSuccessListener {
                                             Toast.makeText(
                                                 requireContext(),
@@ -248,8 +229,20 @@ class AddBandFragment : Fragment(), DatePickerDialog.OnDateSetListener, TimePick
             binding.precio.error = "this field is required"
             return false
         }
+        if (binding.titulo.text.toString() == "") {
+            binding.titulo.error = "this field is required"
+            return false
+        }
+        if (binding.titulo.length() > 20) {
+            binding.titulo.error = "title must be less than 20 caracters"
+            return false
+        }
         if (binding.descripcion.text.toString() == "") {
             binding.descripcion.error = "this field is required"
+            return false
+        }
+        if (binding.descripcion.length() > 500) {
+            binding.descripcion.error = "title must be less than 100 caracters"
             return false
         }
         if(selectedImageUri == Uri.parse("")){
