@@ -6,45 +6,26 @@ import android.annotation.SuppressLint
 import android.app.Activity.RESULT_OK
 import android.app.DatePickerDialog
 import android.app.TimePickerDialog
-import android.content.ContentResolver
 import android.content.Intent
-import android.graphics.Bitmap
-import android.graphics.BitmapFactory
 import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ArrayAdapter
 import android.widget.Button
-import android.widget.ImageView
 import com.example.myapplication.databinding.FragmentAddBandBinding
 import com.google.firebase.auth.FirebaseAuth
 import android.widget.DatePicker
 import android.widget.TimePicker
 import android.widget.Toast
-import androidx.activity.result.ActivityResult
-import androidx.activity.result.ActivityResultLauncher
-import androidx.activity.result.contract.ActivityResultContract
-import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.Fragment
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
-import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
-import com.google.firebase.storage.ktx.storage
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
-import java.io.ByteArrayOutputStream
-import java.lang.Exception
-import java.net.URL
-import java.util.Base64
 import java.util.Calendar
 import java.util.UUID
 
@@ -58,6 +39,7 @@ class AddBandFragment : Fragment(), DatePickerDialog.OnDateSetListener, TimePick
     val storage = FirebaseStorage.getInstance()
     private var selectedImageUri: Uri? = Uri.parse("")
     private var selectedImageUrl: String? = ""
+    private val MAP_REQUEST_CODE = 1001
 
 
     private val binding get() = _binding
@@ -84,7 +66,6 @@ class AddBandFragment : Fragment(), DatePickerDialog.OnDateSetListener, TimePick
         // Inflate the layout for this fragment
         _binding = FragmentAddBandBinding.inflate(inflater, container, false)
         val view = binding.root
-
         return view
     }
 
@@ -101,6 +82,21 @@ class AddBandFragment : Fragment(), DatePickerDialog.OnDateSetListener, TimePick
         binding.guardarImagen.setOnClickListener {
             pickImageGallery()
         }
+        binding.guardarImagen.setOnClickListener {
+            pickImageGallery()
+        }
+
+        val intent = requireActivity().intent
+        val selectedAddress = intent.getStringExtra("selectedAddress")
+        binding.spinner8.text = selectedAddress ?: "No place found"
+
+
+        val mapButton: Button = binding.selectUbicacion
+        mapButton.setOnClickListener {
+            val intent = Intent(context, MapActivity::class.java)
+            startActivityForResult(intent, MAP_REQUEST_CODE)
+        }
+
         binding.button4.setOnClickListener {
             if (checkAllField()) {
                 binding.progressBar.visibility = View.VISIBLE
@@ -110,9 +106,6 @@ class AddBandFragment : Fragment(), DatePickerDialog.OnDateSetListener, TimePick
             }
         }
     }
-
-
-
 
     private fun pickImageGallery() {
       val intent = Intent(Intent.ACTION_PICK)
@@ -133,7 +126,7 @@ class AddBandFragment : Fragment(), DatePickerDialog.OnDateSetListener, TimePick
 
         val date = binding.Fecha.text.toString().trim()
         val time = binding.time.text.toString().trim()
-        val place = binding.spinner8.toString()
+        val place = binding.spinner8.text.toString().trim()
         val price = binding.precio.text.toString().trim()
         val description = binding.descripcion.text.toString().trim()
         val titulo = binding.titulo.text.toString().trim()
@@ -310,6 +303,7 @@ class AddBandFragment : Fragment(), DatePickerDialog.OnDateSetListener, TimePick
                 }
             }
     }
+
 
     override fun onStart() {
         super.onStart()
