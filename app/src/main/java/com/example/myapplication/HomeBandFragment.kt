@@ -8,31 +8,30 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.LinearLayout
-import androidx.appcompat.widget.SearchView
-import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import com.example.myapplication.databinding.FragmentHomeBandBinding
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.DatabaseError
-import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.database.ValueEventListener
-import kotlin.math.log
+import android.widget.ImageView
 
+// TODO: Rename parameter arguments, choose names that match
+// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
+private const val ARG_PARAM1 = "param1"
+private const val ARG_PARAM2 = "param2"
 
-class HomeBandFragment : Fragment(), SearchView.OnQueryTextListener {
-    val TAG = "AdapterEventos"
-    private lateinit var auth: FirebaseAuth
-    private lateinit var newArray: ArrayList<Event>
-    private lateinit var dbreferes : DatabaseReference
-    lateinit var myAdapter: CustomAdapterEventsBand
-    private var _binding : FragmentHomeBandBinding? = null
-    private val binding get() = _binding!!
+/**
+ * A simple [Fragment] subclass.
+ * Use the [HomeBandFragment.newInstance] factory method to
+ * create an instance of this fragment.
+ */
+class HomeBandFragment : Fragment() {
+    // TODO: Rename and change types of parameters
+    private var param1: String? = null
+    private var param2: String? = null
 
-
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        arguments?.let {
+            param1 = it.getString(ARG_PARAM1)
+            param2 = it.getString(ARG_PARAM2)
+        }
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -44,19 +43,16 @@ class HomeBandFragment : Fragment(), SearchView.OnQueryTextListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        auth = FirebaseAuth.getInstance()
-        newArray = arrayListOf()
-        binding.buscador.setOnQueryTextListener(this)
-        init()
-        getDataEventos("")
-    }
 
-    private fun init() {
-        binding.eventoRecycler.layoutManager = LinearLayoutManager(requireContext(),LinearLayoutManager.VERTICAL,false)
-        myAdapter= CustomAdapterEventsBand(newArray){ evento ->
-            onSelectEvent(evento)
+        // Obtener referencia al ImageView
+        val imageView2: ImageView = view.findViewById(R.id.imageView2)
+
+        // Agregar un click listener al imageView2
+        imageView2.setOnClickListener {
+            // Cuando se hace clic en imageView2, iniciar la EventsActivity
+            val intent = Intent(requireActivity(), EventBandActivity::class.java)
+            startActivity(intent)
         }
-        binding.eventoRecycler.adapter = myAdapter
     }
 
     private fun filterData(query: String){
@@ -88,45 +84,6 @@ class HomeBandFragment : Fragment(), SearchView.OnQueryTextListener {
                         myAdapter.notifyDataSetChanged()
                     }
                 }
-
-                override fun onCancelled(error: DatabaseError) {
-                    Log.w("firebase", "Failed to read value.", error.toException())                }
-
-            })
-        }else{
-            Log.d("firebaseResul","Exitoso sin query")
-            dbreferes.orderByChild("emailBand").equalTo(auth.currentUser?.email).addValueEventListener(object : ValueEventListener{
-                override fun onDataChange(snapshot: DataSnapshot) {
-                    Log.d("firebaseResul","Exitoso  onDataChange")
-                    newArray.clear()
-                    if(snapshot.exists()){
-                        for(dataSnapshot in snapshot.children){
-                            Log.d("firebaseResul","Exitoso  datasnapshot")
-                            val data = dataSnapshot.getValue(Event::class.java)
-                            data?.let {
-                                newArray.add(it)
-                            }
-                        }
-                        myAdapter.notifyDataSetChanged()
-                    }
-                }
-
-                override fun onCancelled(error: DatabaseError) {
-                    Log.w("firebase", "Failed to read value.", error.toException())                }
-
-            })
-        }
+            }
     }
-
-    override fun onQueryTextSubmit(query: String?): Boolean {
-        if (!query.isNullOrEmpty()){
-            filterData(query)
-        }
-        return true
-    }
-    override fun onQueryTextChange(newText: String?): Boolean {
-        newText?.let { filterData(it) }
-        return true
-        }
 }
-

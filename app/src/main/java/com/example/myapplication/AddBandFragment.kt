@@ -1,70 +1,25 @@
 package com.example.myapplication
 
-
-
-import android.annotation.SuppressLint
-import android.app.Activity.RESULT_OK
 import android.app.DatePickerDialog
 import android.app.TimePickerDialog
-import android.content.ContentResolver
 import android.content.Intent
-import android.graphics.Bitmap
-import android.graphics.BitmapFactory
-import android.net.Uri
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ArrayAdapter
-import android.widget.Button
-import android.widget.ImageView
-import com.example.myapplication.databinding.FragmentAddBandBinding
-import com.google.firebase.auth.FirebaseAuth
 import android.widget.DatePicker
 import android.widget.TimePicker
-import android.widget.Toast
-import androidx.activity.result.ActivityResult
-import androidx.activity.result.ActivityResultLauncher
-import androidx.activity.result.contract.ActivityResultContract
-import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.Fragment
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.DatabaseError
-import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.database.ValueEventListener
-import com.google.firebase.ktx.Firebase
-import com.google.firebase.storage.FirebaseStorage
-import com.google.firebase.storage.ktx.storage
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
-import java.io.ByteArrayOutputStream
-import java.lang.Exception
-import java.net.URL
-import java.util.Base64
+import com.example.myapplication.databinding.FragmentAddBandBinding
 import java.util.Calendar
-import java.util.UUID
 
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
 
 class AddBandFragment : Fragment(), DatePickerDialog.OnDateSetListener, TimePickerDialog.OnTimeSetListener {
-    private lateinit var auth: FirebaseAuth
-    private lateinit var _binding: FragmentAddBandBinding
-    private lateinit var database: DatabaseReference
-    val storage = FirebaseStorage.getInstance()
-    private var selectedImageUri: Uri? = Uri.parse("")
-    private var selectedImageUrl: String? = ""
-
-
-    private val binding get() = _binding
-    val TAG = "AddEventFragment"
-
     private var param1: String? = null
     private var param2: String? = null
+    private lateinit var binding: FragmentAddBandBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -75,40 +30,29 @@ class AddBandFragment : Fragment(), DatePickerDialog.OnDateSetListener, TimePick
 
     }
 
-
-    @SuppressLint("SetTextI18n")
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View {
-        // Inflate the layout for this fragment
-        _binding = FragmentAddBandBinding.inflate(inflater, container, false)
-        val view = binding.root
-
-        return view
+    ): View? {
+        binding = FragmentAddBandBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        auth = FirebaseAuth.getInstance()
 
+        // Agregar un click listener al EditText para la fecha
         binding.Fecha.setOnClickListener {
             showDatePickerDialog()
         }
+
+        // Agregar un click listener al EditText para la hora
         binding.time.setOnClickListener {
             showTimePickerDialog()
         }
-        binding.guardarImagen.setOnClickListener {
-            pickImageGallery()
-        }
-        binding.button4.setOnClickListener {
-            if (checkAllField()) {
-                binding.progressBar.visibility = View.VISIBLE
-                binding.blockingView.visibility = View.VISIBLE
-                addEventWithImage()
 
-            }
-        }
+
     }
 
 
@@ -299,8 +243,6 @@ class AddBandFragment : Fragment(), DatePickerDialog.OnDateSetListener, TimePick
     }
 
     companion object {
-        val IMAGE_REQUEST_CODE = 100
-
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
             AddBandFragment().apply {
@@ -310,30 +252,4 @@ class AddBandFragment : Fragment(), DatePickerDialog.OnDateSetListener, TimePick
                 }
             }
     }
-
-    override fun onStart() {
-        super.onStart()
-        Log.d(TAG, "onStart: ")
-    }
-
-    override fun onResume() {
-        super.onResume()
-        Log.d(TAG, "onResume: ")
-    }
-
-    override fun onPause() {
-        super.onPause()
-        Log.d(TAG, "onPause: ")
-    }
-
-    override fun onStop() {
-        super.onStop()
-        Log.d(TAG, "onStop: ")
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        Log.d(TAG, "onDestroy :")
-    }
-
 }

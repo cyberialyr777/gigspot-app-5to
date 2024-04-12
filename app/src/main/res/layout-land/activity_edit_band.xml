@@ -42,14 +42,14 @@
             android:layout_width="383dp"
             android:layout_height="50dp"
             android:layout_marginStart="83dp"
-            android:layout_marginTop="108dp"
+            android:layout_marginTop="96dp"
             android:layout_marginEnd="80dp"
             android:gravity="center"
             android:text="Edit the information of the event"
             android:textColor="@color/ColorPrincipal"
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.503"
+            app:layout_constraintHorizontal_bias="0.491"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -189,6 +189,7 @@
             android:text="Edit event"
             android:textColor="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.142"
             app:layout_constraintStart_toEndOf="@+id/button5"
             app:layout_constraintTop_toTopOf="@+id/button5" />
 
@@ -196,7 +197,7 @@
             android:id="@+id/button5"
             android:layout_width="155dp"
             android:layout_height="47dp"
-            android:layout_marginStart="39dp"
+            android:layout_marginStart="188dp"
             android:layout_marginTop="804dp"
             android:background="@drawable/cancel_button"
             android:text="Cancel"

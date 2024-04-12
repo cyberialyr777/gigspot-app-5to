@@ -1,26 +1,15 @@
 package com.example.myapplication
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
+import android.content.Intent
+import android.view.View
 import com.example.myapplication.databinding.ActivityEventsBinding
-import android.widget.Button
-import android.widget.TextView
-import android.widget.Toast
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.DatabaseError
-import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.database.ValueEventListener
-import com.squareup.picasso.Picasso
-
 
 class EventsActivity : AppCompatActivity() {
-    private lateinit var auth: FirebaseAuth
-    private lateinit var dbreferes : DatabaseReference
+
     private lateinit var binding: ActivityEventsBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val id = intent.getStringExtra("ID_EVENTO").toString()
@@ -38,6 +27,21 @@ class EventsActivity : AppCompatActivity() {
 
         textview.setOnClickListener {
             val intent = Intent(this, ProfileBandUserActivity::class.java)
+            startActivity(intent)
+        }
+
+        // Establecer OnClickListener para el textView
+        binding.textView.setOnClickListener {
+            // Crear una intención para abrir la actividad ProfileBandUserActivity
+            val intent = Intent(this, ProfileBandUserActivity::class.java)
+            // Iniciar la actividad ProfileBandUserActivity
+            startActivity(intent)
+        }
+
+        binding.imageButton4.setOnClickListener {
+            // Crear una intención para abrir la actividad ProfileBandUserActivity
+            val intent = Intent(this, EventsActivity::class.java)
+            // Iniciar la actividad ProfileBandUserActivity
             startActivity(intent)
         }
     }

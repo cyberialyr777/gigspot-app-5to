@@ -19,7 +19,9 @@ class BandMenuActivity : AppCompatActivity() {
                 R.id.home1 -> replaceFragment(HomeBandFragment())
                 R.id.add1 -> replaceFragment(AddBandFragment())
                 R.id.profile1 -> replaceFragment(ProfileBandFragment())
+
                 else -> {
+
                 }
             }
             true

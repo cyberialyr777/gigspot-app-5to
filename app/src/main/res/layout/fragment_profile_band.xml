@@ -17,39 +17,15 @@
             android:id="@+id/textView"
             android:layout_width="132dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="139dp"
+            android:layout_marginStart="130dp"
             android:layout_marginTop="16dp"
-            android:layout_marginEnd="140dp"
-            android:layout_marginBottom="543dp"
+            android:layout_marginEnd="131dp"
             android:gravity="center"
             android:text="@string/gigspot"
             android:textColor="@color/ColorPrincipal"
             android:textSize="30sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.057" />
-
-        <ImageButton
-            android:id="@+id/cerrarSession"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="24dp"
-            android:background="@drawable/box_arrow_in_left"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <ImageButton
-            android:id="@+id/imageButton2"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:layout_marginStart="45dp"
-            android:layout_marginTop="21dp"
-            android:background="@drawable/list"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -67,7 +43,6 @@
             app:layout_constraintVertical_bias="0.276" />
 
         <TextView
-            android:id="@+id/nombre"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="351dp"
@@ -86,14 +61,15 @@
             android:id="@+id/textView5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="268dp"
-            android:layout_marginEnd="52dp"
+            android:layout_marginStart="107dp"
+            android:layout_marginEnd="53dp"
             android:text="@string/followers"
             android:textColor="@color/black"
             android:textSize="20sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintStart_toEndOf="@+id/textView6"
+            app:layout_constraintTop_toTopOf="@+id/textView6" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -117,10 +93,12 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="64dp"
             android:layout_marginTop="268dp"
+            android:layout_marginEnd="247dp"
             android:text="Concerts"
             android:textColor="@color/black"
             android:textSize="20sp"
             android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -176,7 +154,6 @@
             app:layout_constraintEnd_toEndOf="@+id/button5"
             app:layout_constraintStart_toStartOf="@+id/button5"
             app:layout_constraintTop_toBottomOf="@+id/button5" />
-
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
