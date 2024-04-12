@@ -88,10 +88,10 @@ class AddBandFragment : Fragment(), DatePickerDialog.OnDateSetListener, TimePick
 
         val intent = requireActivity().intent
         val selectedAddress = intent.getStringExtra("selectedAddress")
-        binding.spinner8.text = selectedAddress ?: "No place found"
+        // binding.spinner8.text = selectedAddress ?: "No place found"
 
 
-        val mapButton: Button = binding.selectUbicacion
+        val mapButton: Button = binding.selectUbicacion!!
         mapButton.setOnClickListener {
             val intent = Intent(context, MapActivity::class.java)
             startActivityForResult(intent, MAP_REQUEST_CODE)
@@ -99,9 +99,9 @@ class AddBandFragment : Fragment(), DatePickerDialog.OnDateSetListener, TimePick
 
         binding.button4.setOnClickListener {
             if (checkAllField()) {
-                binding.progressBar.visibility = View.VISIBLE
-                binding.blockingView.visibility = View.VISIBLE
-                addEventWithImage()
+                binding.progressBar?.visibility = View.VISIBLE
+                binding.blockingView?.visibility = View.VISIBLE
+                addEventWithImage(selectedAddress!!)
 
             }
         }
@@ -117,17 +117,17 @@ class AddBandFragment : Fragment(), DatePickerDialog.OnDateSetListener, TimePick
         super.onActivityResult(requestCode, resultCode, data)
         if(requestCode == IMAGE_REQUEST_CODE && resultCode == RESULT_OK){
             selectedImageUri = data?.data
-            binding.imagenSeleccionada.setImageURI(selectedImageUri)
+            binding.imagenSeleccionada?.setImageURI(selectedImageUri)
             Log.d("UriImage", "URI: "+"$selectedImageUri")
         }
     }
 
-    private fun addEventWithImage() {
+    private fun addEventWithImage(palce: String) {
 
         val date = binding.Fecha.text.toString().trim()
         val time = binding.time.text.toString().trim()
-        val place = binding.spinner8.text.toString().trim()
-        val price = binding.precio.text.toString().trim()
+        val place = palce
+        val price = binding.precio?.text.toString().trim()
         val description = binding.descripcion.text.toString().trim()
         val titulo = binding.titulo.text.toString().trim()
         val idBand = auth.currentUser?.uid.toString()
@@ -172,8 +172,8 @@ class AddBandFragment : Fragment(), DatePickerDialog.OnDateSetListener, TimePick
                                                 Toast.LENGTH_SHORT
                                             )
                                                 .show()
-                                            binding.progressBar.visibility = View.GONE
-                                            binding.blockingView.visibility = View.GONE
+                                            binding.progressBar?.visibility = View.GONE
+                                            binding.blockingView?.visibility = View.GONE
                                             startActivity(
                                                 Intent(
                                                     requireContext(),
@@ -214,12 +214,8 @@ class AddBandFragment : Fragment(), DatePickerDialog.OnDateSetListener, TimePick
             binding.time.error = "this field is required"
             return false
         }
-        if(binding.spinner8.text.toString() == ""){
-            binding.spinner8.error = "this field is required"
-            return false
-        }
-        if (binding.precio.text.toString() == "") {
-            binding.precio.error = "this field is required"
+        if (binding.precio?.text.toString() == "") {
+            binding.precio?.error = "this field is required"
             return false
         }
         if (binding.titulo.text.toString() == "") {
