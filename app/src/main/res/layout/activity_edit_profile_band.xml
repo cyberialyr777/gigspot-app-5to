@@ -90,22 +90,33 @@
             app:layout_constraintTop_toBottomOf="@+id/firstName"
             tools:ignore="TextFields" />
 
+        <AutoCompleteTextView xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/autocomplete_country"
+            android:layout_width="306dp"
+            android:layout_height="40dp"
+            android:background="@drawable/custum_for_input_text"
+            android:drawableStart="@drawable/baseline_album_24"
+            android:drawablePadding="12dp"
+            android:hint="Genero"
+            android:inputType="textPassword"
+            android:paddingStart="12dp"
+            tools:ignore="TextFields"
+            tools:layout_editor_absoluteX="53dp"
+            tools:layout_editor_absoluteY="368dp" />
+
         <EditText
             android:id="@+id/spotify"
             android:layout_width="306dp"
             android:layout_height="40dp"
-            android:layout_marginTop="32dp"
             android:background="@drawable/custum_for_input_text"
             android:drawableStart="@drawable/spotify_gray"
             android:drawablePadding="12dp"
             android:hint="Spotify link"
             android:inputType="textPassword"
             android:paddingStart="12dp"
-            app:layout_constraintEnd_toEndOf="@+id/descripcion"
-            app:layout_constraintHorizontal_bias="0.833"
-            app:layout_constraintStart_toStartOf="@+id/descripcion"
-            app:layout_constraintTop_toBottomOf="@+id/descripcion"
-            tools:ignore="TextFields" />
+            tools:ignore="TextFields"
+            tools:layout_editor_absoluteX="55dp"
+            tools:layout_editor_absoluteY="436dp" />
 
         <EditText
             android:id="@+id/youtube"
@@ -146,7 +157,7 @@
             android:layout_width="115dp"
             android:layout_height="46dp"
             android:layout_marginStart="148dp"
-            android:layout_marginTop="668dp"
+            android:layout_marginTop="744dp"
             android:layout_marginEnd="148dp"
             android:background="@drawable/custom_for_buttons"
             android:text="Save"
@@ -181,7 +192,7 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintVertical_bias="0.603" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
