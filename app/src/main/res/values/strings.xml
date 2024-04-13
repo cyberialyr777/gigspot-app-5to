@@ -153,4 +153,14 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
+    <!-- genres strings -->
+    <string-array name="genres_array">
+        <item>Rock</item>
+        <item>Alternative</item>
+        <item>Jazz</item>
+        <item>Pop</item>
+        <item>HyperPop</item>
+        <item>Metal</item>
+    </string-array>
+
 </resources>
