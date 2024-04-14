@@ -15,8 +15,8 @@
             android:layout_width="438dp"
             android:layout_height="292dp"
             android:layout_marginBottom="408dp"
-            android:src="@drawable/concert"
             android:scaleType="fitXY"
+            android:src="@drawable/concert"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.518"
@@ -39,15 +39,16 @@
 
         <TextView
             android:id="@+id/nombreBanda"
-            android:layout_width="288dp"
-            android:layout_height="46dp"
-            android:layout_marginStart="22dp"
-            android:layout_marginBottom="32dp"
+            android:layout_width="289dp"
+            android:layout_height="33dp"
+            android:layout_marginStart="42dp"
+            android:layout_marginEnd="4dp"
             android:text="@string/event_name_band"
             android:textColor="@color/black"
             android:textSize="20sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@+id/fecha"
+            app:layout_constraintBottom_toBottomOf="@+id/imageButton3"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/imageButton3" />
 
         <com.google.android.material.imageview.ShapeableImageView
@@ -55,12 +56,12 @@
             android:layout_width="61dp"
             android:layout_height="57dp"
             android:layout_marginStart="15dp"
-            android:layout_marginTop="23dp"
-            app:shapeAppearance="@style/ShapeAppearance.App.Image"
-            android:src="@drawable/account_circle"
+            android:layout_marginTop="315dp"
             android:scaleType="fitCenter"
+            android:src="@drawable/account_circle"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imagenSeleccionada" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:shapeAppearance="@style/ShapeAppearance.App.Image" />
 
 
         <TextView
@@ -141,12 +142,9 @@
             android:id="@+id/descripcion"
             android:layout_width="375dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="11dp"
-            android:layout_marginEnd="8dp"
             android:text="@string/info"
             android:textColor="@color/black"
             android:textSize="15sp"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/textView5"
             app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
@@ -207,12 +205,12 @@
             android:layout_width="143dp"
             android:layout_height="38dp"
             android:layout_marginStart="32dp"
-            android:layout_marginTop="27dp"
+            android:layout_marginTop="760dp"
             android:background="@drawable/custom_for_buttons"
             android:text="Delete"
             android:textColor="@color/white"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/descripcion" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <Space
             android:id="@+id/spaceBelowButton"
