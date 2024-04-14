@@ -6,8 +6,11 @@ import android.os.Bundle
 import android.util.Log
 import com.example.myapplication.databinding.ActivityEventsBinding
 import android.widget.TextView
+import android.widget.Toast
 import com.example.myapplication.Modelos.BandaModelo
 import com.example.myapplication.Modelos.Event
+import com.example.myapplication.Modelos.FollowModelo
+import com.example.myapplication.Modelos.SaveModelo
 import com.example.myapplication.Profiles.ProfileBandUserActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
@@ -25,9 +28,12 @@ class EventsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val id = intent.getStringExtra("ID_EVENTO").toString()
+        auth = FirebaseAuth.getInstance()
         binding = ActivityEventsBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
         cosultaEvento(id)
+        consultaSave2(auth.currentUser?.email!!, id)
 
         val BuyTicket = binding.button
 
@@ -58,7 +64,7 @@ class EventsActivity : AppCompatActivity() {
                     Log.w("Consulta", "$evento")
                     if(evento != null){
                         Log.w("Consulta", "if")
-                        consultaBanda(evento.emailBand!!)
+                        consultaBanda(evento.emailBand!!, id)
                         Picasso.get().load(evento.imagen).into(binding.imageView2)
                         binding.textView8.text = evento.titulo
                         binding.textView2.text = evento.date
@@ -101,7 +107,7 @@ class EventsActivity : AppCompatActivity() {
         })
     }
 
-    private fun consultaBanda(email: String){
+    private fun consultaBanda(email: String, idEvento: String){
         Log.w("Consulta", "inicio")
         dbreferes = FirebaseDatabase.getInstance().getReference("usuario")
         dbreferes.orderByChild("email").equalTo(email).addListenerForSingleValueEvent(object :
@@ -114,9 +120,82 @@ class EventsActivity : AppCompatActivity() {
                     Log.w("Consulta", "$user")
                     if(user != null){
                         Log.w("Consulta", "if")
-                        // Picasso.get().load(user.imagen).into(binding.imageButton3)
                         binding.textView.text = user.bandName
+
+                        binding.button5.setOnClickListener {
+                            consultaSave(user.email!!,auth.currentUser?.email!!, idEvento)
+                        }
                     }
+                }
+            }
+            override fun onCancelled(error: DatabaseError) {
+                TODO("Not yet implemented")
+            }
+
+        })
+    }
+
+    private fun save(email: String, emailBand: String, idEvento: String) {
+        val databaseReference = FirebaseDatabase.getInstance().getReference("saves")
+        val id = databaseReference.push().key
+        val save = SaveModelo(id, idEvento, emailBand ,email)
+        databaseReference.child(id!!).setValue(save).addOnSuccessListener {
+            binding.button5.setBackgroundResource(R.drawable.custom_for_buttons)
+            Toast.makeText(this, "Saved", Toast.LENGTH_SHORT).show()
+        }.addOnFailureListener {
+            binding.button5.setBackgroundResource(R.drawable.follow_btn)
+            Toast.makeText(this, "Fail save", Toast.LENGTH_SHORT).show()
+        }
+    }
+
+
+    private fun consultaSave(emailUser: String, emailBand: String, idEvento: String) {
+        Log.w("Consulta", "inicio")
+        val dbReference = FirebaseDatabase.getInstance().getReference("saves")
+
+        dbReference.orderByChild("idEvento").equalTo(idEvento)
+            .addListenerForSingleValueEvent(object : ValueEventListener {
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    if (snapshot.exists()) {
+                        snapshot.children.forEach { dataSnapshot ->
+                            val save = dataSnapshot.getValue(SaveModelo::class.java)
+                            save?.let {
+                                val saveRef = dbReference.child(it.id!!)
+                                saveRef.removeValue()
+                                    .addOnSuccessListener {
+                                        Log.i("EliminarUsuario", "Guardado eliminado exitosamente")
+                                        binding.button5.setBackgroundResource(R.drawable.follow_btn)
+                                        Toast.makeText(this@EventsActivity, "Unsave", Toast.LENGTH_SHORT).show()
+                                    }
+                                    .addOnFailureListener { error ->
+                                        Log.e("EliminarUsuario", "Error al eliminar guardado: ${error.message}")
+                                    }
+                            }
+                        }
+                    } else {
+                        save(emailUser, emailBand, idEvento)
+                    }
+                }
+
+                override fun onCancelled(error: DatabaseError) {
+                    Log.e("Consulta", "Error en consulta: ${error.message}")
+                }
+            })
+    }
+
+
+    private fun consultaSave2(emailUser: String, idEvento: String){
+        Log.w("Consulta", "inicio")
+        dbreferes = FirebaseDatabase.getInstance().getReference("saves")
+        dbreferes.orderByChild("idEvento").equalTo(idEvento).addListenerForSingleValueEvent(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                Log.w("Consulta", "snapshto")
+                val user = snapshot.getValue(FollowModelo::class.java)
+                Log.w("Consulta", "$user")
+                if(user != null){
+                    binding.button5.setBackgroundResource(R.drawable.custom_for_buttons)
+                }else{
+                    binding.button5.setBackgroundResource(R.drawable.follow_btn)
                 }
             }
             override fun onCancelled(error: DatabaseError) {

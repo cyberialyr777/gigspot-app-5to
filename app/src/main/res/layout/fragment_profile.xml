@@ -11,14 +11,14 @@
         android:layout_height="wrap_content"
         android:gravity="center">
 
-        <ImageView
+        <ImageButton
             android:id="@+id/imageButton3"
             android:layout_width="116dp"
             android:layout_height="108dp"
             android:layout_marginStart="138dp"
             android:layout_marginTop="76dp"
             android:layout_marginEnd="139dp"
-            app:shapeAppearance="@style/ShapeAppearance.App.Image"
+            android:background="@drawable/rounded_button_background"
             android:src="@drawable/account_circle"
             android:scaleType="fitCenter"
             app:layout_constraintEnd_toEndOf="parent"

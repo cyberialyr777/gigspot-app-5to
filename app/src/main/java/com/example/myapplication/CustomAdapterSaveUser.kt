@@ -4,15 +4,16 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.myapplication.Modelos.Event
+import com.example.myapplication.Modelos.SaveModelo
 
-class CustomAdapterEventsBand (private val eventoList:ArrayList<Event>, private val onClickListener:(Event)->Unit): RecyclerView.Adapter<EventViewHolder>(){
+class CustomAdapterSaveUser(private val eventoList:ArrayList<SaveModelo>, private val onClickListener:(SaveModelo)->Unit): RecyclerView.Adapter<SaveUserViewHolder>(){
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): EventViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SaveUserViewHolder {
         val itemView = LayoutInflater.from(parent.context).inflate(R.layout.card_eventos,parent,false)
-        return EventViewHolder(itemView)
+        return SaveUserViewHolder(itemView)
     }
 
-    override fun onBindViewHolder(holder: EventViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: SaveUserViewHolder, position: Int) {
         val curretItem = eventoList[position]
         holder.render(curretItem,onClickListener)
     }

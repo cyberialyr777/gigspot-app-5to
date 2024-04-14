@@ -24,4 +24,7 @@
     <style name="ShapeAppearance.App.Image" parent="ShapeAppearance.MaterialComponents">
         <item name="cornerSize">30dp</item>
     </style>
+    <style name="Style.ImageButton.Rounded" parent="Widget.AppCompat.ImageButton">
+        <item name="android:background">@drawable/rounded_button_background</item>
+    </style>
 </resources>
