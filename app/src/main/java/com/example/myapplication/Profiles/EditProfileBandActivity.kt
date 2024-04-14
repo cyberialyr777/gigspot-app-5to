@@ -54,9 +54,6 @@ class EditProfileBandActivity : AppCompatActivity() {
                     val usuario = snapshot.getValue(BandaModelo::class.java)
                     binding.firstName.setText(usuario?.bandName)
                     binding.descripcion.setText(usuario?.description)
-                    binding.spotify.setText(usuario?.SP)
-                    binding.instagram.setText(usuario?.IT)
-                    binding.youtube.setText(usuario?.YT)
                 }
             }
             override fun onCancelled(error: DatabaseError) {
@@ -78,9 +75,6 @@ class EditProfileBandActivity : AppCompatActivity() {
                         val actualizacionMap = hashMapOf<String, Any?>(
                             "bandName" to binding.firstName.text.toString().trim(),
                             "description" to binding.descripcion.text.toString().trim(),
-                            "it" to binding.instagram.text.toString().trim(),
-                            "sp" to binding.spotify.text.toString().trim(),
-                            "yt" to binding.youtube.text.toString().trim()
                         )
                         snapshot.ref.updateChildren(actualizacionMap)
                             .addOnSuccessListener {
