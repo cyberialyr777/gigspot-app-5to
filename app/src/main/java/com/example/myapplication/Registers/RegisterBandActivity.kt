@@ -41,7 +41,7 @@ class RegisterBandActivity: AppCompatActivity() {
         Auth.createUserWithEmailAndPassword(email,pass).addOnCompleteListener(RegisterBandActivity()) { task ->
             if(task.isSuccessful){
                 database = FirebaseDatabase.getInstance().getReference("usuario")
-                val band = BandaModelo(nombreBanda, email, pass,"","","","","","",userType)
+                val band = BandaModelo(nombreBanda, email, pass,"","","","",userType)
                 database.child(nombreBanda).setValue(band).addOnSuccessListener {
                     finish()
                     Toast.makeText(this, "Successfully Register", Toast.LENGTH_SHORT).show()

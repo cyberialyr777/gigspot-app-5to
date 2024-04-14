@@ -92,7 +92,7 @@
             android:background="@drawable/custum_for_input_text"
             android:drawableStart="@drawable/baseline_album_24"
             android:drawablePadding="12dp"
-            android:hint="musical genre"
+            android:hint="Music genre"
             android:inputType="text|textAutoComplete"
             android:paddingStart="12dp"
             app:layout_constraintEnd_toEndOf="@+id/descripcion"

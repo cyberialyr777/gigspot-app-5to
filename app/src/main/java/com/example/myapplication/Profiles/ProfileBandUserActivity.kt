@@ -1,5 +1,6 @@
 package com.example.myapplication.Profiles
 
+import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -36,6 +37,7 @@ class ProfileBandUserActivity : AppCompatActivity() {
         dbreferes = FirebaseDatabase.getInstance().getReference("usuario")
         dbreferes.orderByChild("email").equalTo(email).addListenerForSingleValueEvent(object :
             ValueEventListener {
+            @SuppressLint("SetTextI18n")
             override fun onDataChange(snapshot: DataSnapshot) {
                 Log.w("Consulta", "snapshto")
                 for(dataSnapshot in snapshot.children){
@@ -46,9 +48,7 @@ class ProfileBandUserActivity : AppCompatActivity() {
                         Log.w("Consulta", "if")
                         binding.textView.setText(user?.bandName)
                         binding.textView4.setText(user?.description)
-                        binding.textView3.setText(user?.SP)
-                        binding.textView2.setText(user?.IT)
-                        binding.textView10.setText(user?.YT)
+                        binding.textView10.setText("Genre: " + user?.genre)
 
                         val imageBackUrl = user?.imageBack
                         if (!imageBackUrl.isNullOrEmpty()) {

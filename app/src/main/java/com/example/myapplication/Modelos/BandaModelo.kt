@@ -7,8 +7,6 @@ data class BandaModelo(
     val imageProfile: String? = null,
     val imageBack: String? = null,
     val description: String? = null,
-    val SP: String? = null,
-    val IT: String? = null,
-    val YT: String? = null,
+    val genre: String? = null,
     val userType: Int? = null
 )

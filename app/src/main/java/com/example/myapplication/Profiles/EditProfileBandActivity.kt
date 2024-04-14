@@ -75,12 +75,10 @@ class EditProfileBandActivity : AppCompatActivity() {
                         val actualizacionMap = hashMapOf<String, Any?>(
                             "bandName" to binding.firstName.text.toString().trim(),
                             "description" to binding.descripcion.text.toString().trim(),
+                            "genre" to binding.autocompleteCountry.text.toString().trim()
                         )
                         snapshot.ref.updateChildren(actualizacionMap)
                             .addOnSuccessListener {
-                                Log.d("UriImage1", "URI de la imagen 1: $selectedImageBUri")
-                                Log.d("UriImage1", "URI de la imagen 1: $selectedImagePUri")
-
                                 finish()
                                 val intent = Intent(this@EditProfileBandActivity, BandMenuActivity::class.java)
                                 intent.putExtra("targetFragment2", "ProfileBandFragment") // Identificador del fragmento a cargar
