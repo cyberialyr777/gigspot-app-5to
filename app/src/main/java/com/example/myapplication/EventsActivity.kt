@@ -90,7 +90,9 @@ class EventsActivity : AppCompatActivity() {
                             startActivity(intent)
                         }
                         binding.button.setOnClickListener {
-
+                            val intent = Intent(this@EventsActivity,PaymentActivity::class.java)
+                            intent.putExtra("ID_EVENTO", id)
+                            startActivity(intent)
                         }
                     }
                 }

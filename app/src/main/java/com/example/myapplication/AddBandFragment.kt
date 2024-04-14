@@ -100,8 +100,6 @@ class AddBandFragment : Fragment(), DatePickerDialog.OnDateSetListener, TimePick
 
         binding.button4.setOnClickListener {
             if (checkAllField()) {
-                binding.progressBar?.visibility = View.VISIBLE
-                binding.blockingView?.visibility = View.VISIBLE
                 addEventWithImage(selectedAddress!!)
 
             }
