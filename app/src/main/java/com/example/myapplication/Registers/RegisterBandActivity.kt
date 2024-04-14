@@ -34,8 +34,8 @@ class RegisterBandActivity: AppCompatActivity() {
 
     private fun createAcount(){
         val nombreBanda = binding.bandName?.text.toString().trim()
-        val email = binding.email?.text.toString().trim()
-        val pass = binding.password?.text.toString().trim()
+        val email = binding.total?.text.toString().trim()
+        val pass = binding.amount?.text.toString().trim()
         val userType = 1
 
         Auth.createUserWithEmailAndPassword(email,pass).addOnCompleteListener(RegisterBandActivity()) { task ->
@@ -61,15 +61,15 @@ class RegisterBandActivity: AppCompatActivity() {
             binding.bandName!!.error = "this field is required"
             return false
         }
-        if(binding.email!!.text.toString() == ""){
-            binding.email!!.error = "this field is required"
+        if(binding.total!!.text.toString() == ""){
+            binding.total!!.error = "this field is required"
             return false
         }
-        if(binding.password!!.text.toString() == ""){
-            binding.password!!.error = "this field is required"
+        if(binding.amount!!.text.toString() == ""){
+            binding.amount!!.error = "this field is required"
             return false
         }
-        if(binding.passwordConf!!.text.toString() != binding.password!!.text.toString()){
+        if(binding.passwordConf!!.text.toString() != binding.amount!!.text.toString()){
             binding.passwordConf!!.error = "password do not match"
             return false
         }

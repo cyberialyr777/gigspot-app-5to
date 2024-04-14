@@ -34,8 +34,8 @@ class RegisterUserActivity : AppCompatActivity(){
     }
 
     private fun crateAcount(){
-        val email = binding.email?.text.toString().trim()
-        val pass = binding.password?.text.toString().trim()
+        val email = binding.total?.text.toString().trim()
+        val pass = binding.amount?.text.toString().trim()
         val nombre = binding.firstName?.text.toString().trim()
         val apellido = binding.userlastName?.text.toString().trim()
         val userName = binding.userName?.text.toString().trim()
@@ -63,7 +63,7 @@ class RegisterUserActivity : AppCompatActivity(){
     }
 
     private fun checkAllField(): Boolean{
-        val e_mail = binding.email!!.text.toString()
+        val e_mail = binding.total!!.text.toString()
         if(binding.firstName!!.text.toString() == ""){
             binding.firstName!!.error = "this field is required"
             return false
@@ -76,15 +76,15 @@ class RegisterUserActivity : AppCompatActivity(){
             binding.userName!!.error = "this field is required"
             return false
         }
-        if(binding.email!!.text.toString() == ""){
-            binding.email!!.error = "this field is required"
+        if(binding.total!!.text.toString() == ""){
+            binding.total!!.error = "this field is required"
             return false
         }
-        if(binding.password!!.text.toString() == ""){
-            binding.password!!.error = "this field is required"
+        if(binding.amount!!.text.toString() == ""){
+            binding.amount!!.error = "this field is required"
             return false
         }
-        if(binding.passwordConf!!.text.toString() != binding.password!!.text.toString()){
+        if(binding.passwordConf!!.text.toString() != binding.amount!!.text.toString()){
             binding.passwordConf!!.error = "password do not match"
             return false
         }

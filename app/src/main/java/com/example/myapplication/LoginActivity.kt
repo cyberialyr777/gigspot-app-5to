@@ -50,7 +50,7 @@ class LoginActivity : AppCompatActivity() {
         val intent = Intent(this, BandMenuActivity::class.java)
         val intent2 = Intent(this, BottomNavigationActivity::class.java)
         val contexto = applicationContext
-        val email = binding.email?.text.toString().trim()
+        val email = binding.total?.text.toString().trim()
         val pass = binding.passR?.text.toString()
         val databaseReference = FirebaseDatabase.getInstance().getReference("usuario")
 
@@ -155,8 +155,8 @@ class LoginActivity : AppCompatActivity() {
         }
     }
     private fun checkAllField(): Boolean{
-        if(binding.email!!.text.toString() == ""){
-            binding.email!!.error = "this field is required"
+        if(binding.total!!.text.toString() == ""){
+            binding.total!!.error = "this field is required"
             return false
         }
         if(binding.passR!!.text.toString() == ""){
