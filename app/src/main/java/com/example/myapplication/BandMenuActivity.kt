@@ -3,6 +3,7 @@ package com.example.myapplication
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
+import com.example.myapplication.Profiles.ProfileBandFragment
 import com.example.myapplication.databinding.ActivityBandMenuBinding
 
 class BandMenuActivity : AppCompatActivity() {
@@ -19,24 +20,26 @@ class BandMenuActivity : AppCompatActivity() {
         val targetFragment = intent.getStringExtra("targetFragment")
         val selectedAddress = intent.getStringExtra("selectedAddress")
 
-        // Verificar si targetFragment es "AddBandFragment" para cargar AddBandFragment
+
         if (targetFragment == "AddBandFragment") {
             val addBandFragment = AddBandFragment()
-
-            // Pasar la dirección seleccionada como argumento a AddBandFragment
             val args = Bundle()
             args.putString("selectedAddress", selectedAddress)
             addBandFragment.arguments = args
-
-            // Cargar el fragmento de AddBandFragment
             replaceFragment(addBandFragment)
-
-            // Configurar el botón de navegación a "add1" para reflejar la selección
             binding.bottomNavigationView2.setSelectedItemId(R.id.add1)
         } else {
-            // Cargar el fragmento por defecto (HomeBandFragment)
             replaceFragment(HomeBandFragment())
         }
+
+        if (targetFragment == "ProfileBandFragment") {
+            val profileBandFragment = ProfileBandFragment()
+            replaceFragment(profileBandFragment)
+            binding.bottomNavigationView2.setSelectedItemId(R.id.profile1)
+        } else {
+            replaceFragment(HomeBandFragment())
+        }
+
 
         // Configurar el listener para el bottom navigation view
         binding.bottomNavigationView2.setOnItemSelectedListener { item ->
@@ -52,7 +55,7 @@ class BandMenuActivity : AppCompatActivity() {
 
     private fun replaceFragment(fragment: Fragment) {
         supportFragmentManager.beginTransaction()
-            .replace(R.id.frame_layout1, fragment) // Reemplaza en el contenedor adecuado
+            .replace(R.id.frame_layout1, fragment)
             .addToBackStack(null)
             .commit()
     }

@@ -21,4 +21,7 @@
         <item name="cornerSizeBottomLeft">25dp</item>
         <item name="cornerSizeBottomRight">25dp</item>
     </style>
+    <style name="ShapeAppearance.App.Image" parent="ShapeAppearance.MaterialComponents">
+        <item name="cornerSize">30dp</item>
+    </style>
 </resources>

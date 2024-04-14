@@ -16,6 +16,7 @@
             android:layout_height="292dp"
             android:layout_marginBottom="408dp"
             android:src="@drawable/concert"
+            android:scaleType="fitXY"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.518"
@@ -49,13 +50,15 @@
             app:layout_constraintBottom_toTopOf="@+id/fecha"
             app:layout_constraintStart_toEndOf="@+id/imageButton3" />
 
-        <ImageButton
+        <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/imageButton3"
             android:layout_width="61dp"
             android:layout_height="57dp"
             android:layout_marginStart="15dp"
             android:layout_marginTop="23dp"
-            android:background="@drawable/account_circle"
+            app:shapeAppearance="@style/ShapeAppearance.App.Image"
+            android:src="@drawable/account_circle"
+            android:scaleType="fitCenter"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imagenSeleccionada" />
 

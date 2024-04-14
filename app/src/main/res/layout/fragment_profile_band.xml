@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ProfileBandFragment">
+    tools:context=".Profiles.ProfileBandFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -13,74 +13,61 @@
 
         <!-- TODO: Update blank fragment layout -->
 
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/imageView"
+            android:layout_width="match_parent"
+            android:layout_height="221dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/bg_button_transparent"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="1dp"
+            tools:ignore="MissingConstraints" />
+
         <TextView
             android:id="@+id/textView"
             android:layout_width="132dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="139dp"
-            android:layout_marginTop="16dp"
             android:layout_marginEnd="140dp"
-            android:layout_marginBottom="543dp"
+            android:layout_marginBottom="165dp"
             android:gravity="center"
             android:text="@string/gigspot"
             android:textColor="@color/ColorPrincipal"
             android:textSize="30sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.057" />
+            app:layout_constraintBottom_toBottomOf="@+id/imageView"
+            app:layout_constraintEnd_toEndOf="@+id/imageButton3"
+            app:layout_constraintHorizontal_bias="0.494"
+            app:layout_constraintStart_toStartOf="@+id/imageButton3" />
 
-        <ImageButton
-            android:id="@+id/cerrarSession"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="24dp"
-            android:background="@drawable/box_arrow_in_left"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <ImageButton
-            android:id="@+id/imageButton2"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:layout_marginStart="45dp"
-            android:layout_marginTop="21dp"
-            android:background="@drawable/list"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <ImageButton
+        <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/imageButton3"
             android:layout_width="116dp"
             android:layout_height="108dp"
-            android:layout_marginBottom="387dp"
-            android:background="@drawable/account_circle"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/textView"
+            android:layout_marginStart="144dp"
+            android:layout_marginTop="19dp"
+            android:layout_marginEnd="147dp"
+            app:shapeAppearance="@style/ShapeAppearance.App.Image"
+            android:src="@drawable/account_circle"
+            android:scaleType="fitCenter"
+            app:layout_constraintEnd_toEndOf="@+id/imageView"
             app:layout_constraintHorizontal_bias="0.562"
-            app:layout_constraintStart_toStartOf="@+id/textView"
-            app:layout_constraintTop_toBottomOf="@+id/textView"
-            app:layout_constraintVertical_bias="0.276" />
+            app:layout_constraintStart_toStartOf="@+id/imageView"
+            app:layout_constraintTop_toBottomOf="@+id/textView" />
 
         <TextView
             android:id="@+id/nombre"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="351dp"
+            android:layout_marginTop="15dp"
             android:text="@string/name"
             android:textColor="@color/black"
             android:textSize="20sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/imageButton3"
             app:layout_constraintHorizontal_bias="0.492"
             app:layout_constraintStart_toStartOf="@+id/imageButton3"
-            app:layout_constraintTop_toBottomOf="@+id/imageButton3"
-            app:layout_constraintVertical_bias="0.271" />
+            app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
         <TextView
             android:id="@+id/textView5"
@@ -96,11 +83,12 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
+            android:id="@+id/textView14"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="9dp"
             android:layout_marginBottom="269dp"
-            android:text="@string/followers_number"
+            android:text="0"
             android:textColor="@color/black"
             android:textSize="20sp"
             android:textStyle="bold"
@@ -125,10 +113,11 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
+            android:id="@+id/textView13"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="268dp"
-            android:text="@string/saves_number"
+            android:text="0"
             android:textColor="@color/black"
             android:textSize="20sp"
             android:textStyle="bold"
@@ -139,44 +128,59 @@
             app:layout_constraintVertical_bias="0.364" />
 
         <Button
-            android:id="@+id/button5"
+            android:id="@+id/button7"
             android:layout_width="315dp"
             android:layout_height="47dp"
-            android:layout_marginStart="48dp"
-            android:layout_marginTop="393dp"
-            android:layout_marginEnd="48dp"
+            android:layout_marginTop="190dp"
             android:background="@drawable/custom_for_buttons"
-            android:text="Change profile picture"
+            android:text="Edit profile information"
             android:textColor="@color/white"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintEnd_toEndOf="@+id/textView14"
+            app:layout_constraintStart_toStartOf="@+id/textView13"
+            app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+        <Button
+            android:id="@+id/button12"
+            android:layout_width="315dp"
+            android:layout_height="47dp"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="28dp"
+            android:layout_marginEnd="2dp"
+            android:background="@drawable/custom_for_buttons"
+            android:text="Select profile picture"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="@+id/button7"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="@+id/button7"
+            app:layout_constraintTop_toBottomOf="@+id/button7" />
+
+        <Button
+            android:id="@+id/button13"
+            android:layout_width="315dp"
+            android:layout_height="47dp"
+            android:layout_marginStart="3dp"
+            android:layout_marginTop="27dp"
+            android:layout_marginEnd="2dp"
+            android:background="@drawable/custom_for_buttons"
+            android:text="Select background picture"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="@+id/button12"
+            app:layout_constraintHorizontal_bias="0.571"
+            app:layout_constraintStart_toStartOf="@+id/button12"
+            app:layout_constraintTop_toBottomOf="@+id/button12" />
 
         <Button
             android:id="@+id/button6"
             android:layout_width="315dp"
             android:layout_height="47dp"
-            android:layout_marginTop="36dp"
+            android:layout_marginTop="27dp"
             android:background="@drawable/custom_for_buttons"
             android:text="Sign out"
             android:textColor="@color/white"
-            app:layout_constraintEnd_toEndOf="@+id/button7"
+            app:layout_constraintEnd_toEndOf="@+id/button13"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/button7"
-            app:layout_constraintTop_toBottomOf="@+id/button7" />
-
-        <Button
-            android:id="@+id/button7"
-            android:layout_width="315dp"
-            android:layout_height="47dp"
-            android:layout_marginTop="37dp"
-            android:background="@drawable/custom_for_buttons"
-            android:text="Edit profile information"
-            android:textColor="@color/white"
-            app:layout_constraintEnd_toEndOf="@+id/button5"
-            app:layout_constraintStart_toStartOf="@+id/button5"
-            app:layout_constraintTop_toBottomOf="@+id/button5" />
-
+            app:layout_constraintStart_toStartOf="@+id/button13"
+            app:layout_constraintTop_toBottomOf="@+id/button13" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

@@ -9,8 +9,9 @@ import com.example.myapplication.databinding.ActivityLoginScreenBinding
 import android.util.Log
 import android.widget.Toast
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
+import com.example.myapplication.Modelos.UsuariosModelos
+import com.example.myapplication.Registers.RegisterUserBandActivity
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
@@ -172,7 +173,7 @@ class LoginActivity : AppCompatActivity() {
     }
 
     override fun onResume(){
-        val intent = Intent(this,CheckingSessionActivity::class.java)
+        val intent = Intent(this, CheckingSessionActivity::class.java)
         super.onResume()
         FirebaseAuth.getInstance().currentUser?.apply {
             startActivity(intent)

@@ -1,4 +1,4 @@
-package com.example.myapplication
+package com.example.myapplication.Modelos
 
 class EventModelo(
     val id: String,

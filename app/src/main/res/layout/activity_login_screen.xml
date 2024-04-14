@@ -28,7 +28,7 @@
         android:layout_marginStart="175dp"
         android:layout_marginTop="218dp"
         android:layout_marginEnd="176dp"
-        android:text="@string/sing_in"
+        android:text="@string/log_in"
         android:textColor="#5d3a9d"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -89,9 +89,9 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="91dp"
         android:layout_marginEnd="15dp"
-        android:layout_marginBottom="144dp"
+        android:layout_marginBottom="57dp"
         android:text="@string/acountQUESTION"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/sesiones"
         app:layout_constraintEnd_toStartOf="@+id/textView4"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -99,13 +99,10 @@
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
-        android:layout_marginEnd="119dp"
-        android:layout_marginBottom="144dp"
+        android:layout_marginStart="10dp"
         android:text="@string/sing_in"
         android:textColor="@color/ColorPrincipal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/textView3"
         app:layout_constraintStart_toEndOf="@+id/textView3" />
 
     <Button

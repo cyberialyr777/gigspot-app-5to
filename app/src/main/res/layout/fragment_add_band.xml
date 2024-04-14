@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ProfileFragment">
+    tools:context=".Profiles.ProfileFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -123,8 +123,10 @@
             android:drawableStart="@drawable/baseline_add_comment_24"
             android:drawablePadding="12dp"
             android:hint="Description"
-            android:inputType="text"
+            android:inputType="textMultiLine"
             android:paddingStart="12dp"
+            android:scrollbars="vertical"
+            android:scrollHorizontally="false"
             app:layout_constraintEnd_toEndOf="@+id/titulo"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="@+id/titulo"

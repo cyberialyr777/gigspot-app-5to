@@ -1,9 +1,14 @@
-package com.example.myapplication
+package com.example.myapplication.Profiles
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
+import com.example.myapplication.BandMenuActivity
+import com.example.myapplication.BottomNavigationActivity
+import com.example.myapplication.Modelos.BandaModelo
+import com.example.myapplication.Modelos.UsuariosModelos
 import com.example.myapplication.databinding.ActivityEditProfileUserBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
@@ -47,7 +52,7 @@ class EditProfileUserActivity : AppCompatActivity() {
         })
     }
 
-    private fun actualizar(){
+    private fun actualizar2(){
         val contexto = applicationContext
         val databaseReference = FirebaseDatabase.getInstance().getReference("usuario")
 
@@ -78,6 +83,41 @@ class EditProfileUserActivity : AppCompatActivity() {
                         }
                 }
             }
+            override fun onCancelled(error: DatabaseError) {
+                TODO("Not yet implemented")
+            }
+        })
+    }
+
+    private fun actualizar() {
+        val contexto = applicationContext
+        val databaseReference = FirebaseDatabase.getInstance().getReference("usuario")
+
+        databaseReference.orderByChild("email").equalTo(auth.currentUser?.email).addListenerForSingleValueEvent(object : ValueEventListener {
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+                for (snapshot in dataSnapshot.children) {
+                    val user = snapshot.getValue(UsuariosModelos::class.java)
+
+                    if (user != null && user.email == auth.currentUser?.email) {
+                        val actualizacionMap = hashMapOf<String, Any?>(
+                            "firstName" to binding.firstName.text.toString().trim(),
+                            "userLastName" to binding.userlastName.text.toString().trim(),
+                            "userName" to binding.userName.text.toString().trim(),
+                        )
+                        snapshot.ref.updateChildren(actualizacionMap)
+                            .addOnSuccessListener {
+                                finish()
+                                val intent = Intent(this@EditProfileUserActivity, BottomNavigationActivity::class.java)
+                                intent.putExtra("targetFragment", "ProfileFragment") // Identificador del fragmento a cargar
+                                startActivity(intent)
+                            }
+                            .addOnFailureListener {
+                                Toast.makeText(contexto, "Error", Toast.LENGTH_SHORT).show()
+                            }
+                    }
+                }
+            }
+
             override fun onCancelled(error: DatabaseError) {
                 TODO("Not yet implemented")
             }

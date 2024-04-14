@@ -4,11 +4,9 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.view.View
-import android.widget.Button
-import android.widget.ImageButton
-import android.widget.ImageView
 import android.widget.Toast
+import com.example.myapplication.Modelos.BandaModelo
+import com.example.myapplication.Modelos.Event
 import com.example.myapplication.databinding.ActivityEventBandBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
@@ -33,13 +31,6 @@ class EventBandActivity : AppCompatActivity() {
             val intent = Intent(this, HomeBandFragment::class.java)
             startActivity(intent)
         }
-
-        binding.button2.setOnClickListener {
-            val intent = Intent(this, EditBandActivity::class.java)
-            startActivity(intent)
-        }
-        Toast.makeText(this, id, Toast.LENGTH_SHORT).show()
-
     }
 
     private fun cosultaEvento(id: String){
@@ -64,13 +55,18 @@ class EventBandActivity : AppCompatActivity() {
                         binding.precio.text = evento.price
                         binding.descripcion.text = evento.description
                         Log.w("Consulta", "${evento.titulo}")
-                        binding.imageButton3.setOnClickListener{
-                            Toast.makeText(this@EventBandActivity, evento.emailBand, Toast.LENGTH_SHORT).show()
-                        }
+
                         binding.button.setOnClickListener {
                             eliminarDato(id)
                             Toast.makeText(this@EventBandActivity, "Successfully deleted", Toast.LENGTH_SHORT).show()
                         }
+                        binding.button2.setOnClickListener {
+                            val intent = Intent(this@EventBandActivity, EditBandActivity::class.java)
+                            intent.putExtra("ID_EVENTO", id)
+                            finish()
+                            startActivity(intent)
+                        }
+
                     }
                 }
             }
@@ -95,6 +91,10 @@ class EventBandActivity : AppCompatActivity() {
                         Log.w("Consulta", "if")
                         // Picasso.get().load(user.imagen).into(binding.imageButton3)
                         binding.nombreBanda.text = user.bandName
+                        val imageProfileUrl = user?.imageProfile
+                        if (!imageProfileUrl.isNullOrEmpty()) {
+                            Picasso.get().load(imageProfileUrl).into(binding.imageButton3)
+                        }
                     }
                 }
             }
@@ -111,7 +111,8 @@ class EventBandActivity : AppCompatActivity() {
 
         nodoAEliminar.removeValue()
             .addOnSuccessListener {
-                startActivity(Intent(this@EventBandActivity,HomeBandFragment::class.java))
+                finish()
+                startActivity(Intent(this@EventBandActivity,BandMenuActivity::class.java))
             }
             .addOnFailureListener { error ->
                 Log.e("Firebase", "Error al eliminar el nodo: ${error.message}")

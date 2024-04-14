@@ -1,12 +1,12 @@
-package com.example.myapplication
+package com.example.myapplication.Profiles
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.view.View
-import android.widget.ImageButton
 import android.widget.Toast
+import com.example.myapplication.Modelos.FollowModelo
+import com.example.myapplication.Modelos.BandaModelo
+import com.example.myapplication.R
 import com.example.myapplication.databinding.ActivityProfileBandUserBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
@@ -14,7 +14,7 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
-import java.util.UUID
+import com.squareup.picasso.Picasso
 
 class ProfileBandUserActivity : AppCompatActivity() {
     private lateinit var binding: ActivityProfileBandUserBinding
@@ -28,7 +28,7 @@ class ProfileBandUserActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         consultaBanda(email)
-
+        consultafollow2(Auth.currentUser?.email!!, email)
     }
 
     private fun consultaBanda(email: String){
@@ -44,10 +44,24 @@ class ProfileBandUserActivity : AppCompatActivity() {
                     Log.w("Consulta", "$user")
                     if(user != null){
                         Log.w("Consulta", "if")
-                        // Picasso.get().load(user.imagen).into(binding.imageButton3)
-                        binding.textView.text = ": " + user.bandName
+                        binding.textView.setText(user?.bandName)
+                        binding.textView4.setText(user?.description)
+                        binding.textView3.setText(user?.SP)
+                        binding.textView2.setText(user?.IT)
+                        binding.textView10.setText(user?.YT)
+
+                        val imageBackUrl = user?.imageBack
+                        if (!imageBackUrl.isNullOrEmpty()) {
+                            Picasso.get().load(imageBackUrl).into(binding.imageView2)
+                        }
+
+                        val imageProfileUrl = user?.imageProfile
+                        if (!imageProfileUrl.isNullOrEmpty()) {
+                            Picasso.get().load(imageProfileUrl).into(binding.imageButton3)
+                        }
+
                         binding.button5.setOnClickListener {
-                            consultafollow(Auth.currentUser?.email!!,user.email!!)
+                            consultafollow(user.email!!,Auth.currentUser?.email!!)
                         }
                     }
                 }
@@ -64,11 +78,35 @@ class ProfileBandUserActivity : AppCompatActivity() {
         val id = databaseReference.push().key
         val folow = FollowModelo(id ,email, emailBand)
         dbreferes.child(id!!).setValue(folow).addOnSuccessListener {
+            binding.button5.setBackgroundResource(R.drawable.custom_for_buttons)
             Toast.makeText(this, "Following", Toast.LENGTH_SHORT).show()
         }.addOnFailureListener {
             Toast.makeText(this, "fallo al seguir", Toast.LENGTH_SHORT).show()
         }
     }
+
+
+    private fun consultafollow2(emailUser: String, emailBand: String){
+        Log.w("Consulta", "inicio")
+        dbreferes = FirebaseDatabase.getInstance().getReference("follows")
+        dbreferes.orderByChild("id").addListenerForSingleValueEvent(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                Log.w("Consulta", "snapshto")
+                val user = snapshot.getValue(FollowModelo::class.java)
+                Log.w("Consulta", "$user")
+                if(user != null){
+                    binding.button5.setBackgroundResource(R.drawable.custom_for_buttons)
+                }else{
+                    binding.button5.setBackgroundResource(R.drawable.follow_btn)
+                }
+            }
+            override fun onCancelled(error: DatabaseError) {
+                TODO("Not yet implemented")
+            }
+
+        })
+    }
+
     private fun consultafollow(emailUser: String, emailBand: String){
         Log.w("Consulta", "inicio")
         dbreferes = FirebaseDatabase.getInstance().getReference("follows")
@@ -78,6 +116,8 @@ class ProfileBandUserActivity : AppCompatActivity() {
                 val user = snapshot.getValue(FollowModelo::class.java)
                 Log.w("Consulta", "$user")
                 if(user != null){
+
+                    binding.button5.setBackgroundResource(R.drawable.custom_for_buttons)
                     Toast.makeText(this@ProfileBandUserActivity, "Already following", Toast.LENGTH_SHORT).show()
                 }else{
                     Toast.makeText(this@ProfileBandUserActivity, "Following", Toast.LENGTH_SHORT).show()

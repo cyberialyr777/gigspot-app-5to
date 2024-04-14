@@ -1,12 +1,9 @@
 package com.example.myapplication
 
-import android.content.DialogInterface.OnClickListener
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.myapplication.Modelos.Event
 
 class CustomAdapterEventsBand (private val eventoList:ArrayList<Event>, private val onClickListener:(Event)->Unit): RecyclerView.Adapter<EventViewHolder>(){
 

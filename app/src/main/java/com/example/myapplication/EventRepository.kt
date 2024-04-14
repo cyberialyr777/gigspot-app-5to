@@ -1,6 +1,7 @@
 package com.example.myapplication
 
 import androidx.lifecycle.MutableLiveData
+import com.example.myapplication.Modelos.Event
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference

@@ -20,6 +20,8 @@ import android.widget.DatePicker
 import android.widget.TimePicker
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import com.example.myapplication.Modelos.BandaModelo
+import com.example.myapplication.Modelos.EventModelo
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
@@ -37,6 +39,7 @@ class AddBandFragment : Fragment(), DatePickerDialog.OnDateSetListener, TimePick
     private lateinit var _binding: FragmentAddBandBinding
     private lateinit var database: DatabaseReference
     val storage = FirebaseStorage.getInstance()
+
     private var selectedImageUri: Uri? = Uri.parse("")
     private var selectedImageUrl: String? = ""
     private val MAP_REQUEST_CODE = 1001
@@ -82,13 +85,11 @@ class AddBandFragment : Fragment(), DatePickerDialog.OnDateSetListener, TimePick
         binding.guardarImagen.setOnClickListener {
             pickImageGallery()
         }
-        binding.guardarImagen.setOnClickListener {
-            pickImageGallery()
-        }
+
 
         val intent = requireActivity().intent
         val selectedAddress = intent.getStringExtra("selectedAddress")
-        // binding.spinner8.text = selectedAddress ?: "No place found"
+        binding.spinner8.text = selectedAddress ?: "No place found"
 
 
         val mapButton: Button = binding.selectUbicacion!!
@@ -231,7 +232,7 @@ class AddBandFragment : Fragment(), DatePickerDialog.OnDateSetListener, TimePick
             return false
         }
         if (binding.descripcion.length() > 500) {
-            binding.descripcion.error = "title must be less than 100 caracters"
+            binding.descripcion.error = "title must be less than 500 caracters"
             return false
         }
         if(selectedImageUri == Uri.parse("")){

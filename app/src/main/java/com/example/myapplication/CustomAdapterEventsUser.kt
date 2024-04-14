@@ -3,6 +3,7 @@ package com.example.myapplication
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.myapplication.Modelos.Event
 
 class CustomAdapterEventsUser (private val eventoList:ArrayList<Event>, private val onClickListener:(Event)->Unit): RecyclerView.Adapter<EventViewHolder>(){
 

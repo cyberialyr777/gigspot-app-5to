@@ -25,13 +25,13 @@
             android:name=".BoughtTicketsActivity"
             android:exported="false" />
         <activity
-            android:name=".EditProfileBandActivity"
+            android:name=".Profiles.EditProfileBandActivity"
             android:exported="false" />
         <activity
-            android:name=".EditProfileUserActivity"
+            android:name=".Profiles.EditProfileUserActivity"
             android:exported="false" />
         <activity
-            android:name=".ProfileBandUserActivity"
+            android:name=".Profiles.ProfileBandUserActivity"
             android:exported="false" />
         <activity
             android:name=".EditBandActivity"
@@ -57,13 +57,13 @@
             android:name=".BottomNavigationActivity"
             android:exported="false" />
         <activity
-            android:name=".RegisterBandActivity"
+            android:name=".Registers.RegisterBandActivity"
             android:exported="false" />
         <activity
-            android:name=".RegisterUserBandActivity"
+            android:name=".Registers.RegisterUserBandActivity"
             android:exported="false" />
         <activity
-            android:name=".RegisterUserActivity"
+            android:name=".Registers.RegisterUserActivity"
             android:exported="false" />
         <activity
             android:name=".CheckingSessionActivity"
@@ -72,9 +72,20 @@
             android:name=".MapActivity"
             android:exported="false" />
         <activity
+            android:name=".Map2Acrtivity"
+            android:exported="false" />
+        <activity
+            android:name=".FollowUserActivity"
+            android:exported="false" />
+        <activity
+            android:name=".FollowBandActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Profiles.ProfileBandFragment"
+            android:exported="false" />
+        <activity
             android:name=".LoginActivity"
             android:exported="true"
-            android:label="@string/app_name"
             android:theme="@style/Theme.APISplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -82,6 +93,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />

@@ -1,4 +1,4 @@
-package com.example.myapplication
+package com.example.myapplication.Modelos
 
 data class UsuariosModelos(
     val userName : String? = null,
@@ -6,6 +6,7 @@ data class UsuariosModelos(
     val userlastName : String? = null,
     val password : String? = null,
     val email : String? = null,
-    val userType : Int? = null
+    val userType : Int? = null,
+    val imageProfile: String? = null
     )
 

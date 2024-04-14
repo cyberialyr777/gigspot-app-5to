@@ -1,48 +1,52 @@
-package com.example.myapplication
+package com.example.myapplication.Registers
 
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import android.view.LayoutInflater
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.example.myapplication.databinding.ActivityRegisterBandBinding
+import com.example.myapplication.LoginActivity
+import com.example.myapplication.Modelos.UsuariosModelos
+import com.example.myapplication.databinding.ActivityRegisterUserBinding
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 
-class RegisterBandActivity: AppCompatActivity() {
-    private lateinit var binding: ActivityRegisterBandBinding
+class RegisterUserActivity : AppCompatActivity(){
+    private lateinit var binding: ActivityRegisterUserBinding
     private lateinit var database : DatabaseReference
     private lateinit var Auth: FirebaseAuth
-    val TAG = "RegisterBandActivity"
+    val TAG = "RegisterUserActivity"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityRegisterBandBinding.inflate(layoutInflater)
+        binding = ActivityRegisterUserBinding.inflate(layoutInflater)
         setContentView(binding.root)
         Log.d(TAG,"onCreate: ")
         Auth = FirebaseAuth.getInstance()
 
-        binding.Button?.setOnClickListener() {
-            if (checkAllField()){
-                createAcount()
+        binding.button4.setOnClickListener() {
+            if (checkAllField()) {
+                crateAcount()
             }
         }
     }
 
-    private fun createAcount(){
-        val nombreBanda = binding.bandName?.text.toString().trim()
+    private fun crateAcount(){
         val email = binding.email?.text.toString().trim()
         val pass = binding.password?.text.toString().trim()
-        val userType = 1
+        val nombre = binding.firstName?.text.toString().trim()
+        val apellido = binding.userlastName?.text.toString().trim()
+        val userName = binding.userName?.text.toString().trim()
+        val userType = 0
 
-        Auth.createUserWithEmailAndPassword(email,pass).addOnCompleteListener(RegisterBandActivity()) { task ->
-            if(task.isSuccessful){
+        Auth.createUserWithEmailAndPassword(email,pass).addOnCompleteListener(RegisterUserActivity()) { task ->
+            if (task.isSuccessful) {
                 Toast.makeText(this, "Successfully Register", Toast.LENGTH_SHORT).show()
                 database = FirebaseDatabase.getInstance().getReference("usuario")
-                val band = BandaModelo(nombreBanda, email, pass, userType)
-                database.child(nombreBanda).setValue(band).addOnSuccessListener {
+                val user = UsuariosModelos(userName, nombre, apellido, pass, email, userType)
+                database.child(userName).setValue(user).addOnSuccessListener {
                     finish()
                     startActivity(Intent(this, LoginActivity::class.java))
                 }.addOnFailureListener {
@@ -51,13 +55,25 @@ class RegisterBandActivity: AppCompatActivity() {
             }else{
                 Log.w(TAG, "createUserWithEmail:failure", task.exception)
                 Toast.makeText(this, task.exception!!.message, Toast.LENGTH_SHORT).show()
+                updateUI(null)
             }
         }
     }
+    private fun updateUI(usuario: FirebaseUser?){
+    }
 
     private fun checkAllField(): Boolean{
-        if(binding.bandName!!.text.toString() == ""){
-            binding.bandName!!.error = "this field is required"
+        val e_mail = binding.email!!.text.toString()
+        if(binding.firstName!!.text.toString() == ""){
+            binding.firstName!!.error = "this field is required"
+            return false
+        }
+        if(binding.userlastName!!.text.toString() == ""){
+            binding.userlastName!!.error = "this field is required"
+            return false
+        }
+        if(binding.userName!!.text.toString() == ""){
+            binding.userName!!.error = "this field is required"
             return false
         }
         if(binding.email!!.text.toString() == ""){
@@ -74,6 +90,7 @@ class RegisterBandActivity: AppCompatActivity() {
         }
         return true
     }
+
 
     override fun onStart() {
         super.onStart()

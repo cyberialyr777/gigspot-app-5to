@@ -19,14 +19,17 @@
             android:id="@+id/textView"
             android:layout_width="131dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="96dp"
             android:layout_marginTop="16dp"
+            android:layout_marginEnd="26dp"
             android:gravity="center"
             android:text="@string/gigspot"
             android:textColor="@color/ColorPrincipal"
             android:textSize="30sp"
             android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/buscador"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/buscador"
             app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.appcompat.widget.SearchView
@@ -34,24 +37,21 @@
             android:layout_width="323dp"
             android:layout_height="40dp"
             android:layout_marginStart="35dp"
-            android:layout_marginTop="33dp"
+            android:layout_marginTop="80dp"
             android:layout_marginEnd="35dp"
-            android:layout_marginBottom="437dp"
             android:background="@drawable/custum_for_input_text"
             android:drawablePadding="12dp"
             android:paddingStart="12dp"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <ImageButton
             android:id="@+id/imageButton"
             android:layout_width="40dp"
             android:layout_height="38dp"
             android:layout_marginStart="44dp"
-            android:background="@drawable/profile"
-            android:src="@drawable/profile"
+            android:background="@drawable/baseline_music_note_24"
             app:layout_constraintBottom_toBottomOf="@+id/textView"
             app:layout_constraintStart_toEndOf="@+id/textView" />
 
@@ -60,6 +60,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
+            android:layout_marginBottom="70dp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"

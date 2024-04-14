@@ -5,9 +5,10 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import com.example.myapplication.databinding.ActivityEventsBinding
-import android.widget.Button
 import android.widget.TextView
-import android.widget.Toast
+import com.example.myapplication.Modelos.BandaModelo
+import com.example.myapplication.Modelos.Event
+import com.example.myapplication.Profiles.ProfileBandUserActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -46,6 +47,7 @@ class EventsActivity : AppCompatActivity() {
         Log.w("Consulta", id)
         Log.w("Consulta", "inicio")
         dbreferes = FirebaseDatabase.getInstance().getReference("eventos")
+        var dbreferes2 = FirebaseDatabase.getInstance().getReference("usuario")
         dbreferes.orderByChild("id").equalTo(id).addListenerForSingleValueEvent(object :
             ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
@@ -65,11 +67,26 @@ class EventsActivity : AppCompatActivity() {
                         binding.textView7.text = evento.price
                         binding.textView4.text = evento.description
                         Log.w("Consulta", "${evento.titulo}")
+
+                        dbreferes2.orderByChild("email").equalTo(evento.emailBand).addListenerForSingleValueEvent(object : ValueEventListener{
+                            override fun onDataChange(snapshot2: DataSnapshot) {
+                                for(dataSnapshot2 in snapshot2.children){
+                                    val band = dataSnapshot2.getValue(BandaModelo::class.java)
+                                    val imageProfileUrl = band?.imageProfile
+                                    if (!imageProfileUrl.isNullOrEmpty()) {
+                                        Picasso.get().load(imageProfileUrl).into(binding.imageButton3)
+                                    }
+                                }
+                            }
+                            override fun onCancelled(error: DatabaseError) {
+                                TODO("Not yet implemented")
+                            }
+                        })
+
                         binding.imageButton3.setOnClickListener{
                             val intent = Intent(this@EventsActivity, ProfileBandUserActivity::class.java)
                             intent.putExtra("ID_EVENTO", evento.emailBand)
                             startActivity(intent)
-                            Toast.makeText(this@EventsActivity, evento.emailBand, Toast.LENGTH_SHORT).show()
                         }
                         binding.button.setOnClickListener {
 

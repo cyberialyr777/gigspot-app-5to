@@ -4,14 +4,26 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ProfileFragment">
+    tools:context=".Profiles.ProfileFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center">
 
-        <!-- TODO: Update blank fragment layout -->
+        <ImageView
+            android:id="@+id/imageButton3"
+            android:layout_width="116dp"
+            android:layout_height="108dp"
+            android:layout_marginStart="138dp"
+            android:layout_marginTop="76dp"
+            android:layout_marginEnd="139dp"
+            app:shapeAppearance="@style/ShapeAppearance.App.Image"
+            android:src="@drawable/account_circle"
+            android:scaleType="fitCenter"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/textView"
@@ -29,19 +41,8 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <ImageButton
-            android:id="@+id/imageButton3"
-            android:layout_width="116dp"
-            android:layout_height="108dp"
-            android:layout_marginStart="138dp"
-            android:layout_marginTop="80dp"
-            android:layout_marginEnd="139dp"
-            android:background="@drawable/account_circle"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
         <TextView
+            android:id="@+id/nombre"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
@@ -61,7 +62,7 @@
             android:layout_marginStart="266dp"
             android:layout_marginTop="268dp"
             android:layout_marginEnd="40dp"
-            android:text="@string/followers"
+            android:text="Follows"
             android:textColor="@color/black"
             android:textSize="20sp"
             android:textStyle="bold"
@@ -70,10 +71,11 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
+            android:id="@+id/followNum"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
-            android:text="@string/followers_number"
+            android:text="0"
             android:textColor="@color/black"
             android:textSize="20sp"
             android:textStyle="bold"
@@ -97,10 +99,11 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
+            android:id="@+id/savesNum"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
-            android:text="@string/saves_number"
+            android:text="0"
             android:textColor="@color/black"
             android:textSize="20sp"
             android:textStyle="bold"
