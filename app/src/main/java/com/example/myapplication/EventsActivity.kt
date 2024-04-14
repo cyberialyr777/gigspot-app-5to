@@ -42,11 +42,6 @@ class EventsActivity : AppCompatActivity() {
         }
 
         val textview = findViewById<TextView>(R.id.textView)
-
-        textview.setOnClickListener {
-            val intent = Intent(this, ProfileBandUserActivity::class.java)
-            startActivity(intent)
-        }
     }
 
     private fun cosultaEvento(id: String){

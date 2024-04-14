@@ -89,7 +89,7 @@ class EditProfileBandActivity : AppCompatActivity() {
 
                                 finish()
                                 val intent = Intent(this@EditProfileBandActivity, BandMenuActivity::class.java)
-                                intent.putExtra("targetFragment", "ProfileBandFragment") // Identificador del fragmento a cargar
+                                intent.putExtra("targetFragment2", "ProfileBandFragment") // Identificador del fragmento a cargar
                                 startActivity(intent)
                             }
                             .addOnFailureListener {

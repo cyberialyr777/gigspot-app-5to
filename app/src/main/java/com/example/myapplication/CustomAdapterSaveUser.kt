@@ -3,7 +3,6 @@ package com.example.myapplication
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.myapplication.Modelos.Event
 import com.example.myapplication.Modelos.SaveModelo
 
 class CustomAdapterSaveUser(private val eventoList:ArrayList<SaveModelo>, private val onClickListener:(SaveModelo)->Unit): RecyclerView.Adapter<SaveUserViewHolder>(){

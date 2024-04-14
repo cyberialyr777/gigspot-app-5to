@@ -65,8 +65,7 @@ class SaveFragment : Fragment() {
 
     private fun getDataEventos() {
         dbreferes = FirebaseDatabase.getInstance().getReference("saves")
-        dbreferes.orderByChild("emailUser").equalTo(auth.currentUser?.email).addValueEventListener(object :
-            ValueEventListener {
+        dbreferes.orderByChild("emailUser").equalTo(auth.currentUser?.email).addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 Log.d("firebaseResul","Exitoso  onDataChange")
                 newArray.clear()

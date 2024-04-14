@@ -21,32 +21,16 @@ class SaveUserViewHolder (itemView: View): RecyclerView.ViewHolder(itemView){
     val binding = CardEventosBinding.bind(itemView)
 
     fun render(item: SaveModelo, onClickListener: (SaveModelo)->Unit){
-        val dbreferes = FirebaseDatabase.getInstance().getReference("saves")
+        auth = FirebaseAuth.getInstance()
         val dbreferes2 = FirebaseDatabase.getInstance().getReference("eventos")
-
-        dbreferes.orderByChild("emailUser").equalTo(auth.currentUser?.email).addListenerForSingleValueEvent(object : ValueEventListener {
+        dbreferes2.orderByChild("id").equalTo(item.idEvento).addListenerForSingleValueEvent(object : ValueEventListener{
             override fun onDataChange(snapshot: DataSnapshot) {
-                for(dataSnapshot in snapshot.children){
-                    Log.i("Consulta", "${dataSnapshot}")
-                    val user = dataSnapshot.getValue(SaveModelo::class.java)
-                    Log.w("Consulta", "$user")
-                    if(user != null){
-                        Log.w("Consulta", "if")
-                        dbreferes2.orderByChild("id").equalTo(user.idEvento).addListenerForSingleValueEvent(object : ValueEventListener{
-                            override fun onDataChange(snapshot: DataSnapshot) {
-                                for(dataSnapshot2 in snapshot.children){
-                                    val event = dataSnapshot.getValue(Event::class.java)
-                                    Picasso.get().load(event?.imagen).into(binding.imagenSelecionada)
-                                    binding.fechaEvento.text = event?.date
-                                    binding.entrarEvento.text = event?.titulo
-                                }
-                            }
-
-                            override fun onCancelled(error: DatabaseError) {
-                                TODO("Not yet implemented")
-                            }
-
-                        })
+                for(dataSnapshot2 in snapshot.children){
+                    val event = dataSnapshot2.getValue(Event::class.java)
+                    if(event != null) {
+                        Picasso.get().load(event.imagen).into(binding.imagenSelecionada)
+                        binding.fechaEvento.text = event.date
+                        binding.entrarEvento.text = event.titulo
                     }
                 }
             }

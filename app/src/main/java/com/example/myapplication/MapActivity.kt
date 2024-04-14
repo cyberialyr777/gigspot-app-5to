@@ -94,7 +94,7 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback {
                     // Crear un Intent para iniciar ActivityBandMenu
                     val intent = Intent(this, BandMenuActivity::class.java)
                     intent.putExtra("selectedAddress", addressLine)
-                    intent.putExtra("targetFragment", "AddBandFragment") // Identificador del fragmento a cargar
+                    intent.putExtra("targetFragment", "AddBandFragment")
                     Log.i("direccion",addressLine)
                     startActivity(intent)
                 } else {

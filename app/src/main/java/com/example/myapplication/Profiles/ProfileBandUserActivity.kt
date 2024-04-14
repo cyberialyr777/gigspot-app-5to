@@ -89,7 +89,7 @@ class ProfileBandUserActivity : AppCompatActivity() {
     private fun consultafollow2(emailUser: String, emailBand: String){
         Log.w("Consulta", "inicio")
         dbreferes = FirebaseDatabase.getInstance().getReference("follows")
-        dbreferes.orderByChild("id").addListenerForSingleValueEvent(object : ValueEventListener {
+        dbreferes.orderByChild("emailUser").equalTo(emailUser).ref.orderByChild("emailBand").equalTo(emailBand).addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 Log.w("Consulta", "snapshto")
                 val user = snapshot.getValue(FollowModelo::class.java)
@@ -110,13 +110,12 @@ class ProfileBandUserActivity : AppCompatActivity() {
     private fun consultafollow(emailUser: String, emailBand: String){
         Log.w("Consulta", "inicio")
         dbreferes = FirebaseDatabase.getInstance().getReference("follows")
-        dbreferes.orderByChild("id").addListenerForSingleValueEvent(object : ValueEventListener {
+        dbreferes.orderByChild("emailUser").equalTo(emailUser).ref.orderByChild("emailBand").equalTo(emailBand).addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 Log.w("Consulta", "snapshto")
                 val user = snapshot.getValue(FollowModelo::class.java)
                 Log.w("Consulta", "$user")
                 if(user != null){
-
                     binding.button5.setBackgroundResource(R.drawable.custom_for_buttons)
                     Toast.makeText(this@ProfileBandUserActivity, "Already following", Toast.LENGTH_SHORT).show()
                 }else{

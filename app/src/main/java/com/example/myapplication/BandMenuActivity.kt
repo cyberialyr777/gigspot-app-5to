@@ -18,6 +18,7 @@ class BandMenuActivity : AppCompatActivity() {
         // Verificar si hay un intent con targetFragment y selectedAddress
         val intent = intent
         val targetFragment = intent.getStringExtra("targetFragment")
+        val targetFragment2 = intent.getStringExtra("targetFragment2")
         val selectedAddress = intent.getStringExtra("selectedAddress")
 
 
@@ -32,7 +33,7 @@ class BandMenuActivity : AppCompatActivity() {
             replaceFragment(HomeBandFragment())
         }
 
-        if (targetFragment == "ProfileBandFragment") {
+        if (targetFragment2 == "ProfileBandFragment") {
             val profileBandFragment = ProfileBandFragment()
             replaceFragment(profileBandFragment)
             binding.bottomNavigationView2.setSelectedItemId(R.id.profile1)
