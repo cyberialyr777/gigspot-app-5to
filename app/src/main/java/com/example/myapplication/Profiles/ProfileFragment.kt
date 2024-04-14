@@ -13,6 +13,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import com.example.myapplication.AddBandFragment
+import com.example.myapplication.BoughtTicketsActivity
 import com.example.myapplication.FollowUserActivity
 import com.example.myapplication.LoginActivity
 import com.example.myapplication.Modelos.BandaModelo
@@ -65,7 +66,9 @@ class ProfileFragment : Fragment() {
         binding.textView5?.setOnClickListener{
             startActivity(Intent(context, FollowUserActivity::class.java))
         }
-
+        binding.button10?.setOnClickListener{
+            startActivity(Intent(context, BoughtTicketsActivity::class.java))
+        }
         binding.button5?.setOnClickListener {
             pickImageGallery()
         }
