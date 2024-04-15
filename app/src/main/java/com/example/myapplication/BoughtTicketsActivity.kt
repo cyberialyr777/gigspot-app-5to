@@ -42,8 +42,8 @@ class BoughtTicketsActivity : AppCompatActivity() {
     }
 
     fun onSelectEvent(event: BoughtModelo){
-        val id = event.idEvento
-        val intent = Intent(this, EventsActivity::class.java)
+        val id = event.id
+        val intent = Intent(this, ReceiptTicketActivity::class.java)
         intent.putExtra("ID_EVENTO", id)
         startActivity(intent)
     }
