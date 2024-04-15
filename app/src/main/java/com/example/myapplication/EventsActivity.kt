@@ -34,14 +34,6 @@ class EventsActivity : AppCompatActivity() {
 
         cosultaEvento(id)
         consultaSave2(auth.currentUser?.email!!, id)
-
-        val BuyTicket = binding.button
-
-        BuyTicket.setOnClickListener {
-            startActivity(Intent(this, TicketActivity::class.java))
-        }
-
-        val textview = findViewById<TextView>(R.id.textView)
     }
 
     private fun cosultaEvento(id: String){

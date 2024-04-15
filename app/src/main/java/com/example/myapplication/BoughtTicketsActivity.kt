@@ -1,85 +1,75 @@
 package com.example.myapplication
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.myapplication.Modelos.BoughtModelo
 import com.example.myapplication.databinding.ActivityBoughtTicketsBinding
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
-import com.example.myapplication.Modelos.Event
+import com.google.firebase.auth.FirebaseAuth
 
 class BoughtTicketsActivity : AppCompatActivity() {
+    private lateinit var auth: FirebaseAuth
     private lateinit var binding: ActivityBoughtTicketsBinding
-    private lateinit var newArray: ArrayList<Event> //
-    private lateinit var dbReference: DatabaseReference
-    private lateinit var myAdapter: CustomAdapterEventsUser
+    private lateinit var newArray: ArrayList<BoughtModelo>
+    private lateinit var myAdapter: CustomAdapterBougth
+    private lateinit var dbreferes : DatabaseReference
     private val TAG = "BoughtTicketsActivity"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityBoughtTicketsBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
+        auth = FirebaseAuth.getInstance()
         newArray = arrayListOf()
         init()
-        getDataTickets("")
+        getDataEventos()
     }
 
     private fun init() {
-        binding.boughtTicketsRecycler.layoutManager = LinearLayoutManager(this)
-        myAdapter = CustomAdapterEventsUser(newArray) { event ->
-            // Acciones cuando se selecciona un evento
+        binding.boughtTicketsRecycler.layoutManager = LinearLayoutManager(this,
+            LinearLayoutManager.VERTICAL,false)
+        myAdapter = CustomAdapterBougth(newArray){ evento ->
+            onSelectEvent(evento)
         }
         binding.boughtTicketsRecycler.adapter = myAdapter
     }
 
-    private fun getDataTickets(query: String) {
-        dbReference = FirebaseDatabase.getInstance().getReference("eventos") // Cambia a la referencia de tickets
-        if (query.isNotEmpty()) {
-            dbReference.orderByChild("titulo").startAt(query).endAt("${query}/uf8ff").addValueEventListener(object :
-                ValueEventListener {
-                override fun onDataChange(snapshot: DataSnapshot) {
-                    newArray.clear()
-                    if (snapshot.exists()) {
-                        for (dataSnapshot in snapshot.children) {
-                            val data = dataSnapshot.getValue(Event::class.java) // Cambia a la clase de Ticket si lo prefieres
-                            data?.let {
-                                newArray.add(it)
-                            }
-                        }
-                        myAdapter.notifyDataSetChanged()
-                    }
-                }
+    fun onSelectEvent(event: BoughtModelo){
+        val id = event.id
+        val intent = Intent(this, ReceiptTicketActivity::class.java)
+        intent.putExtra("ID_EVENTO", id)
+        startActivity(intent)
+    }
 
-                override fun onCancelled(error: DatabaseError) {
-                    Log.w(TAG, "Failed to read value.", error.toException())
-                }
-            })
-        } else {
-            dbReference.addValueEventListener(object :
-                ValueEventListener {
-                override fun onDataChange(snapshot: DataSnapshot) {
-                    newArray.clear()
-                    if (snapshot.exists()) {
-                        for (dataSnapshot in snapshot.children) {
-                            val data = dataSnapshot.getValue(Event::class.java)
-                            data?.let {
-                                newArray.add(it)
-                            }
+    private fun getDataEventos() {
+        dbreferes = FirebaseDatabase.getInstance().getReference("bought")
+        dbreferes.orderByChild("emailUser").equalTo(auth.currentUser?.email).addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                Log.d("firebaseResul","Exitoso  onDataChange")
+                newArray.clear()
+                if(snapshot.exists()){
+                    for(dataSnapshot in snapshot.children){
+                        Log.d("firebaseResul","Exitoso  datasnapshot")
+                        val data = dataSnapshot.getValue(BoughtModelo::class.java)
+                        data?.let {
+                            newArray.add(it)
                         }
-                        myAdapter.notifyDataSetChanged()
                     }
+                    myAdapter.notifyDataSetChanged()
                 }
+            }
 
-                override fun onCancelled(error: DatabaseError) {
-                    Log.w(TAG, "Failed to read value.", error.toException())
-                }
-            })
-        }
+            override fun onCancelled(error: DatabaseError) {
+                Log.w("firebase", "Failed to read value.", error.toException())                }
+
+        })
     }
 
     override fun onStart() {
