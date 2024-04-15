@@ -179,6 +179,7 @@ class PaymentActivity: AppCompatActivity() {
                     BottomNavigationActivity::class.java
                 )
             )
+            finish()
         }.addOnFailureListener {
             Toast.makeText(
                 this@PaymentActivity,
