@@ -38,7 +38,7 @@ class PaymentActivity: AppCompatActivity() {
     val storage = FirebaseStorage.getInstance()
     private lateinit var auth: FirebaseAuth
     private var total3 = ""
-    private var cantidad3 = ""
+    private var cantidad3 = "1"
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
