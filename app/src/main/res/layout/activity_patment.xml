@@ -67,7 +67,7 @@
         android:background="@drawable/custum_for_input_text"
         android:drawableStart="@drawable/baseline_add_comment_24"
         android:drawablePadding="12dp"
-        android:hint="Card numbre"
+        android:hint="Card number"
         android:inputType="number"
         android:paddingStart="12dp"
         app:layout_constraintEnd_toEndOf="@+id/amount"

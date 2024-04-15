@@ -140,13 +140,22 @@
 
         <TextView
             android:id="@+id/descripcion"
-            android:layout_width="375dp"
-            android:layout_height="wrap_content"
+            android:layout_width="343dp"
+            android:layout_height="71dp"
             android:text="@string/info"
             android:textColor="@color/black"
             android:textSize="15sp"
             app:layout_constraintStart_toStartOf="@+id/textView5"
             app:layout_constraintTop_toBottomOf="@+id/textView5" />
+
+        <Space
+            android:id="@+id/spaceBelowDescription"
+            android:layout_width="wrap_content"
+            android:layout_height="5dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/descripcion"
+            app:layout_constraintVertical_bias="1" />
 
         <ImageButton
             android:id="@+id/imageButton9"
