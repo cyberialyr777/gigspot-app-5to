@@ -13,7 +13,7 @@
         android:layout_marginTop="356dp"
         android:layout_marginEnd="124dp"
         android:layout_marginBottom="356dp"
-        android:text="Loading"
+        android:text="@string/loading"
         android:textColor="@color/black"
         android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"

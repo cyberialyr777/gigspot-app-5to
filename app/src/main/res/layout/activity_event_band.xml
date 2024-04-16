@@ -203,7 +203,7 @@
             android:layout_marginStart="57dp"
             android:layout_marginEnd="49dp"
             android:background="@drawable/custom_for_buttons"
-            android:text="Edit"
+            android:text="@string/edit"
             android:textColor="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/button"
@@ -216,7 +216,7 @@
             android:layout_marginStart="32dp"
             android:layout_marginTop="760dp"
             android:background="@drawable/custom_for_buttons"
-            android:text="Delete"
+            android:text="@string/cancel"
             android:textColor="@color/white"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />

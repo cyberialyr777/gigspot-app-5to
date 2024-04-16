@@ -27,12 +27,12 @@
 
     <!-- registers layout strings-->
     <string name="instructionsRegister">Fill the form below correctly</string>
-
     <string name="userNameR">Username</string>
     <string name="bandNameR">Name of the band</string>
     <string name="emailR">E-mail</string>
     <string name="passwordR">Password</string>
     <string name="passwordRconf">Password confirmation</string>
+
     <!-- user register layout strings -->
     <string name="nameR">Name</string>
     <string name="lastNameR">Lastname</string>
@@ -139,9 +139,6 @@
     <string name="event_name_band">Nirvana</string>
     <string name="event_title">Nirvana Concert</string>
     <string name="follow">Follow</string>
-    <string name="date">10 Feb 2024</string>
-    <string name="time">20:00 - 22:00</string>
-    <string name="place">Palenque de Gallos</string>
     <string name="about">About</string>
     <string name="info">orem ipsum dolor sit amet, consectetur adipiscing elit. Nam sed mauris erat. Duis et purus bibendum, pharetra quam eu, semper lacus</string>
     <string name="buy">Buy Ticket</string>
@@ -162,5 +159,90 @@
         <item>HyperPop</item>
         <item>Metal</item>
     </string-array>
+
+    <!-- bottom menu profile ticket strings -->
+
+    <string name="home">Home</string>
+    <string name="save">Save</string>
+    <string name="profile">Profile</string>
+    <string name="add">Add</string>
+
+    <!-- activity bought tickets strings -->
+
+    <string name="bought_tickets">Bought tickets</string>
+
+    <!-- activity checking session strings -->
+
+    <string name="loading">Loading...</string>
+
+    <!-- activity edit band strings -->
+
+    <string name="edit_event">Edit event</string>
+    <string name="edit_event_text">Complete the form to edit an event</string>
+    <string name="date">Date</string>
+    <string name="time">Time</string>
+    <string name="place">Place</string>
+    <string name="price">Price</string>
+    <string name="title_event">Title of event</string>
+    <string name="description">Description</string>
+    <string name="add_pic">Add picture</string>
+
+    <!-- activity edit profile band strings -->
+
+    <string name="edit_profile_text">Edit your profile information</string>
+    <string name="music_genre">Music genre</string>
+
+    <!-- activity edit profile band strings -->
+
+    <string name="edit_profile">Edit profile</string>
+    <string name="edit">Edit</string>
+
+    <!-- activity follow strings -->
+
+    <string name="following">Following</string>
+
+    <!-- activity login screen strings -->
+
+    <string name="prev">Previous sessions</string>
+
+    <!-- activity payment strings -->
+
+    <string name="buy_proc">Buying process</string>
+    <string name="total">Total</string>
+    <string name="concert_title">Concert title</string>
+    <string name="am_tickets">Amount of tickets</string>
+    <string name="card_number">Card number</string>
+    <string name="exp_date">Expiration date</string>
+    <string name="buy_t">Buy</string>
+
+    <!-- activity profile band user strings -->
+    <string name="genre">Genre: </string>
+
+    <!-- activity sesiones consulta strings -->
+    <string name="prev_sessions">Previous sessions</string>
+
+    <!-- card follows strings -->
+    <string name="unfollow">Unfollow</string>
+    <string name="ch_profile">Check profile</string>
+
+    <!-- fragment add band strings -->
+    <string name="info_add_band">Complete the form to add an event</string>
+    <string name="add_event">Add event</string>
+    <string name="maps">Maps</string>
+
+    <!-- fragment profile strings -->
+    <string name="ch_prof_pic">Change profile picture</string>
+    <string name="ed_prof_info">Edit profile information</string>
+    <string name="sign_out">Sign out</string>
+
+    <!-- fragment profile band strings -->
+    <string name="concerts">Concerts</string>
+    <string name="sel_prof_pic">Select profile picture</string>
+    <string name="sel_back_pic">Select background picture</string>
+
+
+
+
+
 
 </resources>

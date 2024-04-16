@@ -45,7 +45,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:backgroundTint="#FF0000"
-                android:text="Unfollow"
+                android:text="@string/unfollow"
                 android:textColor="@color/white" />
 
             <Space
@@ -62,7 +62,7 @@
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Check profile"
+                android:text="@string/ch_profile"
                 android:textColor="@color/white" />
         </LinearLayout>
     </LinearLayout>
